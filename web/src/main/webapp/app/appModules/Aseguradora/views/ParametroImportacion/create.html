@@ -1,0 +1,81 @@
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <div class="box-name">
+                    <i class="fa fa-cogs"></i>
+                    <span>Parámetros de Importación</span>
+                </div>
+                <div class="box-icons">
+                    <a class="collapse-link">
+                        <i class="fa fa-chevron-up"></i>
+                    </a>
+                    <a class="expand-link">
+                        <i class="fa fa-expand"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="box-content">
+                <div class="form-horizontal">
+
+                    <div class="row-fluid">
+                        <div class="form-group" ng-class="{ 'has-error': aseguradoraCreateForm.filaInicio.$invalid && aseguradoraCreateForm.filaInicio.$dirty}">
+                            <label class="control-label col-sm-3">Fila de inicio</label>
+
+                            <div class="col-sm-5">
+                                <input type="number" min="0" max="1000" class="form-control" ng-model="data.aseguradora.parametroImportacion.filaInicio" maxlength="4" name="filaInicio" required="" ng-pattern="/^\d+$/" maxlength="15" placeholder="9999">
+                            </div>
+
+                            <div ng-show="aseguradoraCreateForm.filaInicio.$invalid && aseguradoraCreateForm.filaInicio.$dirty" class="col-sm-4">
+                                <span class="help-block" ng-show="aseguradoraCreateForm.filaInicio.$error.pattern">Número inválido</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-fluid">
+                        <div class="form-group" ng-class="{ 'has-error': aseguradoraCreateForm.nroColumnaComision.$invalid && aseguradoraCreateForm.nroColumnaComision.$dirty}">
+                            <label class="control-label col-sm-3">Número de columna para comisión</label>
+
+                            <div class="col-sm-5">
+                                <input type="number" min="0" max="1000" class="form-control" ng-model="data.aseguradora.parametroImportacion.nroColumnaComision" maxlength="4" name="nroColumnaComision" required="" ng-pattern="/^\d+$/" maxlength="15" placeholder="9999">
+                            </div>
+
+                            <div ng-show="aseguradoraCreateForm.nroColumnaComision.$invalid && aseguradoraCreateForm.nroColumnaComision.$dirty" class="col-sm-4">
+                                <span class="help-block" ng-show="aseguradoraCreateForm.nroColumnaComision.$error.pattern">Número inválido</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-fluid">
+                        <div class="form-group" ng-class="{ 'has-error': aseguradoraCreateForm.nroColumnaFecha.$invalid && aseguradoraCreateForm.nroColumnaFecha.$dirty}">
+                            <label class="control-label col-sm-3">Número de columna para fecha de comisión</label>
+
+                            <div class="col-sm-5">
+                                <input type="number" min="0" max="1000" class="form-control" ng-model="data.aseguradora.parametroImportacion.nroColumnaFech" maxlength="4" name="nroColumnaFecha" required="" ng-pattern="/^\d+$/" maxlength="15" placeholder="9999">
+                            </div>
+
+                            <div ng-show="aseguradoraCreateForm.nroColumnaFecha.$invalid && aseguradoraCreateForm.nroColumnaFecha.$dirty" class="col-sm-4">
+                                <span class="help-block" ng-show="aseguradoraCreateForm.nroColumnaFecha.$error.pattern">Número inválido</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row-fluid">
+                        <div class="form-group" ng-class="{ 'has-error': aseguradoraCreateForm.nroColumnaNroPoliza.$invalid && aseguradoraCreateForm.nroColumnaNroPoliza.$dirty}">
+                            <label class="control-label col-sm-3">Número de columna para número de póliza</label>
+
+                            <div class="col-sm-5">
+                                <input type="number" min="0" max="1000" class="form-control" ng-model="data.aseguradora.parametroImportacion.nroColumnaNroPoliza" maxlength="4" name="nroColumnaNroPoliza" required="" ng-pattern="/^\d+$/" maxlength="15" placeholder="9999">
+                            </div>
+
+                            <div ng-show="aseguradoraCreateForm.nroColumnaNroPoliza.$invalid && aseguradoraCreateForm.nroColumnaNroPoliza.$dirty" class="col-sm-4">
+                                <span class="help-block" ng-show="aseguradoraCreateForm.nroColumnaNroPoliza.$error.pattern">Número inválido</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

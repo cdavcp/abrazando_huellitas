@@ -1,0 +1,243 @@
+<div ui-view>
+    <h2 class="page-header">Póliza <small>Ver</small></h2>
+    <form name="form.polizaViewForm">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-name">
+                            <i class="fa fa-file"></i>
+                            <span>Datos de la póliza</span>
+                        </div>
+                        <div class="box-icons">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="expand-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="form-horizontal">
+                           <div class="row-fluid">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Productor:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.productor.nombre + " " + data.poliza.productor.apellido}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Rubro:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.cobertura.rubro.nombre}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Aseguradora:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.cobertura.aseguradora.nombre}}</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Cobertura:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.cobertura.nombre}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Nro. Póliza:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.numero}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Origen:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.origen.nombre}}</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Fecha póliza:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.fecha | date:'dd/MM/yyyy'}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Fecha baja:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.fechaBaja | date:'dd/MM/yyyy'}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Fecha última comisión:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.fechaUltimaComision | date:'dd/MM/yyyy'}}</strong></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Estado:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static" ng-class="data.ESTILOS[data.poliza.estadoId]"><strong>{{data.ESTADOS[data.poliza.estadoId]}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Descripción:</label>
+
+                                    <div class="col-sm-6">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.descripcion}}</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-name">
+                            <i class="fa fa-user"></i>
+                            <span>Datos del cliente</span>
+                        </div>
+                        <div class="box-icons">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="expand-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="form-horizontal">
+                            <div class="row-fluid">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nombre:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.cliente.nombre + " " + data.poliza.cliente.apellido}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Tipo documento:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.cliente.tipoDocumento.nombre}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Documento:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.cliente.documento}}</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Domicilio:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.cliente.domicilio}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Correo electrónico:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.cliente.mail}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Teléfono:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.cliente.telefono}}</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" ng-show="data.poliza.vendedor">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-name">
+                            <i class="fa fa-user"></i>
+                            <span>Datos del vendedor</span>
+                        </div>
+                        <div class="box-icons">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="expand-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="form-horizontal">
+                            <div class="row-fluid">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Nombre:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.vendedor.nombre + " " + data.poliza.vendedor.apellido}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Tipo documento:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.vendedor.tipoDocumento.nombre}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Documento:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.vendedor.documento}}</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Domicilio:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.vendedor.domicilio}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Correo electrónico:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.vendedor.mail}}</strong></p>
+                                    </div>
+                                    <label class="col-sm-2 control-label">Teléfono:</label>
+
+                                    <div class="col-sm-2">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.vendedor.telefono}}</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group pull-right">
+            <div class="col-sm-12">
+                <a class="btn btn-default" ng-click="volver()">
+                    <span><i class="fa fa-arrow-circle-left txt-primary"></i></span>
+                    Volver
+                </a>
+            </div>
+        </div>
+    </form>
+</div>
+

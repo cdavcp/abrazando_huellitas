@@ -1,0 +1,121 @@
+<div ng-controller="PolizaEstadosCtrl as ctrl">
+    <div class="modal fade" id="estadosModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="box">
+                    <div class="modal-header">
+                        <div class="box-name">
+                            <i class="fa fa-user"></i>
+                            <h4 style="display: inline-block;">Estados</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><h2 style="display: inline-block;" aria-hidden="true">&times;</h2></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-body">
+                    <div class="box-content">
+                        <div class="row-fluid text-center" style="margin-bottom: 10px">
+                            <div class="btn-group btn-group-lg" role="group" aria-label="...">
+                                <button class="btn btn-default" ng-click="ctrl.parent.soloActivasClick()">
+                                    Sólo activas
+                                </button>
+                                <button class="btn btn-default" ng-click="ctrl.parent.soloDadasBajaClick()">
+                                    Sólo dadas de baja
+                                </button>
+                                <button class="btn btn-default" ng-click="ctrl.parent.personalizadoClick()">
+                                    Personalizado
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="form-horizontal">
+                            <div class="row-fluid">
+                                <div class="alert alert-info" role="alert">
+                                    <strong>Nuevas:</strong> Pólizas dadas de alta en el mes corriente.
+                                    <div class="col-sm-2">
+                                        <div class="toggle-switch toggle-switch-info">
+                                            <label>
+                                                <input type="checkbox" ng-model="ctrl.parent.data.estados[1]" value="true" ng-disabled="!ctrl.parent.data.PERSONALIZADO">
+
+                                                <div class="toggle-switch-inner"></div>
+                                                <div class="toggle-switch-switch"><i class="fa fa-check"></i></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="alert alert-success" role="alert">
+                                    <strong>Al día:</strong> Pólizas sin pagos pendientes.
+                                    <div class="col-sm-2">
+                                        <div class="toggle-switch toggle-switch-success">
+                                            <label>
+                                                <input type="checkbox" ng-model="ctrl.parent.data.estados[2]" value="true" ng-disabled="!ctrl.parent.data.PERSONALIZADO">
+
+                                                <div class="toggle-switch-inner"></div>
+                                                <div class="toggle-switch-switch"><i class="fa fa-check"></i></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="alert alert-warning" role="alert">
+                                    <strong>Atrasadas:</strong> Pólizas con un pago pendiente.
+                                    <div class="col-sm-2">
+                                        <div class="toggle-switch toggle-switch-warning">
+                                            <label>
+                                                <input type="checkbox" ng-model="ctrl.parent.data.estados[3]" value="true" ng-disabled="!ctrl.parent.data.PERSONALIZADO">
+
+                                                <div class="toggle-switch-inner"></div>
+                                                <div class="toggle-switch-switch"><i class="fa fa-check"></i></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="alert alert-danger" role="alert">
+                                    <strong>Morosas:</strong> Pólizas con al menos dos pagos pendientes.
+                                    <div class="col-sm-2">
+                                        <div class="toggle-switch toggle-switch-danger">
+                                            <label>
+                                                <input type="checkbox" ng-model="ctrl.parent.data.estados[4]" value="true" ng-disabled="!ctrl.parent.data.PERSONALIZADO">
+
+                                                <div class="toggle-switch-inner"></div>
+                                                <div class="toggle-switch-switch"><i class="fa fa-check"></i></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <strong>Dadas de baja:</strong> Pólizas dadas de baja.
+                                        <div class="col-sm-2">
+                                            <div class="toggle-switch">
+                                                <label>
+                                                    <input type="checkbox" ng-model="ctrl.parent.data.estados[5]" value="true" ng-disabled="!ctrl.parent.data.PERSONALIZADO">
+
+                                                    <div class="toggle-switch-inner"></div>
+                                                    <div class="toggle-switch-switch"><i class="fa fa-check"></i></div>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

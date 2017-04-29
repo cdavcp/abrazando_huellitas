@@ -1,0 +1,79 @@
+<div ui-view>
+    <h2 class="page-header">Historial de importaciones</h2>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="box-name">
+                        <i class="fa fa-history"></i>
+                        <span>Consultar</span>
+                    </div>
+                    <div class="box-icons">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="expand-link">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="box-content">
+                        <div class="col-sm-8">
+                            <div class="dataTables_filter">
+                                <input type="text" class="form-control show-grid" placeholder="Buscar" ng-model="data.filterTable" name="filterTable">
+                            </div>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-primary" ng-click="createArchivo()">
+                                <span><i class="fa fa-file"></i></span>
+                                Importación archivo
+                            </button>
+                        </div>
+                        <div class="col-sm-2">
+                            <button class="btn btn-primary" ng-click="createManual()">
+                                <span><i class="fa fa-hand-paper-o"></i></span>
+                                Importación manual
+                            </button>
+                        </div>
+                    </div>
+
+                    <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Aseguradora</th>
+                            <th>Fecha</th>
+                            <th>Nombre archivo</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr  ng-repeat="item in data.lotesPaginated" ng-class="setRowClass(item.estado.id)">
+                            <td>{{item.id}}</td>
+                            <td>{{item.aseguradora.nombre}}</td>
+                            <td>{{item.fecha | date:'dd/MM/yyyy'}}</td>
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.estado.nombre}}</td>
+                            <td class="grid-button" style="text-align: center">
+                                <a href="" ng-click="verClick(item)"><i class="fa fa-search tip edit"></i></a>
+                                <a href="" ng-click="editarClick(item)" ng-hide="item.estado.id == data.idEstadoProcesado"><i class="fa fa-pencil tip edit"></i></a>
+                                <a href="" ng-click="deleteClick(item)"><i class="fa fa-trash tip edit"></i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <sigep-pagination for="data.listaLotes"
+                                      as="data.lotesPaginated"
+                                      page="1"
+                                      per-page="20"
+                                      filter="data.filterTable">
+                    </sigep-pagination>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

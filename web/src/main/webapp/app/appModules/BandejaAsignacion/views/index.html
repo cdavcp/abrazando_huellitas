@@ -1,0 +1,109 @@
+<div ui-view>
+    <span id="shadowDragIcon"><i class="glyphicon glyphicon-file"></i></span>
+    <h2 class="page-header">Bandeja de asignación de solicitudes</h2>
+
+    <div ng-if="(!data.listaSolicitudesAux || data.listaSolicitudesAux.length == 0) && !data.asignando">
+        <div class="row-fluid">
+            <div class="alert alert-info alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                No quedan solicitudes por asignar.
+            </div>
+        </div>
+    </div>
+
+    <div class="row" ng-if="(data.listaSolicitudesAux && data.listaSolicitudesAux.length != 0) || data.asignando">
+        <div class="col-xs-12">
+            <div ng-if="data.asignando">
+                <div class="row-fluid">
+                    <div class="alert alert-info alert-dismissible" role="alert">
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                        No quedan solicitudes por asignar.
+                    </div>
+                </div>
+            </div>
+            <div ng-if="!data.asignando" class="row">
+                <div class="form-group col-lg-12">
+                    <div class="col-lg-12">
+                        <button class="btn btn-primary" ng-click="asignacionAleatoria()">Asignar aleatoriamente</button>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="!data.asignando" class="col-md-6">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4><i class="fa fa-file-text"></i> Solicitudes sin asignar</h4>
+                            </div>
+                            <div class="panel-body">
+                                <section>
+                                    <div ng-repeat="solicitud in data.listaSolicitudesAux" drag drag-include="'dragItemTemplate'" drop-callback="endDrag($index)" drag-model="solicitud">
+                                        <div class="col-md-6">
+                                            <div class="panel panel-default box-pricing">
+                                                <div class="panel-heading" style="text-align: center">
+                                                    <span>{{solicitud.cobertura.nombre}}<br>{{solicitud.cobertura.aseguradora.nombre}}</span>
+                                                </div>
+                                                <div class="panel-body no-padding">
+                                                    <div class="row-fluid centered">
+                                                        <div class="col-sm-12">{{solicitud.cliente.nombre}} {{solicitud.cliente.apellido}}</div>
+                                                        <div class="col-sm-12">{{solicitud.observaciones}}</div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-class="claseProductores()">
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4><i class="fa fa-user"></i> Productores</h4>
+                            </div>
+                            <div class="panel-body">
+                                <div ng-repeat="productor in data.listaProductoresAux">
+                                    <div class="col-md-6">
+                                        <section ng-controller="Drop2Controller" drop drop-callback="endDrop" drop-mouse-move="mouseMove" drop-mouse-leave="mouseLeave">
+                                            <div class="panel panel-default box-pricing">
+                                                <div class="panel-heading" style="text-align: center">
+                                                    <span>{{productor.nombre}} {{productor.apellido}}</span><br>
+                                                </div>
+                                                <div class="panel-body no-padding">
+                                                    <div class="row-fluid centered">
+                                                        <span>Solicitudes a asignar</span>
+                                                        <ul style="list-style-type: none" id="dropcontainer">
+                                                            <li class="btn-link" style="position: relative; left: -20px; top: 10px;" ng-repeat="solicitud in productor.solicitudes" data-count="{{$index}}">
+                                                                {{solicitud.cobertura.nombre}} - {{solicitud.cobertura.aseguradora.nombre}}
+                                                                <span ng-click="deleteSolicitud($index, productor)"><i class="glyphicon glyphicon-remove"></i></span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </section>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="(data.listaSolicitudesAux && data.listaSolicitudesAux.length != 0) || data.asignando" class=" col-md-12">
+        <div class=" col-md-12">
+            <div class="form-group pull-right">
+                <button ng-disabled="" class="btn btn-primary" ng-click="asignar()">
+                    <span><i class="fa fa-mail-forward"></i></span>
+                    Asignar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

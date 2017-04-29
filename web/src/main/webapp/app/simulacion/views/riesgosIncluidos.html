@@ -1,0 +1,32 @@
+<div class="modal fade bs-example-modal-lg" id="modalRiesgos" tabindex="-1" role="dialog" aria-labelledby="modalRiesgos">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="Login">Riesgos incluidos en {{data.coberturaAux.nombre}}</h4>
+            </div>
+            <div class="modal-body">
+
+                <table ng-if="data.coberturaAux.riesgos && data.coberturaAux.riesgos.length != 0" class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-2">
+                    <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th>Descripción</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="item in data.coberturaAux.riesgos">
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.descripcion}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+                <div ng-if="!data.coberturaAux.riesgos || data.coberturaAux.riesgos.length == 0" role="alert">No hay riesgos asociados</div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-fill btn-warning btn-wd btn-sm" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>

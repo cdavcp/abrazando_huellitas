@@ -1,0 +1,41 @@
+<div class="modal fade bs-example-modal-lg" id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalLogin">
+    <div class="modal-dialog modal-lg" style="width:25%">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="Login">Login</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row-fluid form-group">
+                    <div ng-class="{ 'has-error': clienteCreateForm.tipoDocumento.$invalid && clienteCreateForm.tipoDocumento.$dirty}">
+                        <label class="control-label">Tipo documento (*)</label>
+                        <select class="form-control" name="tipoDocumento" ng-model="data.cliente.tipoDocumento.id" ng-options="item.id as item.nombre for item in data.listaTiposDocumento" required="">
+                            <option value="">-- Seleccione --</option>
+                        </select>
+
+                        <div ng-show="clienteLoginForm.tipoDocumento.$invalid && clienteLoginForm.tipoDocumento.$dirty" class="col-sm-4">
+                            <span class="help-block" ng-show="clienteCreateForm.tipoDocumento.$error.required">Seleccione un tipo de documento</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row-fluid form-group">
+                    <div ng-class="{ 'has-error': clienteLoginForm.documento.$invalid && clienteLoginForm.documento.$dirty}">
+                        <label class="control-label">Documento (*)</label>
+                        <input type="text" class="form-control" ng-model="data.cliente.documento" maxlength="10" name="documento" required="" ng-pattern="/^\d+$/" placeholder="999">
+
+                        <div ng-show="clienteLoginForm.documento.$invalid && clienteLoginForm.documento.$dirty" class="col-sm-4">
+                            <span class="help-block" ng-show="clienteLoginForm.documento.$error.required">Ingrese documento</span>
+                            <span class="help-block" ng-show="clienteLoginForm.documento.$error.pattern">Documento inválido</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <div style="text-align:center">
+                    <button data-dismiss="modal" ng-click="ingresar()" ng-disabled="clienteLoginForm.$invalid"  class="btn btn-fill btn-warning btn-wd btn-sm" type="button">Ingresar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

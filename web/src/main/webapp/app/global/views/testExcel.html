@@ -1,0 +1,16 @@
+<div>
+	<h2>Prueba con excel</h2>
+	<br />
+	<form>
+		<div class='form-group'>
+            <label>Excel: </label>
+            <input type="file" fileReader accept=".xlsx">
+        </div>
+	</form>
+	<div class="col-lg-6">
+		<h3>Messages</h3>
+		<ul ng-repeat="item in obj.messages">
+			<li>{{ item }}</li>
+		</ul>
+	</div>
+</div>

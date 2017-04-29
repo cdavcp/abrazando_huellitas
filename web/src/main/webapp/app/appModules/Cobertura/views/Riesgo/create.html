@@ -1,0 +1,26 @@
+<div class="modal fade bs-example-modal-lg" id="modalNuevoRiesgo" tabindex="-1" role="dialog" aria-labelledby="modalNuevoRiesgo">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="createRiesgoT">Registrar riesgo</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row-fluid form-group" ng-class="data.claseNombreRiesgo">
+                    <label class="control-label">Nombre (*)</label>
+                    <input type="text" class="form-control" ng-change="checkName()" ng-model="data.nuevoRiesgo.nombre" ng-model-options="{ debounce: 500 }" maxlength="50" placeholder="abc">
+                    <i ng-show="data.checkingName" class="fa fa-spinner fa-pulse"></i>
+                    <span ng-show="!data.nombreNuevoRiesgoValido" class="help-block">Ya existe un riesgo con este nombre.</span>
+                </div>
+                <div class="row-fluid form-group">
+                    <label class="control-label">Descripción </label>
+                    <input type="text" class="form-control" ng-model="data.nuevoRiesgo.descripcion" maxlength="100" placeholder="abc">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                <button type="button" class="btn btn-primary" ng-disabled="!(data.nombreNuevoRiesgoValido && data.nuevoRiesgo.nombre != '')" ng-click="createRiesgo()" data-dismiss="modal">Aceptar</button>
+            </div>
+        </div>
+    </div>
+</div>

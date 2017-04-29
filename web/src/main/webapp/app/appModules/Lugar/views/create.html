@@ -1,0 +1,96 @@
+<legend>
+    <h2></h2></legend>
+<legend>
+    <h2>Datos Lugar</h2></legend>
+<div class="row">
+    <div class="col-md-12">
+        <form class="centered" name="registrarLugar" novalidate>
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label col-md-3" for="nombre">Nombre (*)</label>
+                    <input type="text" class="form-control col-md-3" id="nombre" ng-model="lugar.nombre"
+                           maxlength="50" name="nombre"
+                           required="" placeholder="Nombre del Artista">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label class="control-label" for="tipoShow2">Tipo Show (*)</label>
+                    <select class="form-control" name="tipoShow" id="tipoShow2" ng-model="tipoShows.tipoShows.id"
+                            ng-options="item.id as item.nombre for item in listaTipoShow" required="">
+                        <option value="">-- Seleccione --</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label class="control-label" for="des">Descripción (*)</label>
+                    <input type="text" class="form-control" id="des" maxlength="500" ng-model="lugar.descripcion"
+                           name="descripcion" required="" placeholder="Descripción del Lugar">
+                </div>
+            </div>
+
+            <div class="row">
+                <div ng-app="myApp">
+                    <div class="form-group  col-md-4">
+                        <label class="control-label ">Ubicacion (*)</label>
+                        <input class="form-control" ng-model="lugar.ubicacion" googleplace/>
+                    </div>
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label class="control-label ">Año Creación (*)</label>
+                    <input type="number" class="form-control" maxlength="50" ng-model="lugar.anioCreacion"
+                           name="descripcion" required="" placeholder="Año de Creación">
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-4">
+                    <label class="control-label col-md-3">Mail (*)</label>
+                    <input type="email" class="form-control" maxlength="50" ng-model="lugar.mail"
+                           name="descripcion" required="" placeholder="Email">
+
+                </div>
+                <div class="form-group col-md-4">
+                    <label class="control-label col-md-3">Telefono (*)</label>
+                    <input type="text" class="form-control" maxlength="50" ng-model="lugar.telefono"
+                           name="descripcion" required="" placeholder="Teléfono">
+                </div>
+                <div class='fileinput fileinput-new col-md-4' data-provides='fileinput'>
+                    <!--<div class='fileinput-preview thumbnail btn-inline'-->
+                    <!--data-trigger='fileinput'-->
+                    <!--style='width: 200px; height: 160px;  margin-left:15px'>-->
+                    <!--</div>-->
+                    <div>
+                                                    <span class='btn btn-default btn-file' style="margin-left:15px">
+                                                        <!--<span class='fileinput-new'>-->
+                                                            <!--<span class='glyphicon glyphicon-folder-open'>&nbsp;</span>-->
+                                                            <!--Examinar...-->
+                                                        <!--</span>-->
+                                                        <!--<span class='fileinput-exists'>-->
+                                                            <!--Cambiar-->
+                                                        <!--</span>-->
+                                                        <input id='file' filereader type='file' accept='image/*'
+                                                               name='...'>
+                                                    </span>
+                        <!--<a href='#' class='btn btn-default fileinput-exists' data-dismiss='fileinput'>Borrar</a>-->
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group pull-right">
+                <div class="col-md-12">
+                    <a class="btn btn-default" ng-click="cancelar()">
+                        <span><i class="fa fa-times-circle txt-danger"></i></span>
+                        Cancelar
+                    </a>
+                    <button class="btn btn-primary" ng-click="guardar()">
+                        <span><i class="fa fa-check-square"></i></span>
+                        Aceptar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+

@@ -1,0 +1,47 @@
+<div style="visibility: hidden; position: relative;" class="row" id="dashboard-vendedores">
+
+    <form name="vendedoresForm">
+        <div class="row-fluid">
+            <div class="form-group">
+                <label class="col-sm-1 control-label">Año:</label>
+
+                <div class="col-sm-2" ng-class="{ 'has-error': vendedoresForm.anio.$invalid && vendedoresForm.anio.$dirty}">
+                    <input type="number" class="form-control" name="anio" ng-model="data.filtroVendedores.anio" ng-maxlength="4">
+                </div>
+
+                <div class="col-sm-2">
+                    <button class="form-control btn btn-primary" type="button"
+                            ng-click="buscarDatosEstadisticasVendedores()" ng-disabled="vendedoresForm.$invalid">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div ng-if="data.graficosVendedores.items && data.graficosVendedores.items.length != 0">
+        <div class="row">
+            <div class="col-md-12">
+                <div google-chart chart="data.graficosVendedores.lineas"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div google-chart chart="data.graficosVendedores.barras"></div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="!data.graficosVendedores.items || data.graficosVendedores.items.length == 0">
+        <div class="row" style="text-align: center">
+            <div class="col-md-12">
+                <div class="row">
+                    <br><br>
+                    <b>No existen datos para los filtros ingresados.</b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

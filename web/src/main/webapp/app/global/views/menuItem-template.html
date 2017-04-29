@@ -1,0 +1,18 @@
+<li ng-repeat="item in userProfile.menuOptions">
+    <a ng-if="descriptor.state" ui-sref="{{descriptor.state}}" ng-class="{ 'dropdown-toggle': descriptor.hasMenu, 'ajax-link': !descriptor.hasMenu }">
+        <i class="{{descriptor.icon}}"></i>
+        <span class="hidden-xs">{{descriptor.title}}</span>
+    </a>
+
+    <a ng-if="descriptor.url" ng-href="{{descriptor.url}}" ng-class="{ 'dropdown-toggle': descriptor.hasMenu, 'ajax-link': !descriptor.hasMenu }">
+        <i class="{{descriptor.icon}}"></i>
+        <span class="hidden-xs">{{descriptor.title}}</span>
+    </a>
+
+    <ul ng-if="descriptor.subOptions" class="drop-down one-column hover-expand">
+        <li ng-repeat="subItem in descriptor.subOptions">
+            <a ng-if="subItem.state" ui-sref="{{subItem.state}}">{{ subItem.title }}</a>
+            <a ng-if="subItem.url" ng-href="{{subItem.url}}">{{ subItem.title }}</a>
+        </li>
+    </ul>
+</li>

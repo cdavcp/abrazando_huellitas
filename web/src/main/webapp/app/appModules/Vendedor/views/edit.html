@@ -1,0 +1,155 @@
+<div ui-view>
+    <h2 class="page-header">Vendedor
+        <small ng-if="data.viewStateFlag">Ver</small>
+        <small ng-if="!data.viewStateFlag">Editar</small>
+    </h2>
+    <form name="vendedorCreateForm">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-name">
+                            <i class="fa fa-user"></i>
+                            <span>Datos personales</span>
+                        </div>
+                        <div class="box-icons">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="expand-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="form-horizontal">
+                            <div class="row-fluid" ng-if="!data.viewStateFlag">
+                                <div class="alert alert-info alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Información:</strong> Los campos marcados con (*) son requeridos.
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': vendedorCreateForm.tipoDocumento.$invalid && vendedorCreateForm.tipoDocumento.$dirty}">
+                                    <label class="col-sm-3 control-label">Tipo documento (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <select class="form-control" name="tipoDocumento" ng-model="data.vendedor.tipoDocumento.id" ng-options="item.id as item.nombre for item in data.listaTiposDocumento" required="" ng-disabled="data.viewStateFlag">
+                                            <option value="">-- Seleccione --</option>
+                                        </select>
+                                    </div>
+
+                                    <div ng-show="vendedorCreateForm.tipoDocumento.$invalid && vendedorCreateForm.tipoDocumento.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="vendedorCreateForm.tipoDocumento.$error.required">Seleccione un tipo de documento</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': vendedorCreateForm.documento.$invalid && vendedorCreateForm.documento.$dirty}">
+                                    <label class="control-label col-sm-3">Documento (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.vendedor.documento" maxlength="10" name="documento" required="" ng-pattern="/^\d+$/" placeholder="999" ng-disabled="data.viewStateFlag">
+                                    </div>
+
+                                    <div ng-show="vendedorCreateForm.documento.$invalid && vendedorCreateForm.documento.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="vendedorCreateForm.documento.$error.required">Ingrese documento</span>
+                                        <span class="help-block" ng-show="vendedorCreateForm.documento.$error.pattern">Documento inválido</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': vendedorCreateForm.apellido.$invalid && vendedorCreateForm.apellido.$dirty}">
+                                    <label class="control-label col-sm-3">Apellido (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.vendedor.apellido" maxlength="50" name="apellido" required=""  placeholder="abc" ng-disabled="data.viewStateFlag">
+                                    </div>
+
+                                    <div ng-show="vendedorCreateForm.apellido.$invalid && vendedorCreateForm.apellido.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="vendedorCreateForm.apellido.$error.required">Ingrese apellido</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': vendedorCreateForm.nombre.$invalid && vendedorCreateForm.nombre.$dirty}">
+                                    <label class="control-label col-sm-3">Nombre (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.vendedor.nombre" maxlength="50" name="nombre" required="" placeholder="abc" ng-disabled="data.viewStateFlag">
+                                    </div>
+
+                                    <div ng-show="vendedorCreateForm.nombre.$invalid && vendedorCreateForm.nombre.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="vendedorCreateForm.nombre.$error.required">Ingrese nombre</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': vendedorCreateForm.telefono.$invalid && vendedorCreateForm.telefono.$dirty}">
+                                    <label class="control-label col-sm-3">Teléfono</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.vendedor.telefono" maxlength="50" name="telefono" ng-pattern="/^\d+$/" maxlength="15"  placeholder="999" ng-disabled="data.viewStateFlag">
+                                    </div>
+
+                                    <div ng-show="vendedorCreateForm.telefono.$invalid && vendedorCreateForm.telefono.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="vendedorCreateForm.telefono.$error.pattern">Teléfono inválido</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': vendedorCreateForm.mail.$invalid && vendedorCreateForm.mail.$dirty}">
+                                    <label class="control-label col-sm-3">Mail (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="email" class="form-control" ng-model="data.vendedor.mail" maxlength="50" name="mail" required="" placeholder="xxx@yyy.zzz" ng-disabled="data.viewStateFlag">
+                                    </div>
+
+                                    <div ng-show="vendedorCreateForm.mail.$invalid && vendedorCreateForm.mail.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="vendedorCreateForm.mail.$error.required">Ingrese mail</span>
+                                        <span class="help-block" ng-show="vendedorCreateForm.mail.$error.email">Mail inválido</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': vendedorCreateForm.domicilio.$invalid && vendedorCreateForm.domicilio.$dirty}">
+                                    <label class="control-label col-sm-3">Domicilio</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.vendedor.domicilio" maxlength="50" name="domicilio" placeholder="abc 999" ng-disabled="data.viewStateFlag">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group pull-right" ng-hide="data.viewStateFlag">
+            <div class="col-sm-12">
+                <a class="btn btn-default" ng-click="cancelar()">
+                    <span><i class="fa fa-times-circle txt-danger"></i></span>
+                    Cancelar
+                </a>
+                <button ng-disabled="vendedorCreateForm.$invalid" class="btn btn-primary" ng-click="guardar()">
+                    <span><i class="fa fa-check-square"></i></span>
+                    Aceptar
+                </button>
+            </div>
+        </div>
+        <div class="form-group pull-right" ng-show="data.viewStateFlag">
+            <div class="col-sm-12">
+                <a class="btn btn-default" ng-click="volver()">
+                    <span><i class="fa fa-arrow-circle-left txt-primary"></i></span>
+                    Volver
+                </a>
+            </div>
+        </div>
+    </form>
+</div>

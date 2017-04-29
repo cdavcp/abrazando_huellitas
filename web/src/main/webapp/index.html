@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ombrello</title>
+    <link rel="shortcut icon" type="image/png" href="img/logo.png">
+    <link href="css/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <link href="css/menu.css" rel="stylesheet">
+    <link href="css/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/cayman.css" rel="stylesheet">
+    <link href="css/wizard.css" rel="stylesheet">
+    <link href="css/devOps.css" rel="stylesheet">
+    <link href='css/webfont.css' rel='stylesheet' type='text/css'>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="libs/html5shiv.min.js"></script>
+    <script src="libs/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="body-blanck">
+<div class="page-loader">
+    <img src="img/loader.gif" alt="">
+</div>
+<div id="large-header" class="large-header" style="height: 800px">
+    <button type="button" id="btn_cotizar" style="margin-left:43%; margin-top:40%" class="btn btn-cotizar wow fadeInRight">Cotizá tu seguro</button>
+    </h1>
+</div>
+
+<section id="panel_cotizar">
+    <div class="container" id="simulacion.app" ui-view>
+        <!--<h2 class="title">Cotizá tu seguro</h2>-->
+        <!--<div class="row">-->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <!--col-sm-offset-2-->
+                    <div class="wizard-container">
+                        <div class="card wizard-card ct-wizard-orange" id="wizard">
+                            <div class="wizard-header">
+                                <h3>
+                                    COTIZÁ <b>TU SEGURO </b><br>
+                                    <small>Obtené información acerca de las mejores coberturas</small>
+                                </h3>
+                            </div>
+                            <ul>
+                                <li><a href="#rubro" data-toggle="tab">Rubro</a></li>
+                                <li><a href="#preferencias" data-toggle="tab">Preferencias</a></li>
+                                <li><a href="#coberturas" data-toggle="tab">Mis coberturas</a></li>
+                                <li><a href="#miSeguro" data-toggle="tab">¡Quiero mi seguro!</a></li>
+                            </ul>
+                            <div class="tab-content">
+
+
+                                <!--*******************TAP RUBRO*******************-->
+                                <div class="tab-pane" id="rubro">
+                                    <h4 id="txt-seleccionaRubro" class="info-text"> Seleccioná tu rubro </h4>
+
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div ng-repeat="item in data.listaRubros">
+                                                <div class="rubroChoice choice" toggle="wizard-radio" ng-click="rubroSelected(item)" ng-class="data.rubroColumnClass">
+                                                    <input type="radio" ng-value="item.id">
+
+                                                    <div class="icon">
+                                                        <img height="107" width="107" class="img-circle" ng-src="{{item.logo}}">
+                                                    </div>
+                                                    <h6>{{item.nombre}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--*******************TAP PREFERENCIAS*******************-->
+                                <div class="tab-pane" id="preferencias">
+
+                                    <div ng-if="data.mostrarDatosAuto">
+                                        <h4 id="txt-datosAuto" class="info-text"> Ingresá los datos de tu automóvil </h4>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div class="row-fluid">
+
+                                                    <div class="col-sm-3">
+                                                        <label class="text-warning">Marca</label>
+                                                        <select class="form-control" ng-change="marcaSelected()" ng-model="data.auto.marca" ng-options="item as item.nombre for item in data.listaMarcasAuto">
+                                                            <option value="">Seleccione...</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-sm-3">
+                                                        <label class="text-warning">Modelo</label>
+                                                        <select class="form-control" ng-change="modeloSelected()" ng-model="data.auto.modelo" ng-options="item as item.value for item in data.listaModelos" ng-disabled="!data.auto.marca">
+                                                            <option value="">Seleccione...</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-sm-3">
+                                                        <label class="text-warning">Año</label>
+                                                        <select class="form-control" ng-change="anioSelected()" ng-model="data.auto.anio" ng-options="item as item.value for item in data.listaAnios" ng-disabled="!data.auto.modelo">
+                                                            <option value="">Seleccione...</option>
+                                                        </select>
+                                                    </div>
+
+                                                    <div class="col-sm-3">
+                                                        <label class="text-warning">Versión</label>
+                                                        <select class="form-control" ng-model="data.auto.versionPrecio" ng-options="item as item.version for item in data.listaResults" ng-disabled="!data.auto.anio">
+                                                            <option value="">Seleccione...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div ng-show="data.auto.versionPrecio" class="row col-md-12" style="text-align:center">
+                                                    <h4 class="text-warning">Suma asegurada: {{data.auto.versionPrecio.precio}}</h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-if="data.mostrarTiposCobertura || data.auto.versionPrecio">
+                                        <h4 id="txt-seleccionaTipoCobertura" class="info-text"> Seleccioná el tipo de cobertura </h4>
+
+                                        <div class="row">
+                                            <div class="col-sm-12">
+                                                <div ng-repeat="item in data.listaTiposCobertura">
+                                                    <div class="tipoCoberturaChoice choice" toggle="wizard-radio" ng-click="tipoCoberturaSelected(item)" ng-class="data.tipoCoberturaColumnClass">
+                                                        <input type="radio" ng-value="item.id">
+
+                                                        <div class="icon">
+                                                            <img height="107" width="107" class="img-circle" ng-src="{{item.logo}}">
+                                                        </div>
+                                                        <h6>{{item.nombre}}</h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!--*******************TAP COBERTURAS*******************-->
+                                <div class="tab-pane" id="coberturas">
+                                    <div ng-if="data.resultadoSimulacion.coberturas && data.resultadoSimulacion.coberturas.length != 0" class="col-md-12">
+                                        <h4 class="info-text" id="txt-seleccionaCobertura"> Seleccioná tu seguro para enviar una solicitud a uno de nuestros productores</h4>
+                                        <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+                                            <thead>
+                                            <tr>
+                                                <th>Riesgos</th>
+                                                <th style="text-align: center"  ng-repeat="cobertura in data.resultadoSimulacion.coberturas">
+                                                    <img alt="" ng-src="{{cobertura.aseguradora.logo}}"  class="img-rounded"><br>
+                                                    {{cobertura.nombre}} - {{cobertura.aseguradora.nombre}}
+                                                </th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr ng-repeat="riesgo in data.resultadoSimulacion.riesgos">
+                                                <td>{{riesgo.nombre}}</td>
+                                                <td ng-repeat="incluido in riesgo.incluidos track by $index" style="text-align: center">
+                                                    <i ng-if="incluido" class="text-success fa fa-check-circle fa-2x"></i>
+                                                    <i ng-if="!incluido" class="text-danger fa fa-times fa-2x"></i>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Precio</td>
+                                                <td class="text-success" style="text-align: center" ng-repeat="cobertura in data.resultadoSimulacion.coberturas">
+                                                    <h3>{{data.resultadoSimulacion.moneda}} {{cobertura.precio}}</h3>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td align="center" class="text-warning">Solicitar</td>
+                                                <td align="center" class="grid-button" ng-repeat="cobertura in data.resultadoSimulacion.coberturas">
+                                                    <div style="margin-bottom:20px" class="radio-inline">
+                                                        <label>
+                                                            <input type="radio" name="radio" ng-model="data.cobertura" ng-value="cobertura">
+                                                            <i class="fa fa-circle-o text-warning"></i>
+                                                        </label>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <h4 style="text-align: center" ng-if="!data.resultadoSimulacion.coberturas || data.resultadoSimulacion.coberturas.length == 0">
+                                        No hay coberturas disponibles para el rubro y tipo de cobertura seleccionados.
+                                    </h4>
+                                </div>
+
+                                <!--*******************TAP MI SEGURO*******************-->
+                                <div class="tab-pane" id="miSeguro">
+                                    <div ng-include="'app/simulacion/views/nuevoCliente.html'"></div>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <h4 id="txt-revizar" class="info-text"> Revisá los datos para enviar tu solicitud</h4>
+
+                                            <div class="row" style="margin-top:30px">
+                                                <div class="col-md-6">
+                                                    <h5>Cobertura: </h5><h6>{{data.cobertura.nombre}}</h6>
+                                                    <h5>Descripción: </h5><h6>{{data.cobertura.descripcion}}</h6>
+                                                    <h5>Aseguradora: </h5><h6>{{data.cobertura.aseguradora.nombre}}</h6>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="icon" style="text-align: center">
+                                                        <img height="107" width="107" class="img-circle" ng-src="{{data.rubro.logo}}">
+
+                                                        <div style="text-align: center">
+                                                            <h5>Rubro: </h5><h6>{{data.rubro.nombre}}</h6>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <div class="icon" style="text-align: center">
+                                                        <img height="107" width="107" class="img-circle" ng-src="{{data.tipoCobertura.logo}}">
+
+                                                        <div style="text-align: center">
+                                                            <h5>Tipo de cobertura: </h5><h6>{{data.tipoCobertura.nombre}}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row col-md-12">
+                                                <h5>Riesgos incluidos</h5>
+                                                <table ng-if="data.cobertura.riesgos && data.cobertura.riesgos.length != 0" class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-2">
+                                                    <thead>
+                                                    <tr>
+                                                        <th>Nombre</th>
+                                                        <th>Descripción</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                    <tr ng-repeat="item in data.cobertura.riesgos">
+                                                        <td>{{item.nombre}}</td>
+                                                        <td>{{item.descripcion}}</td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                                <div ng-if="!data.cobertura.riesgos || data.cobertura.riesgos.length == 0">No hay riesgos asociados</div>
+                                            </div>
+
+                                            <div class="row col-md-12">
+                                                <br><h6>Ingresá comentarios o datos adicionales que nuestros productores puedan usar para contactarte</h6>
+                                                <textarea rows="3" style="overflow: auto; resize: none" ng-model="data.observaciones" class="form-control" maxlength="100"></textarea>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <div ng-include="'app/simulacion/views/login.html'"></div>
+
+                                </div>
+
+
+                            </div>
+
+                            <div class="wizard-footer">
+                                <div class="pull-right">
+                                    <input id="btn-next" type='button' class='btn btn-fill btn-warning btn-wd btn-sm btn-next' name='next' ng-click="next()" value='Siguiente'/>
+                                    <input type='button' class='btn btn-finish btn-fill btn-warning btn-wd btn-sm' name='finish' ng-click="enviarSolicitud()" value='Enviar solicitud'/>
+                                    <input style="display:none" id="btn-nextValid" type='button' class='btn btn-fill btn-warning btn-wd btn-sm btn-next-valid' name='next' value='Siguiente'/>
+
+                                </div>
+                                <div class="pull-left">
+                                    <input type='button' class='btn btn-previous btn-fill btn-default btn-wd btn-sm' name='previous' value='Anterior' ng-click="previous()"/>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- wizard container -->
+            </div>
+        </div>
+        <!-- end row -->
+    </div>
+    <!--  big container -->
+    </div>
+    </div>
+
+    <div id="spinner" style="display: none">
+        <div><i class="fa fa-spinner fa-spin fa-5x fa-pulse"></i></div>
+    </div>
+
+</section>
+
+<section id="footer" class="footer">
+    <div class="text-center">
+        <a href="https://www.facebook.com/OmbrelloUtn" target="_blank" class="btn"><i class="fa fa-facebook-square fa-5x"></i></a>
+        <a href="https://twitter.com/Ombrello_frc" target="_blank" class="btn"><i class="fa fa-twitter fa-5x"></i></a>
+        <a href="https://plus.google.com/u/0/101075666194803635858/posts?hl=es" target="_blank" class="btn"><i class="fa fa-google-plus-square fa-5x"></i></a>
+    </div>
+</section>
+
+<script src="libs/jquery.js"></script>
+<script src="libs/angular/angular.js"></script>
+<script src="libs/bootstrap/bootstrap.js"></script>
+<script src="libs/cayman/plugins.js"></script>
+<script src="libs/cayman/parallax.js"></script>
+<script src='libs/cayman/countto.js'></script>
+<script src="libs/cayman/portfolio.js"></script>
+<script src="libs/cayman/scripts.js"></script>
+
+<script src="libs/require.js"></script>
+<script src="libs/requireJSConfig.js"></script>
+
+<script>
+    setTimeout(function () {
+        require(["simulacion.config"], function () {
+            angular.bootstrap(document.getElementById("simulacion.app"), ["sigep.simulacion"]);
+        });
+    }, 1000);
+</script>
+
+</body>
+</html>

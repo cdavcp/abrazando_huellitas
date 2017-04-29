@@ -1,0 +1,144 @@
+<div ui-view>
+    <h2 class="page-header">Cliente <small>Nuevo</small></h2>
+    <form name="clienteCreateForm">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-name">
+                            <i class="fa fa-user"></i>
+                            <span>Datos personales</span>
+                        </div>
+                        <div class="box-icons">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="expand-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="form-horizontal">
+                            <div class="row-fluid">
+                                <div class="alert alert-info alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Información:</strong> Los campos marcados con (*) son requeridos.
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': clienteCreateForm.tipoDocumento.$invalid && clienteCreateForm.tipoDocumento.$dirty}">
+                                    <label class="col-sm-3 control-label">Tipo documento (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <select class="form-control" name="tipoDocumento" ng-model="data.cliente.tipoDocumento.id" ng-options="item.id as item.nombre for item in data.listaTiposDocumento" required="">
+                                            <option value="">-- Seleccione --</option>
+                                        </select>
+                                    </div>
+
+                                    <div ng-show="clienteCreateForm.tipoDocumento.$invalid && clienteCreateForm.tipoDocumento.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="clienteCreateForm.tipoDocumento.$error.required">Seleccione un tipo de documento</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': clienteCreateForm.documento.$invalid && clienteCreateForm.documento.$dirty}">
+                                    <label class="control-label col-sm-3">Documento (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.cliente.documento" maxlength="10" name="documento" required="" ng-pattern="/^\d+$/" placeholder="999">
+                                    </div>
+
+                                    <div ng-show="clienteCreateForm.documento.$invalid && clienteCreateForm.documento.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="clienteCreateForm.documento.$error.required">Ingrese documento</span>
+                                        <span class="help-block" ng-show="clienteCreateForm.documento.$error.pattern">Documento inválido</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': clienteCreateForm.apellido.$invalid && clienteCreateForm.apellido.$dirty}">
+                                    <label class="control-label col-sm-3">Apellido (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.cliente.apellido" maxlength="50" name="apellido" required=""  placeholder="abc">
+                                    </div>
+
+                                    <div ng-show="clienteCreateForm.apellido.$invalid && clienteCreateForm.apellido.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="clienteCreateForm.apellido.$error.required">Ingrese apellido</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': clienteCreateForm.nombre.$invalid && clienteCreateForm.nombre.$dirty}">
+                                    <label class="control-label col-sm-3">Nombre (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.cliente.nombre" maxlength="50" name="nombre" required="" placeholder="abc">
+                                    </div>
+
+                                    <div ng-show="clienteCreateForm.nombre.$invalid && clienteCreateForm.nombre.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="clienteCreateForm.nombre.$error.required">Ingrese nombre</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': clienteCreateForm.telefono.$invalid && clienteCreateForm.telefono.$dirty}">
+                                    <label class="control-label col-sm-3">Teléfono</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.cliente.telefono" maxlength="50" name="telefono" ng-pattern="/^\d+$/" maxlength="15"  placeholder="999">
+                                    </div>
+
+                                    <div ng-show="clienteCreateForm.telefono.$invalid && clienteCreateForm.telefono.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="clienteCreateForm.telefono.$error.pattern">Teléfono inválido</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': clienteCreateForm.mail.$invalid && clienteCreateForm.mail.$dirty}">
+                                    <label class="control-label col-sm-3">Mail (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="email" class="form-control" ng-model="data.cliente.mail" maxlength="50" name="mail" required="" placeholder="xxx@yyy.zzz">
+                                    </div>
+
+                                    <div ng-show="clienteCreateForm.mail.$invalid && clienteCreateForm.mail.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="clienteCreateForm.mail.$error.required">Ingrese mail</span>
+                                        <span class="help-block" ng-show="clienteCreateForm.mail.$error.email">Mail inválido</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': clienteCreateForm.domicilio.$invalid && clienteCreateForm.domicilio.$dirty}">
+                                    <label class="control-label col-sm-3">Domicilio</label>
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.cliente.domicilio" maxlength="50" name="domicilio" placeholder="abc 999">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group pull-right">
+            <div class="col-sm-12">
+                <a class="btn btn-default" ng-click="cancelar()">
+                    <span><i class="fa fa-times-circle txt-danger"></i></span>
+                    Cancelar
+                </a>
+                <button ng-disabled="clienteCreateForm.$invalid" class="btn btn-primary" ng-click="guardar()">
+                    <span><i class="fa fa-check-square"></i></span>
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,54 @@
+<div class="container-fluid" ui-view>
+    <form name="LoginForm" with-errors novalidate>
+        <div class="main-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="cp-login-box">
+                           <!-- <div class="user-pic"><img src="" alt=""></div> -->
+                            <div class="cp-login-form">
+                                <form class="material">
+                                    <ul>
+                                        <li class="input-group"><span class="input-group-addon"><i
+                                                class="icon-2"></i></span>
+                                            <input type="text" class="form-control" name="username" placeholder="Usuario" ng-model="data.user.nombre">
+                                        </li>
+                                        <li class="input-group"><span class="input-group-addon"><i
+                                                class="fa fa-lock"></i></span>
+                                            <input type="password" class="form-control" placeholder="Contraseña" name="password" ng-model="data.user.pass">
+                                        </li>
+                                        <li>
+                                            <!--<input type="checkbox" name="check[]" value="1">-->
+                                            <button  type="submit" class="btn btn-submit waves-effect waves-button" ng-click="login()">Login
+                                                <i class="fa fa-angle-right"></i></button>
+                                        </li>
+                                        <li class="form-group has-error" ng-show="invalidLogin">
+                                            <span class="help-block">Usuario o contraseña incorrectos</span>
+                                        </li>
+                                        <!--<li class="forgot"><a href="#">¿Olvidó su contraseña?</a></li>-->
+                                    </ul>
+                                </form>
+
+
+                                <div class="or-sp"><strong>Ó</strong></div>
+
+                                <!--<ul class="cp-social-login">-->
+                                    <!--<li><h3>Ingrese con Facebook</h3></li>-->
+                                    <!--<li>-->
+                                        <!--<a href="#"><img src="../../../images/fb.jpg" alt=""></a>-->
+                                    <!--</li>-->
+
+                                <!--</ul>-->
+                                <div class="signup">
+                                    <a ng-click="registrarUsuario()" >No tiene una cuenta? REGISTRESE AHORA</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Login Page End -->
+
+        </div>
+    </form>
+</div>

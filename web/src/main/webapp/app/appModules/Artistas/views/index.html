@@ -1,0 +1,62 @@
+<br>
+<legend>
+    <h2></h2></legend>
+<legend>
+    <h2>Tus Artistas</h2></legend>
+
+
+<div class="col-md-2">
+</div>
+
+<div ng-if="artistas.length" class="row col-md-8">
+    <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Lugar Actual</th>
+            <th>Tipo Show</th>
+            <th>Cant Integrantes</th>
+            <th>Mail</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  ng-repeat="item in artistas">
+            <td>{{item.nombre}}</td>
+            <td>{{item.lugarActual}}</td>
+            <td>{{item.tipoShow.nombre}}</td>
+            <td>{{item.cantidadIntegrantes}}</td>
+            <td>{{item.mail}}</td>
+            <td class="grid-button" style="text-align:center">
+                <button class="btn btn-link"  ng-click="verArtista(item)"><i class="fa fa-search tip edit"></i></button>
+                <button class="btn btn-link"  ng-click="editarArtista(item)"><i class="fa fa-pencil tip edit"></i></button>
+                <button class="btn btn-link"  ng-click="eliminarArtista(item)"><i class="fa fa-trash tip edit"></i></button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+</div>
+
+<div ng-if="!artistas.length" class="row col-md-12">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4"> Aun no posee Artistas.</div>
+
+</div>
+
+
+
+<div class="row col-md-12">
+
+    <button ng-click="crearArtista()"  type="submit"
+            class="btn btn-primary pull-right waves-effect waves-button">Nuevo Artista <i
+            class="fa fa-angle-right"></i></button>
+</div>
+
+<br>
+<legend>
+    <h2></h2></legend>

@@ -1,0 +1,229 @@
+<!-- Main Wrapper Start -->
+<div id="wrapper" class="wrapper">
+
+    <!-- Header Start -->
+    <div id="cp-header" class="cp-header">
+
+        <!-- Topbar Start -->
+        <div class="cp-topbar">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="toplinks">
+                            <li class="waves-effect waves-button"><i class="fa fa-phone"></i> + 800 123 4567</li>
+                            <li class="waves-effect waves-button"><i class="fa fa-envelope-o"></i> <a
+                                    href="mailto:info@materialmag.com">ivent@gestión.com</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="cp-toptools pull-right">
+                            <ul>
+                                <li ng-if="!userProfile.name" class="waves-effect"><a ng-click="loginGo()"><i
+                                        class="icon-2"></i></a></li>
+                                <li ng-if="userProfile.name" class="waves-effect">
+                                    <a ng-click="registerGo()">
+                                        <img data-ng-src="{{userProfile.avatar}}" height="22" width="22"/>
+                                    </a>
+                                </li>
+
+                                <li ng-if="userProfile.name" class="waves-effect"><a ng-click="verNotificaciones()"><i
+                                        class="icon-22"></i>{{cantidadNotificaciones}} </a></li>
+                                <!--<li ><a href="#">Notificaciones <span class="badge">3</span></a></li>-->
+                                <!--<li ng-if="userProfile.name" class="notification-icon">-->
+                                    <!--<span ng-click="verNotificaciones()" class="glyphicon glyphicon-envelope"></span>-->
+                                    <!--<span class="badge">{{cantidadNotificaciones}}</span>-->
+                                <!--</li>-->
+
+                                <li ng-if="userProfile.name" class="waves-effect"><a ng-click="logout()"><i
+                                        class="fa fa-sign-in"></i></a></li>
+
+                            </ul>
+                        </div>
+                        <div class="cp-topsocial pull-right">
+                            <ul>
+                                <li class="waves-effect"><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li class="waves-effect"><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li class="waves-effect"><a href="#"><i class="fa fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Topbar End -->
+
+        <!-- Logo row Start -->
+        <div class="cp-logo-row">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="logo"><a ui-sref="index">><img
+                                src="../../../images/imagenesProyecto/logo-ultimo5.png" WIDTH=280 HEIGHT=200 alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Logo row Start -->
+
+        <!-- Mega Menu Start -->
+        <div class="cp-megamenu">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="cp-mega-menu">
+                            <label for="mobile-button"> <i class="fa fa-bars"></i> </label>
+                            <!-- mobile click button to show menu -->
+                            <input id="mobile-button" type="checkbox">
+                            <ul class="collapse main-menu">
+                                <li ng-repeat="item in userProfile.menuOptions">
+                                    <a ng-if="item.state" ui-sref="{{item.state}}"
+                                       ng-class="{ 'dropdown-toggle': item.hasMenu, 'ajax-link': !item.hasMenu }">
+                                        <i class="{{item.icon}}"></i>
+                                        <span class="hidden-xs">{{item.title}}</span>
+                                    </a>
+
+                                    <a ng-if="item.url" ng-href="{{item.url}}"
+                                       ng-class="{ 'dropdown-toggle': item.hasMenu, 'ajax-link': !item.hasMenu }">
+                                        <i class="{{item.icon}}"></i>
+                                        <span class="hidden-xs">{{item.title}}</span>
+                                    </a>
+
+                                    <ul ng-if="item.subOptions" class="drop-down one-column hover-expand">
+                                        <li ng-repeat="subItem in item.subOptions">
+                                            <a ng-if="subItem.state" ui-sref="{{subItem.state}}">{{ subItem.title }}</a>
+                                            <a ng-if="subItem.url" ng-href="{{subItem.url}}">{{ subItem.title }}</a>
+                                        </li>
+                                    </ul>
+
+                                </li>
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Mega Menu End -->
+
+
+        <!--Start Content-->
+        <div id="content">
+            <div ui-view id="ajax-content">
+                <div id="spinner" style="display: none">
+                    <div><i class="fa fa-spinner fa-spin fa-5x fa-pulse"></i></div>
+                </div>
+            </div>
+        </div>
+        <!--End Content-->
+
+        <!-- Footer Start -->
+        <!-- Footer Start -->
+        <footer id="footer" class="footer">
+
+            <div class="footer-two footer-widgets">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <!--<div class="widget form-widget">-->
+                            <!--<h3>Contactanos</h3>-->
+
+                            <!--<div class="cp-widget-content">-->
+                            <!--<form class="material">-->
+                            <!--<div class="input-group">-->
+                            <!--<input type="text" name="name" placeholder="Nombre" required>-->
+                            <!--<input type="email" name="email" placeholder="Mail" required>-->
+                            <!--<input type="text" name="asunto" placeholder="Asunto">-->
+                            <!--<textarea name="message" placeholder="Mensaje"></textarea>-->
+                            <!--</div>-->
+                            <!--<button ng-click="prueba()" class="btn btn-submit waves-effect waves-button" type="submit">Enviar <i-->
+                            <!--class="fa fa-angle-right"></i></button>-->
+                            <!--</form>-->
+                            <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                        <!--<div class="col-md-6">-->
+                        <!--<div class="widget twitter-widget">-->
+                        <!--<h3>Últimos Tweets</h3>-->
+
+                        <!--<div class="cp-widget-content">-->
+                        <!--<ul class="tweets">-->
+                        <!--<li><a href="#">@luisManuel</a>-->
+
+                        <!--<div class="tweets_txt"> @grupoIvent genial esta noche para ir a tomar algo-->
+                        <!--<span></span></div>-->
+                        <!--</li>-->
+                        <!--<li><a href="#">@luisaRomano</a>-->
+
+                        <!--<div class="tweets_txt">@grupoIvent #MariaMaria explotaaa!!!!!!!!!!!!!!!-->
+                        <!--<span></span></div>-->
+                        <!--</li>-->
+                        <!--</ul>-->
+                        <!--</div>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+                        <div class="col-md-6">
+                            <div class="widget contact-widget">
+                                <h3>Información de contacto</h3>
+
+                                <div class="cp-widget-content">
+                                    <address>
+                                        <ul>
+                                            <li><i class="fa fa-phone"></i>
+
+                                                <p> Teléfono: 0123 456 7890
+                                                </p>
+                                            </li>
+
+                                            <li><i class="fa fa-envelope-o"></i>
+
+                                                <p> Mail: <a href="mailto:info@materialmag.com">ivent@gestión.com</a>
+                                                </p>
+                                            </li>
+                                            <li><i class="fa fa-globe"></i>
+
+                                                <p><a href="#">www.grupoIvent.com</a></p>
+                                            </li>
+                                        </ul>
+                                    </address>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-three">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="footer-logo"><img alt=""></div>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="footer-social">
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-four">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Todos los derechos reservados 2016 © IVENT, Diseñado & Desearrollado por <a
+                                    target="_blank">Grupo Ivent</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer End -->
+
+
+
+    </div>
+</div>

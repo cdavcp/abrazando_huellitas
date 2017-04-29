@@ -1,0 +1,144 @@
+<br>
+<legend>
+    <h2></h2></legend>
+<legend>
+    <h1>{{artista.nombre}}</h1></legend>
+
+
+<div class="main-content">
+
+    <!-- Product Details -->
+    <div class="cp-product-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-5">
+                    <div class="cp-thumb"><img
+                            ng-src="{{artista.foto}}"
+                            alt=""></div>
+                </div>
+                <div class="col-md-7 col-sm-7">
+                    <div class="cp-pro-content">
+                            <h2>{{artista.nombre}}</h2>
+
+                        <button ng-click="goToSolicitud()" ng-if="userProfile.tipoUsuario.id == 2" type="submit"
+                                class="btn btn-primary pull-right waves-effect waves-button">Enviar Solicitud <i
+                                class="fa fa-angle-right"></i></button>
+
+                        <button ng-click="seguir()" ng-if="userProfile.tipoUsuario.id == 3" type="submit"
+                                class="btn btn-primary pull-right waves-effect waves-button">{{botonSeguir}} <i
+                                class="fa fa-angle-right"></i></button>
+
+
+
+                        <div ng-if="userProfile.tipoUsuario.id == 3" class="cp-pro-rating"><strong>Puntuación</strong> <a ><i ng-click="unaEstrella()" class="icon-11" ng-class="pintadaUna? 'icon-9' : 'icon-11'"></i> <i
+                                ng-click="dosEstrella()" class="icon-11" ng-class="pintadaDos? 'icon-9' : 'icon-11'"></i> <i ng-click="tresEstrella()" class="icon-11" ng-class="pintadaTres? 'icon-9' : 'icon-11'"></i> <i ng-click="cuatroEstrella()" class="icon-11" ng-class="pintadaCuatro? 'icon-9' : 'icon-11'"></i> <i
+                                ng-click="cincoEstrella()" class="icon-11" ng-class="pintadaCinco? 'icon-9' : 'icon-11'"></i></a></div>
+
+                        <p> {{artista.descripcion}} </p>
+                        <ul class="check-list">
+                            <li>Tipo Show: {{artista.tipoShow.nombre}}</li>
+                        </ul>
+                        <div class="product-tools">
+                            <ul class="brand-code">
+                                <li><strong>Estilo:</strong> {{estilos}}</li>
+                                <li><strong>Mail:</strong> {{artista.mail}}</li>
+                                <li><strong>Cant. de Integrantes:</strong> {{artista.cantidadIntegrantes}}</li>
+                            </ul>
+                            <ul class="pro-tags">
+
+                                <li><strong>Año Creación: </strong>{{artista.anioCreacion}}</li>
+                                <li><strong>Lugar Origen:</strong>{{artista.lugarOrigen}}</li>
+                                <li><strong>Lugar Actual:</strong>{{artista.lugarActual}}</li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <!--<h2>Dynamic Tabs</h2>-->
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Imagenes</a></li>
+        <!--<li><a data-toggle="tab" href="#menu1">Videos</a></li>-->
+        <li><a data-toggle="tab" href="#menu2">Eventos</a></li>
+        <!--<li><a data-toggle="tab" href="#menu3">Comentarios</a></li>-->
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>Imagenes</h3>
+
+            <div class="col-md-5 col-sm-5">
+                <!--<div class="cp-thumb"><img-->
+                        <!--ng-src="{{artista.foto}}"-->
+                        <!--alt=""></div>-->
+                <li class="col-md-3 col-sm-6">
+                    <div class="cp-pro-box">
+                        <div class="cp-thumb"><img ng-src="{{artista.foto}}" alt=""></div>
+
+                    </div>
+                </li>
+            </div>
+        </div>
+        <!--<div id="menu1" class="tab-pane fade">-->
+            <!--<h3>Menu 1</h3>-->
+
+            <!--<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo-->
+                <!--consequat.</p>-->
+        <!--</div>-->
+        <div id="menu2" class="tab-pane fade">
+            <h3>Eventos</h3>
+
+            <div class="cp-news-list" ng-repeat="item in eventos.aceptadas">
+                <ul class="row">
+                    <li class="col-md-6 col-sm-6">
+                        <div class="cp-thumb"><img ng-src="{{item.lugar.foto}}" height="400" width="200" alt=""></div>
+                    </li>
+                    <li class="col-md-6 col-sm-6">
+                        <div class="cp-post-content">
+                            <h3><a ng-click="verEvento(item)" >{{item.artista.nombre}} en {{item.lugar.nombre}} .</a></h3>
+                            <ul class="cp-post-tools">
+                                <li><i class="icon-26"></i> {{item.lugar.ubicacion}}</li>
+                                <li><i class="icon-2"></i> {{item.fechaEvento | date:"MM/dd/yyyy"}}</li>
+                                <li><i class="icon-1"></i> {{item.fechaEvento | date: "HH:mm:ss a"}} </li>
+                            </ul>
+                            <!--<p>{{item.descripcion}}.</p>-->
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--<div id="menu3" class="tab-pane fade">-->
+            <!--<h3>Menu 3</h3>-->
+
+            <!--<p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>-->
+        <!--</div>-->
+    </div>
+</div>
+
+
+<legend>
+    <h2></h2></legend>
+
+<div class="row col-md-12">
+
+
+    <div class="form-group pull-right">
+        <div class="col-md-12">
+            <a class="btn btn-default" ng-click="index()">
+                <span><i class="fa fa-times-circle txt-danger"></i></span>
+                Volver
+            </a>
+        </div>
+    </div>
+</div>

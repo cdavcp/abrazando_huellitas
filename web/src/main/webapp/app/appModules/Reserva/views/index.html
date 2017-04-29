@@ -1,0 +1,48 @@
+<br>
+<legend>
+    <h2></h2></legend>
+<legend>
+    <h2>Tus Reservas</h2></legend>
+
+<legend>
+    <h5>Reservas</h5></legend>
+
+<div class="col-md-2">
+</div>
+
+<div class="row col-md-8">
+    <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Artista</th>
+            <th>Lugar</th>
+            <th>Ubicación</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  ng-repeat="item in reservas">
+            <td>{{item.nombre}}</td>
+            <td>{{item.evento.artista.nombre}}</td>
+            <td>{{item.evento.lugar.nombre}}</td>
+            <td>{{item.evento.lugar.ubicacion}}</td>
+            <td>{{item.evento.fechaEvento | date:"MM/dd/yyyy"}}</td>
+            <td>{{item.evento.fechaEvento | date: "HH:mm:ss a"}}</td>
+            <td>{{item.cantidad}}</td>
+            <td class="grid-button" style="text-align:center">
+                <!--<a href="" ng-click="aceptarSolicitud(item)"><i class="fa fa-check tip edit"></i></a>-->
+                <!--<a href="" ng-click="editarClick(item)"><i class="fa fa-pencil tip edit"></i></a>-->
+                <a href="" ng-click="eliminarEvento(item)"><i class="fa fa-trash tip edit"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+<div ng-if="!reservas"> Aun no posee reservas</div>

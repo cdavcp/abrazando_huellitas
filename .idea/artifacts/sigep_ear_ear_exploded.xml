@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" name="sigep-ear:ear exploded">
+    <output-path>$PROJECT_DIR$/ear/target/sigep-ear.ear</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="sigep-ear/javaeeApplication/JavaEE" />
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/ear/target/sigep-ear/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/ear/src/main/application" />
+      <element id="archive" name="sigep-web.war">
+        <element id="artifact" artifact-name="sigep-web:war exploded" />
+      </element>
+      <element id="archive" name="sigep-ejb.jar">
+        <element id="artifact" artifact-name="sigep-ejb:ejb exploded" />
+      </element>
+      <element id="directory" name="lib">
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/commons-lang/commons-lang/2.4/commons-lang-2.4.jar" output-file-name="commons-lang.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/commons-codec/commons-codec/1.10/commons-codec-1.10.jar" output-file-name="commons-codec.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/apache/commons/commons-lang3/3.0/commons-lang3-3.0.jar" output-file-name="commons-lang3.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/org/jsoup/jsoup/1.8.2/jsoup-1.8.2.jar" output-file-name="jsoup.jar" />
+        <element id="file-copy" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.3.1/gson-2.3.1.jar" output-file-name="gson.jar" />
+      </element>
+    </root>
+  </artifact>
+</component>

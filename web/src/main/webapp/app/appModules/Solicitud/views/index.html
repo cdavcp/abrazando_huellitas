@@ -1,0 +1,171 @@
+<br>
+<legend>
+    <h2></h2></legend>
+<legend>
+    <h2>Tus Solicitudes</h2></legend>
+
+<legend>
+    <h5>Enviadas</h5></legend>
+
+<div class="col-md-2">
+</div>
+
+<div ng-if="solicitudes.enviadas.length > 0" class="row col-md-8">
+    <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+        <thead>
+        <tr>
+            <th>Artista</th>
+            <th>Lugar</th>
+            <th>Ubicación</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  ng-repeat="item in solicitudes.enviadas">
+            <td>{{item.artista.nombre}}</td>
+            <td>{{item.lugar.nombre}}</td>
+            <td>{{item.lugar.ubicacion}}</td>
+            <td>{{item.fechaEvento | date:"dd/MM/yyyy"}}</td>
+            <td>{{item.fechaEvento | date: "HH:mm:ss a"}}</td>
+            <td>Enviada</td>
+            <td class="grid-button" style="text-align:center">
+                <!--<a href="" ng-click="aceptarSolicitud(item)"><i class="fa fa-check tip edit"></i></a>-->
+                <!--<a href="" ng-click="editarClick(item)"><i class="fa fa-pencil tip edit"></i></a>-->
+                <a href="" ng-click="eliminarEvento(item)"><i class="fa fa-trash tip edit"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+<div ng-if="!solicitudes.enviadas.length > 0"> Aun no ha enviado ninguna solicitud</div>
+
+<legend>
+    <h5>Recibidas</h5></legend>
+
+<div class="col-md-2">
+</div>
+
+<div ng-if="solicitudes.recibidas.length > 0" class="row col-md-8">
+    <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+        <thead>
+        <tr>
+            <th>Artista</th>
+            <th>Lugar</th>
+            <th>Ubicación</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  ng-repeat="item in solicitudes.recibidas">
+            <td>{{item.artista.nombre}}</td>
+            <td>{{item.lugar.nombre}}</td>
+            <td>{{item.lugar.ubicacion}}</td>
+            <td>{{item.fechaEvento | date:"dd/MM/yyyy"}}</td>
+            <td>{{item.fechaEvento | date: "HH:mm:ss a"}}</td>
+            <td>Recibida</td>
+            <td class="grid-button" style="text-align:center">
+                <a href="" ng-click="aceptarSolicitud(item)"><i class="fa fa-check tip edit"></i></a>
+                <a href="" ng-click="editarEvento(item)"><i class="fa fa-pencil tip edit"></i></a>
+                <a href="" ng-click="eliminarEvento(item)"><i class="fa fa-trash tip edit"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+<div ng-if="!solicitudes.recibidas.length > 0"> Aun no ha recibido ningúna solicitud</div>
+
+<legend>
+    <h5>Aceptadas</h5></legend>
+
+
+<div class="col-md-2">
+</div>
+
+<div ng-if="solicitudes.aceptadas.length > 0" class="row col-md-8">
+    <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+        <thead>
+        <tr>
+            <th>Artista</th>
+            <th>Lugar</th>
+            <th>Ubicación</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  ng-repeat="item in solicitudes.aceptadas">
+            <td>{{item.artista.nombre}}</td>
+            <td>{{item.lugar.nombre}}</td>
+            <td>{{item.lugar.ubicacion}}</td>
+            <td>{{item.fechaEvento | date:"dd/MM/yyyy"}}</td>
+            <td>{{item.fechaEvento | date: "HH:mm:ss  a"}}</td>
+            <td>Aceptada</td>
+            <td class="grid-button" style="text-align:center">
+                <a href="" ng-click="verEvento(item)"><i class="fa fa-search tip edit"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+<div ng-if="!solicitudes.aceptadas.length > 0"> Aun no posee solicitudes aceptadas</div>
+
+<legend>
+    <h5>Rechazadas</h5></legend>
+
+
+<div class="col-md-2">
+</div>
+
+<div ng-if="solicitudes.rechazadas.length > 0" class="row col-md-8">
+    <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+        <thead>
+        <tr>
+            <th>Artista</th>
+            <th>Lugar</th>
+            <th>Ubicación</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  ng-repeat="item in solicitudes.rechazadas">
+            <td>{{item.artista.nombre}}</td>
+            <td>{{item.lugar.nombre}}</td>
+            <td>{{item.lugar.ubicacion}}</td>
+            <td>{{item.fechaEvento | date:"dd/MM/yyyy"}}</td>
+            <td>{{item.fechaEvento | date: "HH:mm:ss  a"}}</td>
+            <td>Rechazada</td>
+            <td class="grid-button" style="text-align:center">
+                <a href="" ng-click="verSolicitud(item)"><i class="fa fa-search tip edit"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+<div ng-if="!solicitudes.rechazadas.length > 0"> Aun no posee solicitudes rechazadas</div>
+
+<br>
+<legend>
+    <h2></h2></legend>

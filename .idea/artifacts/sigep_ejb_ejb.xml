@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ejb-jar" name="sigep-ejb:ejb">
+    <output-path>$PROJECT_DIR$/ejb/target</output-path>
+    <root id="archive" name="sigep-ejb.jar">
+      <element id="artifact" artifact-name="sigep-ejb:ejb exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,51 @@
+<div style="visibility: hidden; position: relative;" class="row" id="dashboard-solicitudes">
+
+
+    <form name="solicitudesForm">
+        <div class="row-fluid">
+            <div class="form-group">
+                <label class="col-sm-1 control-label">Año:</label>
+
+                <div class="col-sm-2"
+                     ng-class="{ 'has-error': solicitudesForm.anio.$invalid && solicitudesForm.anio.$dirty}">
+                    <input type="number" class="form-control" name="anio" ng-model="data.filtroSolicitudes.anio"
+                           ng-maxlength="4">
+                </div>
+
+                <div class="col-sm-2">
+                    <button class="form-control btn btn-primary" type="button"
+                            ng-click="buscarDatosEstadisticasSolicitudes()" ng-disabled="solicitudesForm.$invalid">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div ng-if="data.graficosSolicitudes.items && data.graficosSolicitudes.items.length != 0">
+        <div class="row">
+            <div class="col-md-12">
+                <div google-chart chart="data.graficosSolicitudes.lineas"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div google-chart chart="data.graficosSolicitudes.barras"></div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="!data.graficosSolicitudes.items || data.graficosSolicitudes.items.length == 0">
+        <div class="row" style="text-align: center">
+            <div class="col-md-12">
+                <div class="row">
+                    <br><br>
+                    <b>No existen datos para los filtros ingresados.</b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>

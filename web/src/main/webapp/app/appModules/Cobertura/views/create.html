@@ -1,0 +1,151 @@
+<div ui-view>
+    <h2 class="page-header">Cobertura
+        <small>Nuevo</small>
+    </h2>
+    <form name="form.coberturaCreateForm">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-name">
+                            <i class="fa fa-umbrella"></i>
+                            <span>Datos básicos</span>
+                        </div>
+                        <div class="box-icons">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="expand-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="form-horizontal">
+                            <div class="row-fluid">
+                                <div class="alert alert-info alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Información:</strong> Los campos marcados con (*) son requeridos.
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.coberturaCreateForm.aseguradora.$invalid && form.coberturaCreateForm.aseguradora.$dirty}">
+                                    <label class="col-sm-3 control-label">Aseguradora (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <select class="form-control" name="aseguradora" ng-model="data.cobertura.aseguradora.id" ng-options="item.id as item.nombre for item in data.listaAseguradoras" required="" ng-disabled="data.disableAseguradora">
+                                            <option value="">-- Seleccione --</option>
+                                        </select>
+                                    </div>
+
+                                    <div ng-show="form.coberturaCreateForm.aseguradora.$invalid && form.coberturaCreateForm.aseguradora.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.coberturaCreateForm.tipoCobertura.$error.required">Seleccione una aseguradora</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid" ng-class="data.claseNombreCobertura">
+                                <div class="form-group" ng-class="{ 'has-error': form.coberturaCreateForm.nombre.$invalid && form.coberturaCreateForm.nombre.$dirty}">
+                                    <label class="control-label col-sm-3">Nombre (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.cobertura.nombre" maxlength="50" ng-model-options="{ debounce: 500 }" ng-change="checkNameCobertura()" name="nombre" required="" placeholder="abc" ng-disabled="!data.cobertura.aseguradora.id">
+                                    </div>
+
+                                    <i ng-show="data.checkingName" class="fa fa-spinner fa-pulse"></i>
+
+                                    <div ng-show="!form.coberturaCreateForm.nombre.$error.required">
+                                        <span ng-show="!data.nombreValido" class="help-block">Ya existe una cobertura con ese nombre.</span>
+                                    </div>
+
+                                    <div ng-show="form.coberturaCreateForm.nombre.$invalid && form.coberturaCreateForm.nombre.$dirty">
+                                        <span class="help-block" ng-show="form.coberturaCreateForm.nombre.$error.required">Ingrese nombre</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': coberturaaCreateForm.descripcion.$invalid && form.coberturaCreateForm.descripcion.$dirty}">
+                                    <label class="control-label col-sm-3">Descripción </label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.cobertura.descripcion" maxlength="100" name="descripcion" placeholder="abc">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.coberturaCreateForm.rubro.$invalid && form.coberturaCreateForm.rubro.$dirty}">
+                                    <label class="col-sm-3 control-label">Rubro (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <select class="form-control" name="rubro" ng-change="rubroSelected()" ng-model="data.cobertura.rubro" ng-options="item as item.nombre for item in data.listaRubros" required="">
+                                            <option value="">-- Seleccione --</option>
+                                        </select>
+                                    </div>
+
+                                    <div ng-show="form.coberturaCreateForm.rubro.$invalid && form.coberturaCreateForm.rubro.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.coberturaCreateForm.rubro.$error.required">Seleccione un rubro</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.coberturaCreateForm.tipoDocumento.$invalid && form.coberturaCreateForm.tipoDocumento.$dirty}">
+                                    <label class="col-sm-3 control-label">Tipo de cobertura (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <select class="form-control" name="tipoCobertura" ng-model="data.cobertura.tipoCobertura" ng-options="item as item.nombre for item in data.listaTiposCobertura" required="">
+                                            <option value="">-- Seleccione --</option>
+                                        </select>
+                                    </div>
+
+                                    <div ng-show="form.coberturaCreateForm.tipoDocumento.$invalid && form.coberturaCreateForm.tipoDocumento.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.coberturaCreateForm.tipoCobertura.$error.required">Seleccione un tipo de cobertura</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+
+                                <div class="form-group">
+                                    <label ng-if="data.precioFijoChecked" class="control-label col-sm-3">Precio (*) </label>
+                                    <label ng-if="!data.precioFijoChecked" class="control-label col-sm-3">Porcentaje (*)</label>
+
+                                    <div ng-if="data.precioFijoChecked" class="col-sm-5" ng-class="{ 'has-error': form.coberturaCreateForm.precio.$invalid && form.coberturaCreateForm.precio.$dirty}">
+                                        <input type="number" min="0" maxlength="12" class="form-control" ng-change="precioChanged()" ng-model="data.cobertura.precio" name="precio" required="" placeholder="999" ng-disabled="!data.cobertura.rubro"
+                                               >
+                                    </div>
+
+                                    <div  ng-if="!data.precioFijoChecked"class="col-sm-5" ng-class="{ 'has-error': form.coberturaCreateForm.porcentaje.$invalid && form.coberturaCreateForm.porcentaje.$dirty}">
+                                        <input type="number" maxlength="12" class="form-control" ng-change="precioChanged()" ng-model="data.cobertura.porcentajePrecio" min="0" max="100" name="porcentaje" required="" placeholder="99" ng-disabled="!data.cobertura.rubro"
+                                               >
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="data.listaRiesgos" ng-include="'appModules/Cobertura/views/Riesgo/asignacion.html'"></div>
+        <div ng-if="data.listaRiesgos" ng-include="'appModules/Cobertura/views/Riesgo/create.html'"></div>
+
+        <div class="form-group pull-right">
+            <div class="col-sm-12">
+                <a class="btn btn-default" ng-click="cancelar()">
+                    <span><i class="fa fa-times-circle txt-danger"></i></span>
+                    Cancelar
+                </a>
+                <button ng-disabled="form.coberturaCreateForm.$invalid" class="btn btn-primary" ng-click="guardar()">
+                    <span><i class="fa fa-check-square"></i></span>
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

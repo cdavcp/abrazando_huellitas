@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/abrazando_huellitas.iml" filepath="$PROJECT_DIR$/.idea/abrazando_huellitas.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ear/sigep-ear.iml" filepath="$PROJECT_DIR$/ear/sigep-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ejb/sigep-ejb.iml" filepath="$PROJECT_DIR$/ejb/sigep-ejb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/web/sigep-web.iml" filepath="$PROJECT_DIR$/web/sigep-web.iml" />
+    </modules>
+  </component>
+</project>

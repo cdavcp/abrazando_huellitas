@@ -1,0 +1,74 @@
+<div ui-view>
+    <h2 class="page-header">Coberturas</h2>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="box-name">
+                        <i class="fa fa-umbrella"></i>
+                        <span>Consultar</span>
+                    </div>
+                    <div class="box-icons">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="expand-link">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="box-content">
+                        <div class="col-sm-11">
+                            <div class="dataTables_filter">
+                                <input type="text" class="form-control show-grid" placeholder="Buscar" ng-model="data.filterTable" name="filterTable">
+                            </div>
+                        </div>
+                        <button ng-click="create()" class="btn btn-primary">
+                            <span><i class="fa fa-plus-square"></i></span>
+                            Nuevo
+                        </button>
+                    </div>
+
+                    <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Tipo de cobertura</th>
+                            <th>Rubro</th>
+                            <th>Aseguradora</th>
+                            <th>Porcentaje de cobertura</th>
+                            <th>Precio mensual</th>
+                            <th>Acciones</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr  ng-repeat="item in data.coberturasPaginated">
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.descripcion}}</td>
+                            <td>{{item.tipoCobertura.nombre}}</td>
+                            <td>{{item.rubro.nombre}}</td>
+                            <td>{{item.aseguradora.nombre}}</td>
+                            <td style="text-align: center">{{item.porcentajePrecioStr}}</td>
+                            <td style="text-align: center">{{item.precio | currency:"$"}}</td>
+                            <td class="grid-button" style="text-align:center">
+                                <a href="" ng-click="verClick(item)"><i class="fa fa-search tip edit"></i></a>
+                                <a href="" ng-click="editarClick(item)"><i class="fa fa-pencil tip edit"></i></a>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+
+                    <sigep-pagination for="data.listaCoberturas"
+                                      as="data.coberturasPaginated"
+                                      page="1"
+                                      per-page="20"
+                                      filter="data.filterTable">
+                    </sigep-pagination>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

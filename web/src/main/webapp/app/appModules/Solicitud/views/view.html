@@ -1,0 +1,173 @@
+<br>
+<legend>
+    <h2></h2></legend>
+<legend>
+    <h1>{{evento.artista.nombre}} en {{evento.lugar.nombre}}</h1></legend>
+
+
+<div class="main-content">
+
+    <!-- Product Details -->
+    <div class="cp-product-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-5">
+                    <div class="cp-thumb"><img
+                            ng-src="{{evento.artista.foto}}"
+                            alt="">
+                    </div>
+                    <div class="cp-thumb"><img
+                            ng-src="{{evento.lugar.foto}}"
+                            alt="">
+                    </div>
+                </div>
+                <div class="col-md-7 col-sm-7">
+                    <div class="cp-pro-content">
+                        <h2>{{evento.artista.nombre}} en {{evento.lugar.nombre}}</h2>
+
+                        <button ng-click="reservar()" ng-if="userProfile.tipoUsuario.id == 3" type="submit"
+                                class="btn btn-primary pull-right waves-effect waves-button">Reservar <i
+                                class="fa fa-angle-right"></i></button>
+
+                        <button ng-click="meGusta()" ng-if="userProfile.tipoUsuario.id == 3" type="submit"
+                                ng-class="mg.id? 'btn btn-secondary pull-right waves-effect waves-button' : 'btn btn-success pull-right waves-effect waves-button'" >{{tieneMg}} <i
+                                ng-class="mg.id? 'fa fa-thumbs-o-down' : 'fa fa-thumbs-o-up'"></i></button>
+
+                        <button ng-click="verArtista()"  type="submit"
+                                class="btn btn-link pull-right waves-effect waves-button">Ver Artista <i
+                                class="fa fa-angle-right"></i></button>
+
+                        <button ng-click="verLugar()"  type="submit"
+                                class="btn btn-link pull-right waves-effect waves-button">Ver Lugar <i
+                                class="fa fa-angle-right"></i></button>
+
+
+                        <p> {{artista.descripcion}} </p>
+                        <ul class="check-list">
+                            <li>Tipo Show: {{evento.artista.tipoShow.nombre}} en vivo</li>
+                        </ul>
+                        <div class="product-tools">
+                            <ul class="brand-code">
+                                <li><strong>Estilo:</strong> {{estilos}}</li>
+                                <li><strong>Mail:</strong> {{evento.lugar.mail}}</li>
+                                <li><strong>Cupo Evento:</strong> {{evento.cupoEvento}}</li>
+                            </ul>
+                            <ul class="pro-tags">
+
+                                <li><i class="icon-26"></i> {{evento.lugar.ubicacion}}</li>
+                                <li><i class="icon-2"></i> {{evento.fechaEvento | date:"MM/dd/yyyy"}}</li>
+                                <li><i class="icon-5"></i> {{item.fechaEvento | date: "HH:mm:ss a"}} </li>
+
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container">
+    <!--<h2>Dynamic Tabs</h2>-->
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Imagenes</a></li>
+        <!--<li><a data-toggle="tab" href="#menu1">Videos</a></li>-->
+        <li><a data-toggle="tab" href="#menu3">Comentarios</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>Imagenes</h3>
+
+            <div class="col-md-5 col-sm-5">
+                <div class="cp-thumb"><img
+                        ng-src="{{evento.artista.foto}}"
+                        alt=""></div>
+            </div>
+            <div class="col-md-5 col-sm-5">
+                <div class="cp-thumb"><img
+                        ng-src="{{evento.lugar.foto}}"
+                        alt=""></div>
+            </div>
+        </div>
+        <!--<div id="menu1" class="tab-pane fade">-->
+            <!--<h3>Menu 1</h3>-->
+
+            <!--<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo-->
+                <!--consequat.</p>-->
+        <!--</div>-->
+        <div id="menu3" class="tab-pane fade">
+            <h3>Comentarios</h3>
+
+            <ul ng-if="comentarios" class="cp-reviews">
+                <li ng-repeat="item in comentarios" >
+                    <div class="reviews">
+                        <div class="cp-review-author"><img src="../../../../img/avatarComentario.png" alt="" ></div>
+                        <div class="cp-review">
+                            <h4><a >{{item.usuario.nombre}}</a></h4>
+                            <p>{{item.comentario}}.</p>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+
+            <div ng-if="!comentarios">
+                Actualmente no existen comentarios para este evento
+            </div>
+
+            <div ng-if="userProfile.tipoUsuario.id == 3" class="cp-review-form">
+                <h3>Dejar comentario</h3>
+                <form  class="row material">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <!--<div class="material-input input">-->
+                                <!--<div class="material-input input"><input type="text" id="name" name="name" placeholder="Nombre" required><span class="material-bar"></span></div>-->
+                                <!--<span class="material-bar"></span></div>-->
+
+                            <div class="material-input textarea">
+                                <div class="material-input textarea"><textarea id="review" ng-model="comentario.comentario" name="reviews" placeholder="Mensaje"></textarea><span class="material-bar"></span></div>
+                                <span class="material-bar"></span></div>
+                            <!--<div class="material-input input">-->
+                                <!--<div class="material-input input"><input type="email" id="email" name="email" placeholder="Correo electrónico" required><span class="material-bar"></span></div>-->
+                                <!--<span class="material-bar"></span></div>-->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <!--<div class="input-group">-->
+                            <!--<div class="material-input textarea">-->
+                                <!--<div class="material-input textarea"><textarea id="review" name="reviews" placeholder="Mensaje"></textarea><span class="material-bar"></span></div>-->
+                                <!--<span class="material-bar"></span></div>-->
+                        <!--</div>-->
+                        <button class="btn btn-submit waves-effect waves-button" ng-click="comentar()" type="submit">Enviar <i class="fa fa-angle-right"></i></button>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<legend>
+    <h2></h2></legend>
+
+<div class="row col-md-12">
+
+
+    <div class="form-group pull-right">
+        <div class="col-md-12">
+            <a class="btn btn-default" ng-click="index()">
+                <span><i class="fa fa-times-circle txt-danger"></i></span>
+                Volver
+            </a>
+        </div>
+    </div>
+</div>

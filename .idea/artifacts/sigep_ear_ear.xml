@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="ear" name="sigep-ear:ear">
+    <output-path>$PROJECT_DIR$/ear/target</output-path>
+    <root id="archive" name="sigep-ear.ear">
+      <element id="artifact" artifact-name="sigep-ear:ear exploded" />
+    </root>
+  </artifact>
+</component>

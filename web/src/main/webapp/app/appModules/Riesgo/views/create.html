@@ -1,0 +1,181 @@
+<div ui-view>
+    <h2 class="page-header">Riesgo
+        <small>Nuevo</small>
+    </h2>
+    <form name="form.riesgoCreateForm">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-name">
+                            <i class="fa fa-exclamation-triangle"></i>
+                            <span>Datos básicos</span>
+                        </div>
+                        <div class="box-icons">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="expand-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="form-horizontal">
+                            <div class="row-fluid">
+                                <div class="alert alert-info alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Información:</strong> Los campos marcados con (*) son requeridos. Debe seleccionar un rubro para poder ingresar el nombre deseado.
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.riesgoCreateForm.rubro.$invalid && form.riesgoCreateForm.rubro.$dirty}">
+                                    <label class="col-sm-3 control-label">Rubro (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <select class="form-control" name="rubro" ng-change="rubroSelected()" ng-model="data.riesgo.rubro" ng-options="item as item.nombre for item in data.listaRubros" required="">
+                                            <option value="">-- Seleccione --</option>
+                                        </select>
+                                    </div>
+
+                                    <div ng-show="form.riesgoCreateForm.rubro.$invalid && form.riesgoCreateForm.rubro.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.riesgoCreateForm.rubro.$error.required">Seleccione un rubro</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.riesgoCreateForm.nombre.$invalid && form.riesgoCreateForm.nombre.$dirty}">
+                                    <label class="control-label col-sm-3">Nombre (*)</label>
+
+                                    <div class="col-sm-5" ng-class="data.claseNombreRiesgo">
+                                        <input type="text" class="form-control" ng-change="checkName()" ng-model-options="{ debounce: 500 }" ng-model="data.riesgo.nombre" maxlength="50" name="nombre" required="" placeholder="abc" ng-disabled="!data.riesgo.rubro">
+                                        <i ng-show="data.checkingName" class="fa fa-spinner fa-pulse"></i>
+                                        <span ng-show="!data.nombreNuevoRiesgoValido" class="help-block">Ya existe un riesgo con este nombre en el rubro {{data.riesgo.rubro.nombre}}.</span>
+                                    </div>
+
+                                    <div ng-show="form.riesgoCreateForm.nombre.$invalid && form.riesgoCreateForm.nombre.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.riesgoCreateForm.nombre.$error.required">Ingrese nombre</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.riesgoCreateForm.descripcion.$invalid && form.riesgoCreateForm.descripcion.$dirty}">
+                                    <label class="control-label col-sm-3">Descripción</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.riesgo.descripcion" maxlength="100" name="descripcion" placeholder="abc 999">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-if="data.listaCoberturas" class="col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <div class="box-name">
+                                <i class="fa fa-exclamation-triangle"></i>
+                                <span>Todas las coberturas del rubro {{data.riesgo.rubro.nombre}}</span>
+                            </div>
+                            <div class="box-icons">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="expand-link">
+                                    <i class="fa fa-expand"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="box-content">
+                            <table class="table table-hover table-datatable" id="grid-todos" ng-if="data.listaCoberturas.length != 0">
+                                <thead>
+                                <tr>
+                                    <th>Nombre</th>
+                                    <th>Aseguradora</th>
+                                    <th>Asignar</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="item in data.listaCoberturas">
+                                    <td>{{item.nombre}}</td>
+                                    <td>{{item.aseguradora.nombre}}</td>
+                                    <td class="grid-button">
+                                        <a href="" ng-click="agregarCobertura($index)"><i class="fa fa-angle-double-right fa-lg tip edit"></i></a>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div ng-if="data.listaCoberturas.length == 0" class="alert alert-danger" role="alert">No hay más coberturas para asignar</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ng-if="data.listaCoberturas" class="col-md-6">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <div class="box-name">
+                                <i class="fa fa-exclamation-triangle"></i>
+                                <span>Incluír riesgo a coberturas</span>
+                            </div>
+                            <div class="box-icons">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="expand-link">
+                                    <i class="fa fa-expand"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="box-content">
+                            <table class="table table-hover table-datatable" id="grid-actuales" ng-if="data.coberturasPorAsociar.length != 0">
+                                <thead>
+                                <tr>
+                                    <th>Quitar</th>
+                                    <th>Nombre</th>
+                                    <th>Aseguradora</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr ng-repeat="item in data.coberturasPorAsociar">
+                                    <td class="grid-button">
+                                        <a href="" ng-click="quitarCobertura($index)"><i class="fa fa-angle-double-left fa-lg tip edit"></i></a>
+                                    </td>
+                                    <td>{{item.nombre}}</td>
+                                    <td>{{item.aseguradora.nombre}}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                            <div ng-if="data.coberturasPorAsociar.length == 0" class="alert alert-danger" role="alert">No hay coberturas asociadas</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group pull-right">
+            <div class="col-sm-12">
+                <a class="btn btn-default" ng-click="cancelar()">
+                    <span><i class="fa fa-times-circle txt-danger"></i></span>
+                    Cancelar
+                </a>
+                <button ng-disabled="form.riesgoCreateForm.$invalid || !data.nombreNuevoRiesgoValido" class="btn btn-primary" ng-click="guardar()">
+                    <span><i class="fa fa-check-square"></i></span>
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

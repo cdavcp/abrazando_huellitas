@@ -1,0 +1,193 @@
+<div ui-view>
+    <h2 class="page-header">Póliza <small>Nuevo</small></h2>
+    <form name="form.polizaCreateForm">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-name">
+                            <i class="fa fa-file"></i>
+                            <span>Datos de la póliza</span>
+                        </div>
+                        <div class="box-icons">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="expand-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <div class="form-horizontal">
+                            <div class="row-fluid">
+                                <div class="alert alert-info alert-dismissible" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <strong>Información:</strong> Los campos marcados con (*) son requeridos.
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label">Productor</label>
+
+                                    <div class="col-sm-5">
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.productor.nombre + " " + data.poliza.productor.apellido}}</strong></p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.polizaCreateForm.aseguradora.$invalid && form.polizaCreateForm.aseguradora.$dirty}">
+                                    <label class="col-sm-3 control-label">Aseguradora (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <select class="form-control" name="aseguradora" ng-model="data.aseguradoraSeleccionadaId" ng-disabled="data.aseguradoraDisabled" ng-options="item.id as item.nombre for item in data.listaAseguradoras" ng-change="padreCoberturaChanged()" required="">
+                                            <option value="">-- Seleccione --</option>
+                                        </select>
+                                    </div>
+
+                                    <div ng-show="form.polizaCreateForm.aseguradora.$invalid && form.polizaCreateForm.aseguradora.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.polizaCreateForm.aseguradora.$error.required">Seleccione una aseguradora</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.polizaCreateForm.rubro.$invalid && form.polizaCreateForm.rubro.$dirty}">
+                                    <label class="col-sm-3 control-label">Rubro (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <select class="form-control" name="rubro" ng-model="data.rubroSeleccionadoId" ng-options="item.id as item.nombre for item in data.listaRubros" ng-change="padreCoberturaChanged()" required="">
+                                            <option value="">-- Seleccione --</option>
+                                        </select>
+                                    </div>
+
+                                    <div ng-show="form.polizaCreateForm.rubro.$invalid && form.polizaCreateForm.rubro.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.polizaCreateForm.rubro.$error.required">Seleccione un rubro</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.polizaCreateForm.cobertura.$invalid && form.polizaCreateForm.cobertura.$dirty}">
+                                    <label class="col-sm-3 control-label">Cobertura (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <select class="form-control" name="cobertura" ng-disabled="form.polizaCreateForm.aseguradora.$invalid || form.polizaCreateForm.rubro.$invalid" ng-model="data.poliza.cobertura.id" ng-options="item.id as item.nombre for item in data.listaCoberturas" required="">
+                                            <option value="">-- Seleccione --</option>
+                                        </select>
+                                    </div>
+
+                                    <div ng-show="form.polizaCreateForm.cobertura.$invalid && form.polizaCreateForm.cobertura.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.polizaCreateForm.cobertura.$error.required">Seleccione una cobertura</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="data.claseNumeroPoliza">
+                                    <label class="control-label col-sm-3">Número de póliza (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.poliza.numero" ng-disabled="form.polizaCreateForm.aseguradora.$invalid" maxlength="50" name="numero" required="" ng-model-options="{ debounce: 500 }" ng-change="checkNumero()">
+                                        <i ng-show="data.checkingName" class="fa fa-spinner fa-pulse"></i>
+                                    </div>
+
+                                    <div ng-show="!form.polizaCreateForm.numero.$error.required">
+                                        <span ng-show="!data.numeroNuevaPolizaValido" class="help-block">El número ingresado pertenece a una póliza existente</span>
+                                    </div>
+
+                                    <div ng-show="form.polizaCreateForm.numero.$invalid && form.polizaCreateForm.numero.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.polizaCreateForm.numero.$error.required">Ingrese un número de póliza</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.polizaCreateForm.descripcion.$invalid && form.polizaCreateForm.descripcion.$dirty}">
+                                    <label class="control-label col-sm-3">Descripción</label>
+
+                                    <div class="col-sm-5">
+                                        <input type="text" class="form-control" ng-model="data.poliza.descripcion" maxlength="200" name="descripcion" placeholder="abc">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.polizaCreateForm.fecha.$invalid && form.polizaCreateForm.fecha.$dirty}">
+                                    <label class="control-label col-sm-3">Fecha (*)</label>
+                                    <div class="col-sm-5">
+                                        <!--<sigep-datepicker model="data.poliza.fecha"></sigep-datepicker>-->
+                                        <input type="date" class="form-control" ng-model="data.poliza.fecha">
+                                    </div>
+
+                                    <div ng-show="form.polizaCreateForm.fecha.$invalid && form.polizaCreateForm.fecha.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.polizaCreateForm.fecha.$error.required">Ingrese una fecha de emisión de póliza</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.polizaCreateForm.vendedor.$invalid && form.polizaCreateForm.vendedor.$dirty}">
+                                    <label class="col-sm-3 control-label">Vendedor</label>
+
+                                    <div class="col-sm-5">
+                                        <select class="form-control" name="vendedor" ng-model="data.poliza.vendedor.id" ng-options="item.id as item.nombre for item in data.listaVendedores">
+                                            <option value="">-- Seleccione --</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.polizaCreateForm.cliente.$invalid && form.polizaCreateForm.cliente.$dirty}">
+                                    <label class="col-sm-3 control-label">Cliente (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <select2 name="cliente" options="{ placeholder: '-- Seleccione --' }" ng-model="data.poliza.cliente.id" ng-options="item.id as item.nombre for item in data.listaClientes" required="" ng-disabled="data.disableCliente">
+                                            <option value="">-- Seleccione --</option>
+                                        </select2>
+                                    </div>
+
+                                    <div ng-show="form.polizaCreateForm.cliente.$invalid && form.polizaCreateForm.cliente.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.polizaCreateForm.cliente.$error.required">Seleccione un cliente</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="form-group" ng-class="{ 'has-error': form.polizaCreateForm.origen.$invalid && form.polizaCreateForm.origen.$dirty}">
+                                    <label class="col-sm-3 control-label">Origen póliza (*)</label>
+
+                                    <div class="col-sm-5">
+                                        <select class="form-control" name="origen" ng-model="data.poliza.origen.id" ng-options="item.id as item.nombre for item in data.listaOrigenesPoliza" required="" ng-disabled="data.disableOrigen">
+                                            <option value="">-- Seleccione --</option>
+                                        </select>
+                                    </div>
+
+                                    <div ng-show="form.polizaCreateForm.origen.$invalid && form.polizaCreateForm.origen.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.polizaCreateForm.origen.$error.required">Seleccione un origen de póliza</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group pull-right">
+            <div class="col-sm-12">
+                <a class="btn btn-default" ng-click="cancelar()">
+                    <span><i class="fa fa-times-circle txt-danger"></i></span>
+                    Cancelar
+                </a>
+                <button ng-disabled="form.polizaCreateForm.$invalid || !data.numeroNuevaPolizaValido" class="btn btn-primary" ng-click="guardar()">
+                    <span><i class="fa fa-check-square"></i></span>
+                    Aceptar
+                </button>
+            </div>
+        </div>
+    </form>
+</div>
+

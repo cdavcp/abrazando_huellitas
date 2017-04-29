@@ -1,0 +1,51 @@
+<br>
+<legend>
+    <h2></h2></legend>
+<legend>
+    <h2>Tus Locales</h2></legend>
+
+
+<div class="col-md-2">
+</div>
+
+<div class="row col-md-8">
+    <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+        <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Ubicación</th>
+            <th>Mail</th>
+            <th>Teléfono</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  ng-repeat="item in lugar">
+            <td>{{item.nombre}}</td>
+            <td>{{item.ubicacion}}</td>
+            <td>{{item.mail}}</td>
+            <td>{{item.telefono}}</td>
+            <td class="grid-button" style="text-align:center">
+                <a href="" ng-click="verLugar(item)"><i class="fa fa-search tip edit"></i></a>
+                <a href="" ng-click="editarClick(item)"><i class="fa fa-pencil tip edit"></i></a>
+                <a href="" ng-click="editarClick(item)"><i class="fa fa-trash tip edit"></i></a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+
+</div>
+
+
+
+<div class="row col-md-12">
+
+    <button ng-click="crearArtista()"  type="submit"
+            class="btn btn-primary pull-right waves-effect waves-button">Nuevo Local<i
+            class="fa fa-angle-right"></i></button>
+</div>
+
+<br>
+<legend>
+    <h2></h2></legend>

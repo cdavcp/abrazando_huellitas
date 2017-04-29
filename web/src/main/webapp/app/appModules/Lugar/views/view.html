@@ -1,0 +1,126 @@
+<br>
+<legend>
+    <h2></h2></legend>
+<legend>
+    <h2>{{lugar.nombre}}</h2></legend>
+
+
+<div class="main-content">
+
+    <!-- Product Details -->
+    <div class="cp-product-details">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-5">
+                    <div class="cp-thumb"><img
+                            ng-src="{{lugar.foto}}"
+                            alt=""></div>
+                </div>
+                <div class="col-md-7 col-sm-7">
+                    <div class="cp-pro-content">
+                        <h3><a>{{lugar.nombre}}</a></h3>
+
+                        <button ng-click="goToSolicitud()" ng-if="userProfile.tipoUsuario.id == 1" type="submit"
+                                class="btn btn-primary pull-right waves-effect waves-button">Enviar Solicitud <i
+                                class="fa fa-angle-right"></i></button>
+
+                        <button ng-click="seguir()" ng-if="userProfile.tipoUsuario.id == 3" type="submit"
+                                class="btn btn-primary pull-right waves-effect waves-button">{{botonSeguir}} <i
+                                class="fa fa-angle-right"></i></button>
+
+
+                        <div ng-if="userProfile.tipoUsuario.id == 3" class="cp-pro-rating"><strong>Puntuación</strong> <a ><i ng-click="unaEstrella()" class="icon-11" ng-class="pintadaUna? 'icon-9' : 'icon-11'"></i> <i
+                                ng-click="dosEstrella()" class="icon-11" ng-class="pintadaDos? 'icon-9' : 'icon-11'"></i> <i ng-click="tresEstrella()" class="icon-11" ng-class="pintadaTres? 'icon-9' : 'icon-11'"></i> <i ng-click="cuatroEstrella()" class="icon-11" ng-class="pintadaCuatro? 'icon-9' : 'icon-11'"></i> <i
+                                ng-click="cincoEstrella()" class="icon-11" ng-class="pintadaCinco? 'icon-9' : 'icon-11'"></i></a></div>
+
+                        <!--<div ng-app="starApp">-->
+                        <!--<div ng-controller="StarCtrl"> <span ng-repeat="rating in ratings">{{rating.current}} out of-->
+            <!--{{rating.max}}-->
+        <!--<div star-rating rating-value="rating.current" max="rating.max" on-rating-selected="getSelectedRating(rating)"></div>-->
+        <!--</span>-->
+                        <!--</div>-->
+                        <!--</div>-->
+
+
+                        <p>{{lugar.descripcion}} </p>
+                        <ul class="check-list">
+                            <!--corregir-->
+                            <li>Tipos de Show: {{tipoS}}</li>
+                        </ul>
+                        <div class="product-tools">
+                            <ul class="brand-code">
+                                <li><strong>Teléfono:</strong> {{lugar.telefono}}</li>
+                                <li><strong>Mail:</strong> {{lugar.mail}}</li>
+                            </ul>
+                            <ul class="pro-tags">
+                                <li><strong>Estilos:</strong> {{estilo}}</li>
+                                <li><strong>Ubicación:</strong> {{lugar.ubicacion}}</li>
+                            </ul>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <!--<h2>Dynamic Tabs</h2>-->
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#home">Imagenes</a></li>
+        <!--<li><a data-toggle="tab" href="#menu1">Videos</a></li>-->
+        <li><a data-toggle="tab" href="#menu2">Eventos</a></li>
+        <!--<li><a data-toggle="tab" href="#menu3">Comentarios</a></li>-->
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade in active">
+            <h3>Imagenes</h3>
+
+            <div class="col-md-5 col-sm-5">
+                <div class="cp-thumb"><img
+                        ng-src="{{lugar.foto}}"
+                        alt=""></div>
+            </div>
+        </div>
+        <!--<div id="menu1" class="tab-pane fade">-->
+            <!--<h3>Menu 1</h3>-->
+
+            <!--<p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo-->
+                <!--consequat.</p>-->
+        <!--</div>-->
+        <div id="menu2" class="tab-pane fade">
+            <h3>Menu 2</h3>
+
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
+                rem aperiam.</p>
+        </div>
+        <!--<div id="menu3" class="tab-pane fade">-->
+            <!--<h3>Menu 3</h3>-->
+
+            <!--<p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>-->
+        <!--</div>-->
+    </div>
+</div>
+
+
+<legend>
+    <h2></h2></legend>
+
+<div class="row col-md-12">
+
+
+    <div class="form-group pull-right">
+        <div class="col-md-12">
+            <a class="btn btn-default" ng-click="index()">
+                <span><i class="fa fa-times-circle txt-danger"></i></span>
+                Volver
+            </a>
+        </div>
+    </div>
+</div>

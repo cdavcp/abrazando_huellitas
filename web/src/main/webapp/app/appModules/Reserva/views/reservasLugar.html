@@ -1,0 +1,145 @@
+<div ng-if="!verReservas">
+
+
+    <br>
+    <legend>
+        <h2></h2></legend>
+    <legend>
+        <h2>Reservas de Eventos</h2></legend>
+    <div class="row">
+
+        <div class="col-md-3">
+            <select class="form-control" name="tipoUsuario"
+                    ng-model="lugar.id"
+                    ng-change="selectLugar()"
+                    ng-options="item.id as item.nombre for item in lugares"
+                    required="">
+                <option value="">-- Seleccione Lugar --</option>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-2">
+        </div>
+
+        <div ng-if="solicitudes.aceptadas" class="row col-md-8">
+            <table class="table table-bordered table-striped table-hover table-heading table-datatable"
+                   id="datatable-1">
+                <thead>
+                <tr>
+                    <th>Artista</th>
+                    <th>Lugar</th>
+                    <th>Ubicación</th>
+                    <th>Fecha</th>
+                    <th>Hora</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in solicitudes.aceptadas">
+                    <td>{{item.artista.nombre}}</td>
+                    <td>{{item.lugar.nombre}}</td>
+                    <td>{{item.lugar.ubicacion}}</td>
+                    <td>{{item.fechaEvento | date:"MM/dd/yyyy"}}</td>
+                    <td>{{item.fechaEvento | date: "HH:mm:ss a"}}</td>
+                    <td>Enviada</td>
+                    <td class="grid-button" style="text-align:center">
+                        <!--<a href="" ng-click="aceptarSolicitud(item)"><i class="fa fa-check tip edit"></i></a>-->
+                        <!--<a href="" ng-click="editarClick(item)"><i class="fa fa-pencil tip edit"></i></a>-->
+                        <a href="" ng-click="verReservasVer(item)"><i class="fa fa-search tip edit"></i></a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+        <div ng-if="!solicitudes.aceptadas"> No posee eventos de estas características</div>
+    </div>
+</div>
+
+<div ng-if="verReservas">
+
+    <br>
+    <legend>
+        <h2></h2></legend>
+    <legend>
+        <h1>{{eventoVer.artista.nombre}} en {{eventoVer.lugar.nombre}}</h1>
+        <h4><small>{{eventoVer.fechaEvento | date:"MM/dd/yyyy"}} - {{eventoVer.fechaEvento | date: "HH:mm:ss a"}} </small></h4>
+    </legend>
+
+
+    <div class="main-content">
+
+        <div class="col-md-2">
+        </div>
+
+        <div class="row col-md-8">
+            <table class="table table-bordered table-striped table-hover table-heading table-datatable"
+                   id="datatable-2">
+                <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Cantidad</th>
+                    <th>Asistió</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in reservasVer">
+                    <td>{{item.nombre}}</td>
+                    <td>{{item.cantidad}}</td>
+                    <td><input type="checkbox" ng-model="item.asistio"  id="check{{$index}}"
+                               ng-click="verificarSeleccion(item)">
+                        <label for="check{{$index}}"></label></td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+        <div ng-if="!imp" class="form-group pull-right">
+            <div class="col-md-12">
+                <a class="btn btn-default" ng-click="imprimirReserva()">
+                    <span><i class="fa fa-print txt-primary"></i></span>
+                    Imprimir
+                </a>
+
+                <!--<a class="btn btn-default" ng-click="guardarAsistencia()">-->
+                    <!--<span><i class="fa fa-list txt-success"></i></span>-->
+                    <!--Guardar Asistencia-->
+                <!--</a>-->
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="container">
+
+
+    </div>
+
+
+    <legend>
+        <h2></h2></legend>
+
+    <div ng-if="!imp" class="row col-md-12">
+
+
+        <div class="form-group pull-right">
+            <div class="col-md-12">
+                <a class="btn btn-default" ng-click="volverReservas()">
+                    <span><i class="fa fa-times-circle txt-danger"></i></span>
+                    Volver
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+</div>

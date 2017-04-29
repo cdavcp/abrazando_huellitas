@@ -1,0 +1,46 @@
+<div style="visibility: hidden; position: relative;" class="row" id="dashboard-productores">
+
+    <form name="productoresForm">
+        <div class="row-fluid">
+            <div class="form-group">
+                <div class="form-group" ng-class="{ 'has-error': productoresForm.anio.$invalid && productoresForm.anio.$dirty}">
+                    <label class="col-sm-1 control-label">Año:</label>
+                    <div class="col-sm-3">
+                        <input type="number" name="anio" class="form-control" ng-model="data.filtroProductores.anio" ng-maxlength="4">
+                    </div>
+                </div>
+
+                <div class="col-sm-2">
+                    <button class="form-control btn btn-primary" type="button" ng-disabled="productoresForm.$invalid" ng-click="buscarDatosEstadisticasProductores()">
+                        Buscar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <div ng-if="data.graficosProductores.items && data.graficosProductores.items.length != 0">
+        <div class="row">
+            <div class="col-md-12">
+                <div google-chart chart="data.graficosProductores.lineas"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div google-chart chart="data.graficosProductores.barras"></div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="!data.graficosProductores.items || data.graficosProductores.items.length == 0">
+        <div class="row" style="text-align: center">
+            <div class="col-md-12">
+                <div class="row">
+                    <b>No existen datos para los filtros ingresados.</b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,84 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="cp-login-box cp-register-form">
+
+                <div class="cp-login-form ">
+                    <form class="material">
+                        <ul>
+
+                            <li class=""> <span class=""><i class=""></i></span>
+                                <legend>
+                                    <h2>Envío de Solicitud</h2></legend>
+                            </li>
+
+                            <li class=""> <span class=""><i class=""></i></span>
+                                <legend>
+                                    <h4>{{titulo}}</h4></legend>
+                            </li>
+
+                            <li class="input-group"> <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                <input type="datetime-local" class="form-control" ng-model="evento.fechaEvento"   >
+                            </li>
+
+                            <!--placeholder="dd/MM/AAAA"-->
+
+                            <div role="tabpanel" class="tab-pane active" id="proxEventos">
+
+                            </div>
+
+                            <li class="input-group"> <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                                <input type="number" class="form-control" ng-model="evento.cupoEvento"  placeholder="Cupo Evento">
+                            </li>
+
+
+
+
+                            <!--<li class="input-group"> <span class="input-group-addon"><i class="	fa fa-clock-o"></i></span>-->
+                                <!--<input type="time" class="form-control" ng-model="evento.horaEvento" placeholder="Hora - HH:MM">-->
+                            <!--</li>-->
+
+                            <!--<li class="input-group"> <span class="input-group-addon"><i class="fa fa-child"></i></span>-->
+                                <!--<input type="email" class="form-control" placeholder="Cupo Maximo">-->
+                            <!--</li>-->
+
+
+                            <li class="input-group"> <span class="input-group-addon"><i class="	fa fa-comments"></i></span>
+                                <input type="text" class="form-control" ng-model="evento.comentarios" placeholder="Comentario">
+                            </li>
+
+                            <li ng-if="userProfile.tipoUsuario.id == 1" class="input-sm"><span class="input-group-sm"></span>
+                                <select class="form-control" name="tipoUsuario"
+                                        ng-model="evento.artista.id"
+                                        ng-options="item.id as item.nombre for item in artistas"
+                                        required="">
+                                    <option value="">-- Seleccione Artista --</option>
+                                </select>
+                            </li>
+
+                            <li ng-if="userProfile.tipoUsuario.id == 2" class="input-sm"><span class="input-group-sm"></span>
+                                <select class="form-control" name="tipoUsuario"
+                                        ng-model="evento.lugar.id"
+                                        ng-options="item.id as item.nombre for item in lugares"
+                                        required="">
+                                    <option value="">-- Seleccione Lugar --</option>
+                                </select>
+                            </li>
+
+                            <li>
+
+                                <button type="submit" ng-click="guardar()" class="btn btn-submit waves-effect waves-button">ENVIAR <i class="fa fa-angle-right"></i></button>
+                            </li>
+
+
+
+                        </ul>
+                    </form>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

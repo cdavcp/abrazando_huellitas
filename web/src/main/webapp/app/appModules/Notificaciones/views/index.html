@@ -1,0 +1,68 @@
+<br>
+<legend>
+    <h2></h2></legend>
+<legend>
+    <h2>Notificaciones</h2></legend>
+
+
+<div class="col-md-2">
+
+
+</div>
+
+<div class="row col-md-8">
+    <!--<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">-->
+        <!--<thead>-->
+        <!--<tr>-->
+            <!--<th>Nombre</th>-->
+            <!--<th>Lugar Actual</th>-->
+            <!--<th>Tipo Show</th>-->
+            <!--<th>Cant Integrantes</th>-->
+            <!--<th>Mail</th>-->
+            <!--<th>Acciones</th>-->
+        <!--</tr>-->
+        <!--</thead>-->
+        <!--<tbody>-->
+        <!--<tr  ng-repeat="item in artistas">-->
+            <!--<td>{{item.nombre}}</td>-->
+            <!--<td>{{item.lugarActual}}</td>-->
+            <!--<td>{{item.tipoShow.nombre}}</td>-->
+            <!--<td>{{item.cantidadIntegrantes}}</td>-->
+            <!--<td>{{item.mail}}</td>-->
+            <!--<td class="grid-button" style="text-align:center">-->
+                <!--<button class="btn btn-link"  ng-click="verArtista(item)"><i class="fa fa-search tip edit"></i></button>-->
+                <!--<a href="#" ng-click="editarClick(item)"><i class="fa fa-pencil tip edit"></i></a>-->
+                <!--<a href="#" ng-click="editarClick(item)"><i class="fa fa-trash tip edit"></i></a>-->
+            <!--</td>-->
+        <!--</tr>-->
+        <!--</tbody>-->
+    <!--</table>-->
+
+    <div  ng-repeat="item in userProfile.notificaciones" class="alert alert-success">
+        <a ng-click="updateNotificacion(item)" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>{{item.mensaje}}</strong> Ingresa aquí para ver el evento.
+        <button class="btn btn-link"  ng-click="verEvento(item.evento)"><i class="fa fa-search tip edit"></i></button>
+    </div>
+
+
+</div>
+
+<!--<div class="row col-md-12">-->
+    <!--<div class="col-md-4">-->
+    <!--</div>-->
+    <!--<div class="col-md-4"> Aun no posee Artistas.</div>-->
+
+<!--</div>-->
+
+
+
+<!--<div class="row col-md-12">-->
+
+    <!--<button ng-click="crearArtista()"  type="submit"-->
+            <!--class="btn btn-primary pull-right waves-effect waves-button">Nuevo Artista <i-->
+            <!--class="fa fa-angle-right"></i></button>-->
+<!--</div>-->
+
+<br>
+<legend>
+    <h2></h2></legend>

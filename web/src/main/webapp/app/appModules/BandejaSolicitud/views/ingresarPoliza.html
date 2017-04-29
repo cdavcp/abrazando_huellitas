@@ -1,0 +1,67 @@
+<div ui-view>
+    <h2 class="page-header">Solicitud
+        <small>Actualizar</small>
+    </h2>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="box-name">
+                        <i class="fa fa-file-text-o"></i>
+                        <span>Ingresar número de póliza</span>
+                    </div>
+                    <div class="box-icons">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="expand-link">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <div class="form-horizontal">
+
+                        <div class="row-fluid">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Aseguradora (*)</label>
+
+                                <div class="col-sm-5">
+                                    <select class="form-control" name="aseguradora" ng-model="data.aseguradoraId" ng-change="aseguradoraChanged()" ng-options="item.id as item.nombre for item in data.listaAseguradoras">
+                                        <option value="">-- Seleccione --</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row-fluid">
+                            <div class="form-group">
+                                <label class="control-label col-sm-3">Número </label>
+
+                                <div class="col-sm-5" ng-class="data.claseNumeroPoliza">
+                                    <input type="text" class="form-control" ng-change="checkNumero()" ng-model-options="{ debounce: 500 }" ng-disabled="!data.aseguradoraId" ng-model="data.numeroPoliza"  maxlength="50" placeholder="abc123">
+                                    <i ng-show="data.checkingNumero" class="fa fa-spinner fa-pulse"></i>
+                                    <span ng-show="data.claseNumeroPoliza == data.INVALID_CLASS" class="help-block">No existe una póliza con el número ingresado para la aseguradora seleccionada.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group pull-right">
+        <div class="col-sm-12">
+            <a class="btn btn-default" ng-click="volver()">
+                <span><i class="fa fa-times-circle txt-danger"></i></span>
+                Cancelar
+            </a>
+            <button ng-disabled="!data.numeroValido" class="btn btn-primary" ng-click="actualizarSolicitud()">
+                <span><i class="fa fa-check-square"></i></span>
+                Aceptar
+            </button>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="sigep-web:war">
+    <output-path>$PROJECT_DIR$/web/target</output-path>
+    <root id="archive" name="sigep-web.war">
+      <element id="artifact" artifact-name="sigep-web:war exploded" />
+    </root>
+  </artifact>
+</component>

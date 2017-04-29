@@ -1,0 +1,62 @@
+<div style="visibility: hidden; position: relative;" id="dashboard-rentabilidad">
+
+    <div class="row-fluid">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Filtrar por:</label>
+
+            <div class="col-sm-2">
+                <select class="form-control" ng-model="data.filtroRentabilidad.combo" ng-options="item as item.nombre for item in data.listaFiltros">
+                </select>
+            </div>
+
+            <label class="col-sm-1 control-label">Desde:</label>
+
+            <div class="col-sm-2">
+                <input type="date" class="form-control" ng-model="data.filtroRentabilidad.fechaDesde">
+            </div>
+
+            <label class="col-sm-1 control-label">Hasta:</label>
+
+            <div class="col-sm-2">
+                <input type="date" class="form-control" ng-model="data.filtroRentabilidad.fechaHasta">
+            </div>
+            <div class="col-sm-2">
+                <button class="form-control btn btn-primary" type="button" ng-click="buscarDatosEstadisticasRentabilidad()">
+                    Buscar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="data.graficosRentabilidad.items && data.graficosRentabilidad.items.length != 0">
+        <div class="row">
+            <div class="col-md-12">
+                <div google-chart chart="data.graficosRentabilidad.barras"></div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="row">
+                <div google-chart chart="data.graficosRentabilidad.torta"></div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="row">
+                <div google-chart chart="data.graficosRentabilidad.tabla"></div>
+            </div>
+        </div>
+    </div>
+
+    <div ng-if="!data.graficosRentabilidad.items || data.graficosRentabilidad.items.length == 0">
+        <br><br><br><br>
+        <div class="row" style="text-align: center">
+            <div class="col-md-12">
+                <div class="row">
+                    <b>No existen datos para los filtros ingresados.</b>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

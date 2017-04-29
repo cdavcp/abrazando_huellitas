@@ -1,0 +1,91 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="cp-login-box cp-register-form">
+
+                <div class="cp-login-form ">
+                    <form class="material">
+                        <ul>
+
+                            <li class=""> <span class=""><i class=""></i></span>
+                                <legend>
+                                    <h2>Reservar</h2></legend>
+                            </li>
+
+                            <li class=""> <span class=""><i class=""></i></span>
+                                <legend>
+                                    <h3>{{reserva.evento.artista.nombre}} en {{reserva.evento.lugar.nombre}}</h3></legend>
+                            </li>
+
+                            <!--<li class="input-group"> <span class="input-group-addon"><i class="fa fa-calendar"></i></span>-->
+                                <!--<input type="date" ng-disabled="true" class="form-control" ng-model="reserva.evento.fechaEvento"   placeholder="dd/MM/AAAA">-->
+                            <!--</li>-->
+
+                            <!--<div role="tabpanel" class="tab-pane active" id="proxEventos">-->
+
+                            <!--</div>-->
+
+                            <div class="page-header">
+                                <h4><small>Fecha Evento: {{reserva.evento.fechaEvento | date:"MM/dd/yyyy"}}</small></h4>
+                                <h4><small>Hora Evento: {{reserva.evento.fechaEvento | date: "HH:mm:ss a"}}</small></h4>
+                                <h4><small>Cupo Evento: {{reserva.evento.cupoEvento}}</small></h4></div>
+
+                            <!--<li class="input-group"> <span class="input-group-addon"><i class="	fa fa-clock-o"></i></span>-->
+                                <!--<input type="text" class="form-control" ng-disabled="true"  ng-value="{{reserva.evento.horaEvento}}" placeholder="Hora - HH:MM">-->
+                                <!--<div class="page-header">-->
+                                    <!--</div>-->
+
+                            <!--<div class="page-header">-->
+                                   <!--</div>-->
+                            <!--</li>-->
+
+                            <!--<li class="input-group"> <span class="input-group-addon"><i class="fa fa-users"></i></span>-->
+                                <!--<input type="text" class="form-control" ng-disabled="true"  ng-value="Cupo evento {{reserva.evento.cupoEvento}}"  placeholder="Cupo Evento">-->
+                            <!--</li>-->
+
+                            <li class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input type="text" class="form-control"   ng-model="reserva.nombre"  placeholder="Nombre y Apellido">
+                            </li>
+
+                            <li class="input-group"> <span class="input-group-addon"><i class="fa fa-users"></i></span>
+                                <input type="number" class="form-control" ng-model="reserva.cantidad" maxlength="2"  placeholder="Cantidad de Reservas">
+                            </li>
+
+
+
+
+                            <!--<li class="input-group"> <span class="input-group-addon"><i class="fa fa-child"></i></span>-->
+                            <!--<input type="email" class="form-control" placeholder="Cupo Maximo">-->
+                            <!--</li>-->
+
+
+                            <!--<li class="input-group"> <span class="input-group-addon"><i class="	fa fa-comments"></i></span>-->
+                                <!--<input type="number" class="form-control" ng-model="evento.comentarios" placeholder="Comentario">-->
+                            <!--</li>-->
+
+                            <!--<li ng-if="userProfile.tipoUsuario.id == 1" class="input-sm"><span class="input-group-sm"></span>-->
+                                <!--<select class="form-control" name="tipoUsuario"-->
+                                        <!--ng-model="evento.artista.id"-->
+                                        <!--ng-options="item.id as item.nombre for item in artistas"-->
+                                        <!--required="">-->
+                                    <!--<option value="">-- Seleccione Artista --</option>-->
+                                <!--</select>-->
+                            <!--</li>-->
+
+                            <li>
+
+                                <button type="submit" ng-click="guardar()" class="btn btn-submit waves-effect waves-button">ENVIAR <i class="fa fa-angle-right"></i></button>
+                            </li>
+
+
+
+                        </ul>
+                    </form>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

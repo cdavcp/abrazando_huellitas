@@ -1,0 +1,133 @@
+<div ng-if="!data.viewStateFlag">
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-name">
+                            <i class="fa fa-exclamation-triangle"></i>
+                            <span>Todos los riesgos del rubro {{data.cobertura.rubro.nombre}}</span>
+                        </div>
+                        <div class="box-icons">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="expand-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <table class="table table-hover table-datatable" id="grid-todos" ng-if="data.listaRiesgos.length != 0">
+                            <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Agregar</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in data.listaRiesgos">
+                                <td>{{item.nombre}}</td>
+                                <td>{{item.descripcion}}</td>
+                                <td class="grid-button">
+                                    <a href="" ng-click="agregarRiesgo($index)"><i class="fa fa-angle-double-right fa-lg tip edit"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div ng-if="data.listaRiesgos.length == 0" class="alert alert-danger" role="alert">No hay más riesgos para asociar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box">
+                    <div class="box-header">
+                        <div class="box-name">
+                            <i class="fa fa-exclamation-triangle"></i>
+                            <span>Riesgos asociados</span>
+                        </div>
+                        <div class="box-icons">
+                            <a class="collapse-link">
+                                <i class="fa fa-chevron-up"></i>
+                            </a>
+                            <a class="expand-link">
+                                <i class="fa fa-expand"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="box-content">
+                        <table class="table table-hover table-datatable" id="grid-actuales" ng-if="data.cobertura.riesgos.length != 0">
+                            <thead>
+                            <tr>
+                                <th>Quitar</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr ng-repeat="item in data.cobertura.riesgos">
+                                <td class="grid-button">
+                                    <a href="" ng-click="quitarRiesgo($index)"><i class="fa fa-angle-double-left fa-lg tip edit"></i></a>
+                                </td>
+                                <td>{{item.nombre}}</td>
+                                <td>{{item.descripcion}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <div ng-if="data.cobertura.riesgos.length == 0" class="alert alert-danger" role="alert">No hay riesgos asociados</div>
+                        <button type="button" data-toggle="modal" data-target="#modalNuevoRiesgo" ng-click="nuevoRiesgo()" class="btn btn-primary">
+                            <span><i class="fa fa-plus-square"></i></span>
+                            Nuevo riesgo
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div ng-if="data.viewStateFlag">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <div class="box-name">
+                        <i class="fa fa-exclamation-triangle"></i>
+                        <span>Riesgos asociados</span>
+                    </div>
+                    <div class="box-icons">
+                        <a class="collapse-link">
+                            <i class="fa fa-chevron-up"></i>
+                        </a>
+                        <a class="expand-link">
+                            <i class="fa fa-expand"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-content">
+                    <table class="table table-hover table-datatable" id="grid-actualesView" ng-if="data.cobertura.riesgos && data.cobertura.riesgos.length != 0">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="item in data.cobertura.riesgos">
+                            <td>{{item.nombre}}</td>
+                            <td>{{item.descripcion}}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <div ng-if="data.cobertura.riesgos.length == 0 || !data.cobertura.riesgos" class="alert alert-danger" role="alert">No hay riesgos asociados</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
