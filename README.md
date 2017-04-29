@@ -1,6 +1,6 @@
 sigep: Example Using Multiple Java EE 6 Technologies Deployed as an EAR
 ==============================================================================================
-Author: Pete Muir
+Author: Estudiantes UTN
 Level: Intermediate
 Technologies: EAR
 Summary: Based on kitchensink, but deployed as an EAR
