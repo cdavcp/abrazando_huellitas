@@ -1,7 +1,7 @@
 package sigep.rest.sigep;
 
 import sigep.beans.sigep.ClienteBean;
-import sigep.beans.TipoDocumentoBean;
+import sigep.beans.Ivent.TipoDocumentoBean;
 import sigep.exceptions.SIGEPException;
 import sigep.service.sigep.ClienteService;
 import sigep.service.sigep.TipoDocumentoService;

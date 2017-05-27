@@ -1,6 +1,6 @@
 package sigep.beans.sigep;
 
-import sigep.beans.TipoDocumentoBean;
+import sigep.beans.Ivent.TipoDocumentoBean;
 
 import java.util.Date;
 

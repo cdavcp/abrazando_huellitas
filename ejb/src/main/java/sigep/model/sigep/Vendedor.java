@@ -2,7 +2,7 @@ package sigep.model.sigep;
 
 import sigep.beans.sigep.VendedorBean;
 import sigep.model.EntityBase;
-import sigep.model.TipoDocumento;
+import sigep.model.Ivent.TipoDocumento;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;

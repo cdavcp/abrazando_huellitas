@@ -1,8 +1,10 @@
 package sigep.data.dto;
 
-import sigep.beans.*;
-import sigep.model.TipoUsuario;
-import sigep.model.Usuario;
+import sigep.beans.Ivent.ArtistaBean;
+import sigep.beans.Ivent.EventoBean;
+import sigep.beans.Ivent.LugarBean;
+import sigep.beans.Ivent.UsuarioBean;
+import sigep.model.Ivent.TipoUsuario;
 
 import java.util.ArrayList;
 import java.util.List;

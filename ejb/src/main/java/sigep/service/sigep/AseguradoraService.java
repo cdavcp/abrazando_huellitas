@@ -5,7 +5,7 @@ import sigep.data.dao.sigep.AseguradoraDao;
 import sigep.data.dao.sigep.ParametroImportacionDao;
 import sigep.exceptions.SIGEPException;
 import sigep.exceptions.SIGEPValidationException;
-import sigep.model.Archivo;
+import sigep.model.Ivent.Archivo;
 import sigep.model.sigep.Aseguradora;
 import sigep.model.sigep.ParametroImportacion;
 import sigep.service.ArchivoService;

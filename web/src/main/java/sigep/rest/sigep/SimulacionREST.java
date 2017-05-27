@@ -1,6 +1,6 @@
 package sigep.rest.sigep;
 
-import sigep.beans.*;
+import sigep.beans.Ivent.TipoDocumentoBean;
 import sigep.beans.sigep.ClienteBean;
 import sigep.beans.sigep.RubroBean;
 import sigep.beans.sigep.SolicitudBeanOld;

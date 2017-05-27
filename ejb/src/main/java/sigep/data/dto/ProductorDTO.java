@@ -1,7 +1,7 @@
 package sigep.data.dto;
 
 import sigep.beans.sigep.ProductorBean;
-import sigep.beans.TipoDocumentoBean;
+import sigep.beans.Ivent.TipoDocumentoBean;
 import sigep.beans.sigep.VendedorBean;
 
 import java.util.List;

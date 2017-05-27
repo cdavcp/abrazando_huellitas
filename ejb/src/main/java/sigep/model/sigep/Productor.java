@@ -3,8 +3,8 @@ package sigep.model.sigep;
 import sigep.beans.sigep.ProductorBean;
 import sigep.beans.sigep.VendedorBean;
 import sigep.model.EntityBase;
-import sigep.model.TipoDocumento;
-import sigep.model.Usuario;
+import sigep.model.Ivent.TipoDocumento;
+import sigep.model.Ivent.Usuario;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;

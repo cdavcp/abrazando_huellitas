@@ -1,10 +1,10 @@
 package sigep.service.sigep;
 
-import sigep.beans.TipoDocumentoBean;
+import sigep.beans.Ivent.TipoDocumentoBean;
 import sigep.data.dao.sigep.TipoDocumentoDao;
 import sigep.exceptions.SIGEPException;
 import sigep.exceptions.SIGEPValidationException;
-import sigep.model.TipoDocumento;
+import sigep.model.Ivent.TipoDocumento;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;

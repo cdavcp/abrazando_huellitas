@@ -3,7 +3,7 @@ package sigep.rest.sigep;
 import sigep.beans.sigep.AseguradoraBean;
 import sigep.beans.sigep.PolizaBean;
 import sigep.beans.sigep.SolicitudBeanOld;
-import sigep.beans.TipoDocumentoBean;
+import sigep.beans.Ivent.TipoDocumentoBean;
 //import sigep.data.dto.sigep.BandejaSolicitudDTO;
 import sigep.data.dto.BandejaSolicitudDTO;
 import sigep.service.sigep.AseguradoraService;

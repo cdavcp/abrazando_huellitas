@@ -4,7 +4,7 @@ import sigep.beans.sigep.RubroBean;
 import sigep.data.dao.sigep.RubroDao;
 import sigep.exceptions.SIGEPException;
 import sigep.exceptions.SIGEPValidationException;
-import sigep.model.Archivo;
+import sigep.model.Ivent.Archivo;
 import sigep.model.sigep.Rubro;
 import sigep.service.ArchivoService;
 import sigep.util.FileUtil;

@@ -1,7 +1,7 @@
 package sigep.service;
 
-import sigep.data.dao.ArchivoDao;
-import sigep.model.Archivo;
+import sigep.data.dao.Ivent.ArchivoDao;
+import sigep.model.Ivent.Archivo;
 
 import javax.ejb.Stateless;
 import javax.inject.Inject;
