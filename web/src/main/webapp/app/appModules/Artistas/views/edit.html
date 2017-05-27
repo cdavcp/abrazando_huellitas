@@ -9,9 +9,9 @@
 
             <div class="row">
                 <div class="form-group col-md-4">
-                    <label class="control-label col-md-3" for="nombre">Nombre (*)</label>
-                    <input type="text" class="form-control col-md-3" id="nombre" ng-model="artista.nombre"
-                           maxlength="50" name="nombre"
+                    <label class="control-label col-md-3" for="descripcion">Nombre (*)</label>
+                    <input type="text" class="form-control col-md-3" id="descripcion" ng-model="artista.descripcion"
+                           maxlength="50" name="descripcion"
                            required="" placeholder="Nombre del Artista">
 
                 </div>
@@ -19,7 +19,7 @@
                 <div class="form-group col-md-4">
                     <label class="control-label" for="tipoShow2">Tipo Show (*)</label>
                     <select class="form-control" name="tipoShow" id="tipoShow2" ng-model="artista.tipoShow.id"
-                            ng-options="item.id as item.nombre for item in data.listaTipoShow" required="">
+                            ng-options="item.id as item.descripcion for item in data.listaTipoShow" required="">
                         <option value="">-- Seleccione --</option>
                     </select>
                 </div>
@@ -144,7 +144,7 @@
             <div class="modal-body">
 
                 <!--<div class="form-group col-md-4">-->
-                <label class="control-label col-md-3" for="nombre">URL Foto (*)</label>
+                <label class="control-label col-md-3" for="descripcion">URL Foto (*)</label>
                 <input type="text" class="form-control col-md-3" id="foto" ng-model="artista.foto"
                        maxlength="800" name="fotoAr"
                        required="" placeholder="Foto del Artista">

@@ -27,7 +27,7 @@
                                 <label class="col-sm-3 control-label">Aseguradora (*)</label>
 
                                 <div class="col-sm-5">
-                                    <select class="form-control" name="aseguradora" ng-model="data.aseguradoraId" ng-change="aseguradoraChanged()" ng-options="item.id as item.nombre for item in data.listaAseguradoras">
+                                    <select class="form-control" name="aseguradora" ng-model="data.aseguradoraId" ng-change="aseguradoraChanged()" ng-options="item.id as item.descripcion for item in data.listaAseguradoras">
                                         <option value="">-- Seleccione --</option>
                                     </select>
                                 </div>

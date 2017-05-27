@@ -31,15 +31,15 @@
                             </div>
 
                             <div class="row-fluid">
-                                <div class="form-group" ng-class="{ 'has-error': aseguradoraCreateForm.nombre.$invalid && aseguradoraCreateForm.nombre.$dirty}">
+                                <div class="form-group" ng-class="{ 'has-error': aseguradoraCreateForm.descripcion.$invalid && aseguradoraCreateForm.descripcion.$dirty}">
                                     <label class="control-label col-sm-3">Nombre (*)</label>
 
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" ng-model="data.aseguradora.nombre" maxlength="50" name="nombre" required="" placeholder="abc" ng-disabled="data.viewStateFlag">
+                                        <input type="text" class="form-control" ng-model="data.aseguradora.descripcion" maxlength="50" name="descripcion" required="" placeholder="abc" ng-disabled="data.viewStateFlag">
                                     </div>
 
-                                    <div ng-show="aseguradoraCreateForm.nombre.$invalid && aseguradoraCreateForm.nombre.$dirty" class="col-sm-4">
-                                        <span class="help-block" ng-show="aseguradoraCreateForm.nombre.$error.required">Ingrese nombre</span>
+                                    <div ng-show="aseguradoraCreateForm.descripcion.$invalid && aseguradoraCreateForm.descripcion.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="aseguradoraCreateForm.descripcion.$error.required">Ingrese descripcion</span>
                                     </div>
                                 </div>
                             </div>

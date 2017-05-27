@@ -50,7 +50,7 @@
                             <li ng-if="userProfile.tipoUsuario.id == 1" class="input-sm"><span class="input-group-sm"></span>
                                 <select class="form-control" name="tipoUsuario"
                                         ng-model="evento.artista.id"
-                                        ng-options="item.id as item.nombre for item in artistas"
+                                        ng-options="item.id as item.descripcion for item in artistas"
                                         required="">
                                     <option value="">-- Seleccione Artista --</option>
                                 </select>
@@ -59,7 +59,7 @@
                             <li ng-if="userProfile.tipoUsuario.id == 2" class="input-sm"><span class="input-group-sm"></span>
                                 <select class="form-control" name="tipoUsuario"
                                         ng-model="evento.lugar.id"
-                                        ng-options="item.id as item.nombre for item in lugares"
+                                        ng-options="item.id as item.descripcion for item in lugares"
                                         required="">
                                     <option value="">-- Seleccione Lugar --</option>
                                 </select>

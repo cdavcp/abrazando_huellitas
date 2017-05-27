@@ -32,7 +32,7 @@
                                     <label class="col-sm-3 control-label">Productor</label>
 
                                     <div class="col-sm-5">
-                                        <p class="form-control-static text-primary"><strong>{{data.poliza.productor.nombre + " " + data.poliza.productor.apellido}}</strong></p>
+                                        <p class="form-control-static text-primary"><strong>{{data.poliza.productor.descripcion + " " + data.poliza.productor.apellido}}</strong></p>
                                     </div>
                                 </div>
                             </div>
@@ -42,7 +42,7 @@
                                     <label class="col-sm-3 control-label">Aseguradora (*)</label>
 
                                     <div class="col-sm-5">
-                                        <select class="form-control" name="aseguradora" ng-model="data.aseguradoraSeleccionadaId" ng-disabled="data.aseguradoraDisabled" ng-options="item.id as item.nombre for item in data.listaAseguradoras" ng-change="padreCoberturaChanged()" required="">
+                                        <select class="form-control" name="aseguradora" ng-model="data.aseguradoraSeleccionadaId" ng-disabled="data.aseguradoraDisabled" ng-options="item.id as item.descripcion for item in data.listaAseguradoras" ng-change="padreCoberturaChanged()" required="">
                                             <option value="">-- Seleccione --</option>
                                         </select>
                                     </div>
@@ -58,7 +58,7 @@
                                     <label class="col-sm-3 control-label">Rubro (*)</label>
 
                                     <div class="col-sm-5">
-                                        <select class="form-control" name="rubro" ng-model="data.rubroSeleccionadoId" ng-options="item.id as item.nombre for item in data.listaRubros" ng-change="padreCoberturaChanged()" required="">
+                                        <select class="form-control" name="rubro" ng-model="data.rubroSeleccionadoId" ng-options="item.id as item.descripcion for item in data.listaRubros" ng-change="padreCoberturaChanged()" required="">
                                             <option value="">-- Seleccione --</option>
                                         </select>
                                     </div>
@@ -74,7 +74,7 @@
                                     <label class="col-sm-3 control-label">Cobertura (*)</label>
 
                                     <div class="col-sm-5">
-                                        <select class="form-control" name="cobertura" ng-disabled="form.polizaCreateForm.aseguradora.$invalid || form.polizaCreateForm.rubro.$invalid" ng-model="data.poliza.cobertura.id" ng-options="item.id as item.nombre for item in data.listaCoberturas" required="">
+                                        <select class="form-control" name="cobertura" ng-disabled="form.polizaCreateForm.aseguradora.$invalid || form.polizaCreateForm.rubro.$invalid" ng-model="data.poliza.cobertura.id" ng-options="item.id as item.descripcion for item in data.listaCoberturas" required="">
                                             <option value="">-- Seleccione --</option>
                                         </select>
                                     </div>
@@ -132,7 +132,7 @@
                                     <label class="col-sm-3 control-label">Vendedor</label>
 
                                     <div class="col-sm-5">
-                                        <select class="form-control" name="vendedor" ng-model="data.poliza.vendedor.id" ng-options="item.id as item.nombre for item in data.listaVendedores">
+                                        <select class="form-control" name="vendedor" ng-model="data.poliza.vendedor.id" ng-options="item.id as item.descripcion for item in data.listaVendedores">
                                             <option value="">-- Seleccione --</option>
                                         </select>
                                     </div>
@@ -144,7 +144,7 @@
                                     <label class="col-sm-3 control-label">Cliente (*)</label>
 
                                     <div class="col-sm-5">
-                                        <select2 name="cliente" options="{ placeholder: '-- Seleccione --' }" ng-model="data.poliza.cliente.id" ng-options="item.id as item.nombre for item in data.listaClientes" required="" ng-disabled="data.disableCliente">
+                                        <select2 name="cliente" options="{ placeholder: '-- Seleccione --' }" ng-model="data.poliza.cliente.id" ng-options="item.id as item.descripcion for item in data.listaClientes" required="" ng-disabled="data.disableCliente">
                                             <option value="">-- Seleccione --</option>
                                         </select2>
                                     </div>
@@ -160,7 +160,7 @@
                                     <label class="col-sm-3 control-label">Origen póliza (*)</label>
 
                                     <div class="col-sm-5">
-                                        <select class="form-control" name="origen" ng-model="data.poliza.origen.id" ng-options="item.id as item.nombre for item in data.listaOrigenesPoliza" required="" ng-disabled="data.disableOrigen">
+                                        <select class="form-control" name="origen" ng-model="data.poliza.origen.id" ng-options="item.id as item.descripcion for item in data.listaOrigenesPoliza" required="" ng-disabled="data.disableOrigen">
                                             <option value="">-- Seleccione --</option>
                                         </select>
                                     </div>

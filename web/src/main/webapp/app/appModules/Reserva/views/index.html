@@ -26,9 +26,9 @@
         </thead>
         <tbody>
         <tr  ng-repeat="item in reservas">
-            <td>{{item.nombre}}</td>
-            <td>{{item.evento.artista.nombre}}</td>
-            <td>{{item.evento.lugar.nombre}}</td>
+            <td>{{item.descripcion}}</td>
+            <td>{{item.evento.artista.descripcion}}</td>
+            <td>{{item.evento.lugar.descripcion}}</td>
             <td>{{item.evento.lugar.ubicacion}}</td>
             <td>{{item.evento.fechaEvento | date:"MM/dd/yyyy"}}</td>
             <td>{{item.evento.fechaEvento | date: "HH:mm:ss a"}}</td>

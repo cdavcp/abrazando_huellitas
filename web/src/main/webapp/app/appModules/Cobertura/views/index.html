@@ -45,11 +45,11 @@
                         </thead>
                         <tbody>
                         <tr  ng-repeat="item in data.coberturasPaginated">
-                            <td>{{item.nombre}}</td>
                             <td>{{item.descripcion}}</td>
-                            <td>{{item.tipoCobertura.nombre}}</td>
-                            <td>{{item.rubro.nombre}}</td>
-                            <td>{{item.aseguradora.nombre}}</td>
+                            <td>{{item.descripcion}}</td>
+                            <td>{{item.tipoCobertura.descripcion}}</td>
+                            <td>{{item.rubro.descripcion}}</td>
+                            <td>{{item.aseguradora.descripcion}}</td>
                             <td style="text-align: center">{{item.porcentajePrecioStr}}</td>
                             <td style="text-align: center">{{item.precio | currency:"$"}}</td>
                             <td class="grid-button" style="text-align:center">

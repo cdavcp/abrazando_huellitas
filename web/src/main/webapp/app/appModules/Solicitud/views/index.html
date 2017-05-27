@@ -25,8 +25,8 @@
         </thead>
         <tbody>
         <tr  ng-repeat="item in solicitudes.enviadas">
-            <td>{{item.artista.nombre}}</td>
-            <td>{{item.lugar.nombre}}</td>
+            <td>{{item.artista.descripcion}}</td>
+            <td>{{item.lugar.descripcion}}</td>
             <td>{{item.lugar.ubicacion}}</td>
             <td>{{item.fechaEvento | date:"dd/MM/yyyy"}}</td>
             <td>{{item.fechaEvento | date: "HH:mm:ss a"}}</td>
@@ -66,8 +66,8 @@
         </thead>
         <tbody>
         <tr  ng-repeat="item in solicitudes.recibidas">
-            <td>{{item.artista.nombre}}</td>
-            <td>{{item.lugar.nombre}}</td>
+            <td>{{item.artista.descripcion}}</td>
+            <td>{{item.lugar.descripcion}}</td>
             <td>{{item.lugar.ubicacion}}</td>
             <td>{{item.fechaEvento | date:"dd/MM/yyyy"}}</td>
             <td>{{item.fechaEvento | date: "HH:mm:ss a"}}</td>
@@ -108,8 +108,8 @@
         </thead>
         <tbody>
         <tr  ng-repeat="item in solicitudes.aceptadas">
-            <td>{{item.artista.nombre}}</td>
-            <td>{{item.lugar.nombre}}</td>
+            <td>{{item.artista.descripcion}}</td>
+            <td>{{item.lugar.descripcion}}</td>
             <td>{{item.lugar.ubicacion}}</td>
             <td>{{item.fechaEvento | date:"dd/MM/yyyy"}}</td>
             <td>{{item.fechaEvento | date: "HH:mm:ss  a"}}</td>
@@ -148,8 +148,8 @@
         </thead>
         <tbody>
         <tr  ng-repeat="item in solicitudes.rechazadas">
-            <td>{{item.artista.nombre}}</td>
-            <td>{{item.lugar.nombre}}</td>
+            <td>{{item.artista.descripcion}}</td>
+            <td>{{item.lugar.descripcion}}</td>
             <td>{{item.lugar.ubicacion}}</td>
             <td>{{item.fechaEvento | date:"dd/MM/yyyy"}}</td>
             <td>{{item.fechaEvento | date: "HH:mm:ss  a"}}</td>

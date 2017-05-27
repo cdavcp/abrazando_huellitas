@@ -52,10 +52,10 @@
                         <tbody>
                         <tr  ng-repeat="item in data.lotesPaginated" ng-class="setRowClass(item.estado.id)">
                             <td>{{item.id}}</td>
-                            <td>{{item.aseguradora.nombre}}</td>
+                            <td>{{item.aseguradora.descripcion}}</td>
                             <td>{{item.fecha | date:'dd/MM/yyyy'}}</td>
-                            <td>{{item.nombre}}</td>
-                            <td>{{item.estado.nombre}}</td>
+                            <td>{{item.descripcion}}</td>
+                            <td>{{item.estado.descripcion}}</td>
                             <td class="grid-button" style="text-align: center">
                                 <a href="" ng-click="verClick(item)"><i class="fa fa-search tip edit"></i></a>
                                 <a href="" ng-click="editarClick(item)" ng-hide="item.estado.id == data.idEstadoProcesado"><i class="fa fa-pencil tip edit"></i></a>

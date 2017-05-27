@@ -13,12 +13,12 @@
                     </li>
                     <li class="col-md-6 col-sm-6">
                         <div class="cp-post-content">
-                            <h3><a ng-click="verArtista(item)" >{{item.nombre}}.</a></h3>
+                            <h3><a ng-click="verArtista(item)" >{{item.descripcion}}.</a></h3>
                             <ul class="cp-post-tools">
                                 <li><i class="icon-26"></i> {{item.lugarActual}}</li>
-                                <li><i class="icon-2"></i> {{item.nombre}}</li>
-                                <li><i class="icon-5"></i> {{item.tipoShow.nombre}}</li>
-                                <li ng-repeat="genero in item.tags" ><i class="icon-5"></i> #{{genero.nombre}}</li>
+                                <li><i class="icon-2"></i> {{item.descripcion}}</li>
+                                <li><i class="icon-5"></i> {{item.tipoShow.descripcion}}</li>
+                                <li ng-repeat="genero in item.tags" ><i class="icon-5"></i> #{{genero.descripcion}}</li>
                                 <li><a ><i  ng-class="{'icon-11' : {{item.puntuacion}} < 1.0 , 'icon-9' : {{item.puntuacion}} >= 1.0, 'icon-10' : ({{item.puntuacion}} > 1.0 && {{item.puntuacion}}< 2.0) }"></i> <i ng-class="{'icon-11' : {{item.puntuacion}} < 2.0 , 'icon-9' : {{item.puntuacion}} >= 2.0, 'icon-10' : ({{item.puntuacion}} > 1.0 && {{item.puntuacion}}< 2.0) }"></i> <i ng-class="{'icon-11' : {{item.puntuacion}} < 3.0 , 'icon-9' : {{item.puntuacion}} >= 3.0, 'icon-10' : ({{item.puntuacion}} > 2.0 && {{item.puntuacion}}< 3.0) }"></i> <i
                                         ng-class="{'icon-11' : {{item.puntuacion}} < 4.0 , 'icon-9' : {{item.puntuacion}} >= 4.0, 'icon-10' : ({{item.puntuacion}} > 3.0 && {{item.puntuacion}}< 4.0) }"></i> <i ng-class="{'icon-11' : {{item.puntuacion}} < 5.0 , 'icon-9' : {{item.puntuacion}} >= 5.0, 'icon-10' : ({{item.puntuacion}} > 4.0 && {{item.puntuacion}}< 5.0) }"></i></a></li>
                             </ul>
@@ -68,22 +68,22 @@
                 </div>
 
                 <div class="form-group col-md-12">
-                    <label class="control-label col-md-3" for="nombre">Nombre</label>
-                    <input ng-change="queryBusqueda()" ng-model-options='{ debounce: 1000 }' type="text" class="form-control col-md-3" id="nombre" ng-model="artistaFilter.nombre"
-                           maxlength="50" name="nombre"
+                    <label class="control-label col-md-3" for="descripcion">Nombre</label>
+                    <input ng-change="queryBusqueda()" ng-model-options='{ debounce: 1000 }' type="text" class="form-control col-md-3" id="descripcion" ng-model="artistaFilter.descripcion"
+                           maxlength="50" name="descripcion"
                            required="" placeholder="Nombre del Artista">
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label" for="tipoShow2">Tipo Show </label>
-                    <select ng-change="queryBusqueda()" class="form-control" name="tipoShow2" id="tipoShow2" ng-model="artistaFilter.tipoShow.nombre"
-                            ng-options="item.nombre as item.nombre for item in listaTipoShow" required="">
+                    <select ng-change="queryBusqueda()" class="form-control" name="tipoShow2" id="tipoShow2" ng-model="artistaFilter.tipoShow.descripcion"
+                            ng-options="item.descripcion as item.descripcion for item in listaTipoShow" required="">
                         <option value="">-- Seleccione --</option>
                     </select>
                 </div>
                 <div class="form-group col-md-12">
                     <label class="control-label col-md-3" for="genero">Género</label>
                     <input ng-change="queryBusqueda()" ng-model-options='{ debounce: 1000 }' type="text" class="form-control col-md-3" id="genero" ng-model="genero"
-                           maxlength="50" name="nombre"
+                           maxlength="50" name="descripcion"
                            placeholder="Género">
                 </div>
 
@@ -116,12 +116,12 @@
                         <div class="small-post">
                             <div class="cp-thumb"><img alt="" ng-src="{{item.foto}}"></div>
                             <div class="cp-post-content">
-                                <h3><a ng-click="verArtista(item)">{{item.nombre}}</a></h3>
+                                <h3><a ng-click="verArtista(item)">{{item.descripcion}}</a></h3>
                                 <ul class="cp-post-tools">
                                     <li><i class="icon-26"></i> {{item.lugarActual}}</li>
-                                    <li><i class="icon-2"></i> {{item.nombre}}</li>
-                                    <li><i class="icon-5"></i> {{item.tipoShow.nombre}}</li>
-                                    <li ng-repeat="genero in item.tags" ><i class="icon-5"></i> #{{genero.nombre}}</li>
+                                    <li><i class="icon-2"></i> {{item.descripcion}}</li>
+                                    <li><i class="icon-5"></i> {{item.tipoShow.descripcion}}</li>
+                                    <li ng-repeat="genero in item.tags" ><i class="icon-5"></i> #{{genero.descripcion}}</li>
                                     <li><a ><i  ng-class="{'icon-11' : {{item.puntuacion}} < 1.0 , 'icon-9' : {{item.puntuacion}} >= 1.0, 'icon-10' : ({{item.puntuacion}} > 1.0 && {{item.puntuacion}}< 2.0) }"></i> <i ng-class="{'icon-11' : {{item.puntuacion}} < 2.0 , 'icon-9' : {{item.puntuacion}} >= 2.0, 'icon-10' : ({{item.puntuacion}} > 2.0 && {{item.puntuacion}}< 3.0) }"></i> <i ng-class="{'icon-11' : {{item.puntuacion}} < 3.0 , 'icon-9' : {{item.puntuacion}} >= 3.0, 'icon-10' : ({{item.puntuacion}} > 3.0 && {{item.puntuacion}}< 4.0) }"></i> <i
                                             ng-class="{'icon-11' : {{item.puntuacion}} < 4.0 , 'icon-9' : {{item.puntuacion}} >= 4.0, 'icon-10' : ({{item.puntuacion}} > 4.0 && {{item.puntuacion}}< 5.0) }"></i> <i ng-class="{'icon-11' : {{item.puntuacion}} < 5.0 , 'icon-9' : {{item.puntuacion}} >= 5.0, 'icon-10' : ({{item.puntuacion}} > 4.0 && {{item.puntuacion}}< 5.0) }"></i></a></li>
                                 </ul>
@@ -162,12 +162,12 @@
                         <div class="small-post">
                             <div class="cp-thumb"><img alt="" ng-src="{{item.foto}}"></div>
                             <div class="cp-post-content">
-                                <h3><a ng-click="verArtista(item)">{{item.nombre}}</a></h3>
+                                <h3><a ng-click="verArtista(item)">{{item.descripcion}}</a></h3>
                                 <ul class="cp-post-tools">
                                     <li><i class="icon-26"></i> {{item.lugarActual}}</li>
-                                    <li><i class="icon-2"></i> {{item.nombre}}</li>
-                                    <li><i class="icon-5"></i> {{item.tipoShow.nombre}}</li>
-                                    <li ng-repeat="genero in item.tags" ><i class="icon-5"></i> #{{genero.nombre}}</li>
+                                    <li><i class="icon-2"></i> {{item.descripcion}}</li>
+                                    <li><i class="icon-5"></i> {{item.tipoShow.descripcion}}</li>
+                                    <li ng-repeat="genero in item.tags" ><i class="icon-5"></i> #{{genero.descripcion}}</li>
                                     <li><a ><i  ng-class="{'icon-11' : {{item.puntuacion}} < 1.0 , 'icon-9' : {{item.puntuacion}} >= 1.0, 'icon-10' : ({{item.puntuacion}} > 1.0 && {{item.puntuacion}}< 2.0) }"></i> <i ng-class="{'icon-11' : {{item.puntuacion}} < 2.0 , 'icon-9' : {{item.puntuacion}} >= 2.0, 'icon-10' : ({{item.puntuacion}} > 2.0 && {{item.puntuacion}}< 3.0) }"></i> <i ng-class="{'icon-11' : {{item.puntuacion}} < 3.0 , 'icon-9' : {{item.puntuacion}} >= 3.0, 'icon-10' : ({{item.puntuacion}} > 3.0 && {{item.puntuacion}}< 4.0) }"></i> <i
                                             ng-class="{'icon-11' : {{item.puntuacion}} < 4.0 , 'icon-9' : {{item.puntuacion}} >= 4.0, 'icon-10' : ({{item.puntuacion}} > 4.0 && {{item.puntuacion}}< 5.0) }"></i> <i ng-class="{'icon-11' : {{item.puntuacion}} < 5.0 , 'icon-9' : {{item.puntuacion}} >= 5.0, 'icon-10' : ({{item.puntuacion}} > 4.0 && {{item.puntuacion}}< 5.0) }"></i></a></li>
                                 </ul>

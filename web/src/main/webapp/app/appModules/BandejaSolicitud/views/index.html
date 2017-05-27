@@ -40,9 +40,9 @@
                         <tbody>
                         <tr ng-repeat="item in data.solicitudesNuevasPaginated">
                             <td>
-                                {{item.cliente.nombre}} {{item.cliente.apellido}}
+                                {{item.cliente.descripcion}} {{item.cliente.apellido}}
                             </td>
-                            <td>{{item.cobertura.nombre}} - {{item.cobertura.aseguradora.nombre}}</td>
+                            <td>{{item.cobertura.descripcion}} - {{item.cobertura.aseguradora.descripcion}}</td>
                             <td>{{item.fecha | date:'dd/MM/yyyy'}}</td>
                             <td>{{item.observaciones}}</td>
                             <td class="grid-button" style="text-align:center">
@@ -105,11 +105,11 @@
                         <tbody>
                         <tr ng-repeat="item in data.solicitudesHistorialPaginated" ng-class="solicitudClass(item.estado.id)">
                             <td>
-                                {{item.cliente.nombre}} {{item.cliente.apellido}}
+                                {{item.cliente.descripcion}} {{item.cliente.apellido}}
                             </td>
-                            <td>{{item.cobertura.nombre}} - {{item.cobertura.aseguradora.nombre}}</td>
+                            <td>{{item.cobertura.descripcion}} - {{item.cobertura.aseguradora.descripcion}}</td>
                             <td>{{item.fecha  | date:'dd/MM/yyyy'}}</td>
-                            <td>{{item.estado.nombre}}</td>
+                            <td>{{item.estado.descripcion}}</td>
                             <td>{{item.observaciones}}</td>
                             <td class="grid-button" style="text-align:center">
                                 <a href="" ng-click="verClick(item)"><i class="fa fa-search tip edit"></i></a>

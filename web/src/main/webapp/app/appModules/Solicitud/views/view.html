@@ -2,7 +2,7 @@
 <legend>
     <h2></h2></legend>
 <legend>
-    <h1>{{evento.artista.nombre}} en {{evento.lugar.nombre}}</h1></legend>
+    <h1>{{evento.artista.descripcion}} en {{evento.lugar.descripcion}}</h1></legend>
 
 
 <div class="main-content">
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-7 col-sm-7">
                     <div class="cp-pro-content">
-                        <h2>{{evento.artista.nombre}} en {{evento.lugar.nombre}}</h2>
+                        <h2>{{evento.artista.descripcion}} en {{evento.lugar.descripcion}}</h2>
 
                         <button ng-click="reservar()" ng-if="userProfile.tipoUsuario.id == 3" type="submit"
                                 class="btn btn-primary pull-right waves-effect waves-button">Reservar <i
@@ -44,7 +44,7 @@
 
                         <p> {{artista.descripcion}} </p>
                         <ul class="check-list">
-                            <li>Tipo Show: {{evento.artista.tipoShow.nombre}} en vivo</li>
+                            <li>Tipo Show: {{evento.artista.tipoShow.descripcion}} en vivo</li>
                         </ul>
                         <div class="product-tools">
                             <ul class="brand-code">
@@ -110,7 +110,7 @@
                     <div class="reviews">
                         <div class="cp-review-author"><img src="../../../../img/avatarComentario.png" alt="" ></div>
                         <div class="cp-review">
-                            <h4><a >{{item.usuario.nombre}}</a></h4>
+                            <h4><a >{{item.usuario.descripcion}}</a></h4>
                             <p>{{item.comentario}}.</p>
                         </div>
                     </div>

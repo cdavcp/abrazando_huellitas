@@ -25,7 +25,7 @@
                             <div class="row-fluid">
                                 <div class="alert alert-info alert-dismissible" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                    <strong>Información:</strong> Los campos marcados con (*) son requeridos. Debe seleccionar un rubro para poder ingresar el nombre deseado.
+                                    <strong>Información:</strong> Los campos marcados con (*) son requeridos. Debe seleccionar un rubro para poder ingresar el descripcion deseado.
                                 </div>
                             </div>
 
@@ -34,7 +34,7 @@
                                     <label class="col-sm-3 control-label">Rubro (*)</label>
 
                                     <div class="col-sm-5">
-                                        <select class="form-control" name="rubro" ng-change="rubroSelected()" ng-model="data.riesgo.rubro" ng-options="item as item.nombre for item in data.listaRubros" required="">
+                                        <select class="form-control" name="rubro" ng-change="rubroSelected()" ng-model="data.riesgo.rubro" ng-options="item as item.descripcion for item in data.listaRubros" required="">
                                             <option value="">-- Seleccione --</option>
                                         </select>
                                     </div>
@@ -46,17 +46,17 @@
                             </div>
 
                             <div class="row-fluid">
-                                <div class="form-group" ng-class="{ 'has-error': form.riesgoCreateForm.nombre.$invalid && form.riesgoCreateForm.nombre.$dirty}">
+                                <div class="form-group" ng-class="{ 'has-error': form.riesgoCreateForm.descripcion.$invalid && form.riesgoCreateForm.descripcion.$dirty}">
                                     <label class="control-label col-sm-3">Nombre (*)</label>
 
                                     <div class="col-sm-5" ng-class="data.claseNombreRiesgo">
-                                        <input type="text" class="form-control" ng-change="checkName()" ng-model-options="{ debounce: 500 }" ng-model="data.riesgo.nombre" maxlength="50" name="nombre" required="" placeholder="abc" ng-disabled="!data.riesgo.rubro">
+                                        <input type="text" class="form-control" ng-change="checkName()" ng-model-options="{ debounce: 500 }" ng-model="data.riesgo.descripcion" maxlength="50" name="descripcion" required="" placeholder="abc" ng-disabled="!data.riesgo.rubro">
                                         <i ng-show="data.checkingName" class="fa fa-spinner fa-pulse"></i>
-                                        <span ng-show="!data.nombreNuevoRiesgoValido" class="help-block">Ya existe un riesgo con este nombre en el rubro {{data.riesgo.rubro.nombre}}.</span>
+                                        <span ng-show="!data.nombreNuevoRiesgoValido" class="help-block">Ya existe un riesgo con este descripcion en el rubro {{data.riesgo.rubro.descripcion}}.</span>
                                     </div>
 
-                                    <div ng-show="form.riesgoCreateForm.nombre.$invalid && form.riesgoCreateForm.nombre.$dirty" class="col-sm-4">
-                                        <span class="help-block" ng-show="form.riesgoCreateForm.nombre.$error.required">Ingrese nombre</span>
+                                    <div ng-show="form.riesgoCreateForm.descripcion.$invalid && form.riesgoCreateForm.descripcion.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="form.riesgoCreateForm.descripcion.$error.required">Ingrese descripcion</span>
                                     </div>
                                 </div>
                             </div>
@@ -84,7 +84,7 @@
                         <div class="box-header">
                             <div class="box-name">
                                 <i class="fa fa-exclamation-triangle"></i>
-                                <span>Todas las coberturas del rubro {{data.riesgo.rubro.nombre}}</span>
+                                <span>Todas las coberturas del rubro {{data.riesgo.rubro.descripcion}}</span>
                             </div>
                             <div class="box-icons">
                                 <a class="collapse-link">
@@ -106,8 +106,8 @@
                                 </thead>
                                 <tbody>
                                 <tr ng-repeat="item in data.listaCoberturas">
-                                    <td>{{item.nombre}}</td>
-                                    <td>{{item.aseguradora.nombre}}</td>
+                                    <td>{{item.descripcion}}</td>
+                                    <td>{{item.aseguradora.descripcion}}</td>
                                     <td class="grid-button">
                                         <a href="" ng-click="agregarCobertura($index)"><i class="fa fa-angle-double-right fa-lg tip edit"></i></a>
                                     </td>
@@ -152,8 +152,8 @@
                                     <td class="grid-button">
                                         <a href="" ng-click="quitarCobertura($index)"><i class="fa fa-angle-double-left fa-lg tip edit"></i></a>
                                     </td>
-                                    <td>{{item.nombre}}</td>
-                                    <td>{{item.aseguradora.nombre}}</td>
+                                    <td>{{item.descripcion}}</td>
+                                    <td>{{item.aseguradora.descripcion}}</td>
                                 </tr>
                                 </tbody>
                             </table>

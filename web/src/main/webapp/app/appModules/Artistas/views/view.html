@@ -2,7 +2,7 @@
 <legend>
     <h2></h2></legend>
 <legend>
-    <h1>{{artista.nombre}}</h1></legend>
+    <h1>{{artista.descripcion}}</h1></legend>
 
 
 <div class="main-content">
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-md-7 col-sm-7">
                     <div class="cp-pro-content">
-                            <h2>{{artista.nombre}}</h2>
+                            <h2>{{artista.descripcion}}</h2>
 
                         <button ng-click="goToSolicitud()" ng-if="userProfile.tipoUsuario.id == 2" type="submit"
                                 class="btn btn-primary pull-right waves-effect waves-button">Enviar Solicitud <i
@@ -36,7 +36,7 @@
 
                         <p> {{artista.descripcion}} </p>
                         <ul class="check-list">
-                            <li>Tipo Show: {{artista.tipoShow.nombre}}</li>
+                            <li>Tipo Show: {{artista.tipoShow.descripcion}}</li>
                         </ul>
                         <div class="product-tools">
                             <ul class="brand-code">
@@ -106,7 +106,7 @@
                     </li>
                     <li class="col-md-6 col-sm-6">
                         <div class="cp-post-content">
-                            <h3><a ng-click="verEvento(item)" >{{item.artista.nombre}} en {{item.lugar.nombre}} .</a></h3>
+                            <h3><a ng-click="verEvento(item)" >{{item.artista.descripcion}} en {{item.lugar.descripcion}} .</a></h3>
                             <ul class="cp-post-tools">
                                 <li><i class="icon-26"></i> {{item.lugar.ubicacion}}</li>
                                 <li><i class="icon-2"></i> {{item.fechaEvento | date:"MM/dd/yyyy"}}</li>

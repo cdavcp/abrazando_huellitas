@@ -6,7 +6,7 @@
                     <div class="box-header">
                         <div class="box-name">
                             <i class="fa fa-exclamation-triangle"></i>
-                            <span>Todos los riesgos del rubro {{data.cobertura.rubro.nombre}}</span>
+                            <span>Todos los riesgos del rubro {{data.cobertura.rubro.descripcion}}</span>
                         </div>
                         <div class="box-icons">
                             <a class="collapse-link">
@@ -28,7 +28,7 @@
                             </thead>
                             <tbody>
                             <tr ng-repeat="item in data.listaRiesgos">
-                                <td>{{item.nombre}}</td>
+                                <td>{{item.descripcion}}</td>
                                 <td>{{item.descripcion}}</td>
                                 <td class="grid-button">
                                     <a href="" ng-click="agregarRiesgo($index)"><i class="fa fa-angle-double-right fa-lg tip edit"></i></a>
@@ -74,7 +74,7 @@
                                 <td class="grid-button">
                                     <a href="" ng-click="quitarRiesgo($index)"><i class="fa fa-angle-double-left fa-lg tip edit"></i></a>
                                 </td>
-                                <td>{{item.nombre}}</td>
+                                <td>{{item.descripcion}}</td>
                                 <td>{{item.descripcion}}</td>
                             </tr>
                             </tbody>
@@ -120,7 +120,7 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="item in data.cobertura.riesgos">
-                            <td>{{item.nombre}}</td>
+                            <td>{{item.descripcion}}</td>
                             <td>{{item.descripcion}}</td>
                         </tr>
                         </tbody>

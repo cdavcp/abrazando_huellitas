@@ -17,13 +17,13 @@
                                     <div class="cp-post">
                                         <div class="cp-thumb"><img alt="" ng-src="{{item.lugar.foto}}"></div>
                                         <div class="cp-post-content">
-                                            <h3><a ng-click="verEvento(item)">{{item.artista.nombre}} en
-                                                {{item.lugar.nombre}} </a></h3>
+                                            <h3><a ng-click="verEvento(item)">{{item.artista.descripcion}} en
+                                                {{item.lugar.descripcion}} </a></h3>
                                             <ul class="cp-post-tools">
                                                 <li><i class="icon-26"></i> {{item.lugar.ubicacion}}</li>
                                                 <li><i class="icon-2"></i> {{item.fechaEvento | date:"MM/dd/yyyy"}}</li>
                                                 <li><i class="icon-1"></i> {{item.fechaEvento | date: "HH:mm:ss a"}}</li>
-                                                <li><i class="icon-5"></i> Tipo Show: {{item.artista.tipoShow.nombre}}</li>
+                                                <li><i class="icon-5"></i> Tipo Show: {{item.artista.tipoShow.descripcion}}</li>
                                                 <li><i class="icon-9"></i> {{item.asunto}} Me gusta</li>
                                             </ul>
                                         </div>
@@ -58,29 +58,29 @@
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label class="control-label col-md-3" for="nombre">Nombre Artista</label>
-                                    <input ng-change="queryBusqueda()" ng-model-options='{ debounce: 1000 }' type="text" class="form-control col-md-3" id="nombre" ng-model="eventoFilter.artista.nombre"
-                                           maxlength="50" name="nombre"
+                                    <label class="control-label col-md-3" for="descripcion">Nombre Artista</label>
+                                    <input ng-change="queryBusqueda()" ng-model-options='{ debounce: 1000 }' type="text" class="form-control col-md-3" id="descripcion" ng-model="eventoFilter.artista.descripcion"
+                                           maxlength="50" name="descripcion"
                                            required="" placeholder="Nombre del Artista">
                                 </div>
 
                                 <div class="form-group col-md-12">
-                                    <label class="control-label col-md-3" for="nombre">Nombre Lugar</label>
-                                    <input ng-change="queryBusqueda()" ng-model-options='{ debounce: 1000 }' type="text" class="form-control col-md-3" id="nombreL" ng-model="eventoFilter.lugar.nombre"
-                                           maxlength="50" name="nombre"
+                                    <label class="control-label col-md-3" for="descripcion">Nombre Lugar</label>
+                                    <input ng-change="queryBusqueda()" ng-model-options='{ debounce: 1000 }' type="text" class="form-control col-md-3" id="nombreL" ng-model="eventoFilter.lugar.descripcion"
+                                           maxlength="50" name="descripcion"
                                            required="" placeholder="Nombre del Lugar">
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="control-label" for="tipoShow2">Tipo Show </label>
-                                    <select ng-change="queryBusqueda()" class="form-control" name="tipoShow2" id="tipoShow2" ng-model="eventoFilter.artista.tipoShow.nombre"
-                                            ng-options="item.nombre as item.nombre for item in listaTipoShow" required="">
+                                    <select ng-change="queryBusqueda()" class="form-control" name="tipoShow2" id="tipoShow2" ng-model="eventoFilter.artista.tipoShow.descripcion"
+                                            ng-options="item.descripcion as item.descripcion for item in listaTipoShow" required="">
                                         <option value="">-- Seleccione --</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label class="control-label col-md-3" for="genero">Género</label>
                                     <input ng-model-options='{ debounce: 1000 }' type="text" class="form-control col-md-3" id="genero"
-                                           maxlength="50" name="nombre"
+                                           maxlength="50" name="descripcion"
                                            placeholder="Género">
                                 </div>
 
@@ -99,13 +99,13 @@
                                                 <!--<div class="cp-post-rating"><a href="#"><i class="icon-9"></i> <i-->
                                                 <!--class="icon-9"></i> <i class="icon-9"></i> <i class="icon-9"></i> <i-->
                                                 <!--class="icon-10"></i></a></div>-->
-                                                <h3><a ng-click="verEvento(item)">{{item.artista.nombre}} en
-                                                    {{item.lugar.nombre}} </a></h3>
+                                                <h3><a ng-click="verEvento(item)">{{item.artista.descripcion}} en
+                                                    {{item.lugar.descripcion}} </a></h3>
                                                 <ul class="cp-post-tools">
                                                     <li><i class="icon-26"></i> {{item.lugar.ubicacion}}</li>
                                                     <li><i class="icon-2"></i> {{item.fechaEvento | date:"MM/dd/yyyy"}}</li>
                                                     <li><i class="icon-1"></i> {{item.fechaEvento | date: "HH:mm:ss a"}}</li>
-                                                    <li><i class="icon-5"></i> Tipo Show: {{item.artista.tipoShow.nombre}}</li>
+                                                    <li><i class="icon-5"></i> Tipo Show: {{item.artista.tipoShow.descripcion}}</li>
                                                     <li><i class="icon-9"></i> {{item.asunto}} Me gusta</li>
                                                     <!--<li><i class="glyphicon glyphicon-map-marker"></i> JetLag</li>-->
                                                     <!--<li><i class="glyphicon glyphicon-plus"></i> MAS INFO</li>-->
@@ -135,13 +135,13 @@
                                                 <!--<div class="cp-post-rating"><a href="#"><i class="icon-9"></i> <i-->
                                                 <!--class="icon-9"></i> <i class="icon-9"></i> <i class="icon-9"></i> <i-->
                                                 <!--class="icon-10"></i></a></div>-->
-                                                <h3><a ng-click="verEvento(item)">{{item.artista.nombre}} en
-                                                    {{item.lugar.nombre}} </a></h3>
+                                                <h3><a ng-click="verEvento(item)">{{item.artista.descripcion}} en
+                                                    {{item.lugar.descripcion}} </a></h3>
                                                 <ul class="cp-post-tools">
                                                     <li><i class="icon-26"></i> {{item.lugar.ubicacion}}</li>
                                                     <li><i class="icon-2"></i> {{item.fechaEvento | date:"MM/dd/yyyy"}}</li>
                                                     <li><i class="icon-1"></i> {{item.fechaEvento | date: "HH:mm:ss a"}}</li>
-                                                    <li><i class="icon-5"></i> Tipo Show: {{item.artista.tipoShow.nombre}}</li>
+                                                    <li><i class="icon-5"></i> Tipo Show: {{item.artista.tipoShow.descripcion}}</li>
                                                     <li><i class="icon-9"></i>{{item.asunto}} Me gusta</li>
                                                     <!--<li><i class="glyphicon glyphicon-map-marker"></i> JetLag</li>-->
                                                     <!--<li><i class="glyphicon glyphicon-plus"></i> MAS INFO</li>-->

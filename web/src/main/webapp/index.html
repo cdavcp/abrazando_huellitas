@@ -67,7 +67,7 @@
                                                     <div class="icon">
                                                         <img height="107" width="107" class="img-circle" ng-src="{{item.logo}}">
                                                     </div>
-                                                    <h6>{{item.nombre}}</h6>
+                                                    <h6>{{item.descripcion}}</h6>
                                                 </div>
                                             </div>
                                         </div>
@@ -85,7 +85,7 @@
 
                                                     <div class="col-sm-3">
                                                         <label class="text-warning">Marca</label>
-                                                        <select class="form-control" ng-change="marcaSelected()" ng-model="data.auto.marca" ng-options="item as item.nombre for item in data.listaMarcasAuto">
+                                                        <select class="form-control" ng-change="marcaSelected()" ng-model="data.auto.marca" ng-options="item as item.descripcion for item in data.listaMarcasAuto">
                                                             <option value="">Seleccione...</option>
                                                         </select>
                                                     </div>
@@ -130,7 +130,7 @@
                                                         <div class="icon">
                                                             <img height="107" width="107" class="img-circle" ng-src="{{item.logo}}">
                                                         </div>
-                                                        <h6>{{item.nombre}}</h6>
+                                                        <h6>{{item.descripcion}}</h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -148,13 +148,13 @@
                                                 <th>Riesgos</th>
                                                 <th style="text-align: center"  ng-repeat="cobertura in data.resultadoSimulacion.coberturas">
                                                     <img alt="" ng-src="{{cobertura.aseguradora.logo}}"  class="img-rounded"><br>
-                                                    {{cobertura.nombre}} - {{cobertura.aseguradora.nombre}}
+                                                    {{cobertura.descripcion}} - {{cobertura.aseguradora.descripcion}}
                                                 </th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <tr ng-repeat="riesgo in data.resultadoSimulacion.riesgos">
-                                                <td>{{riesgo.nombre}}</td>
+                                                <td>{{riesgo.descripcion}}</td>
                                                 <td ng-repeat="incluido in riesgo.incluidos track by $index" style="text-align: center">
                                                     <i ng-if="incluido" class="text-success fa fa-check-circle fa-2x"></i>
                                                     <i ng-if="!incluido" class="text-danger fa fa-times fa-2x"></i>
@@ -194,16 +194,16 @@
 
                                             <div class="row" style="margin-top:30px">
                                                 <div class="col-md-6">
-                                                    <h5>Cobertura: </h5><h6>{{data.cobertura.nombre}}</h6>
+                                                    <h5>Cobertura: </h5><h6>{{data.cobertura.descripcion}}</h6>
                                                     <h5>Descripción: </h5><h6>{{data.cobertura.descripcion}}</h6>
-                                                    <h5>Aseguradora: </h5><h6>{{data.cobertura.aseguradora.nombre}}</h6>
+                                                    <h5>Aseguradora: </h5><h6>{{data.cobertura.aseguradora.descripcion}}</h6>
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="icon" style="text-align: center">
                                                         <img height="107" width="107" class="img-circle" ng-src="{{data.rubro.logo}}">
 
                                                         <div style="text-align: center">
-                                                            <h5>Rubro: </h5><h6>{{data.rubro.nombre}}</h6>
+                                                            <h5>Rubro: </h5><h6>{{data.rubro.descripcion}}</h6>
                                                         </div>
 
                                                     </div>
@@ -213,7 +213,7 @@
                                                         <img height="107" width="107" class="img-circle" ng-src="{{data.tipoCobertura.logo}}">
 
                                                         <div style="text-align: center">
-                                                            <h5>Tipo de cobertura: </h5><h6>{{data.tipoCobertura.nombre}}</h6>
+                                                            <h5>Tipo de cobertura: </h5><h6>{{data.tipoCobertura.descripcion}}</h6>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -230,7 +230,7 @@
                                                     </thead>
                                                     <tbody>
                                                     <tr ng-repeat="item in data.cobertura.riesgos">
-                                                        <td>{{item.nombre}}</td>
+                                                        <td>{{item.descripcion}}</td>
                                                         <td>{{item.descripcion}}</td>
                                                     </tr>
                                                     </tbody>

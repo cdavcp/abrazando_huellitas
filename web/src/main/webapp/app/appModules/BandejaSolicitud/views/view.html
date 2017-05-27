@@ -26,7 +26,7 @@
                                 <label class="control-label col-sm-3">Nombre </label>
 
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" ng-model="data.solicitud.cliente.nombre" maxlength="50" name="nombre" placeholder="abc" ng-disabled="data.viewStateFlag">
+                                    <input type="text" class="form-control" ng-model="data.solicitud.cliente.descripcion" maxlength="50" name="descripcion" placeholder="abc" ng-disabled="data.viewStateFlag">
                                 </div>
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 <label class="control-label col-sm-3">Apellido </label>
 
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" ng-model="data.solicitud.cliente.apellido" maxlength="50" name="nombre" placeholder="abc" ng-disabled="data.viewStateFlag">
+                                    <input type="text" class="form-control" ng-model="data.solicitud.cliente.apellido" maxlength="50" name="descripcion" placeholder="abc" ng-disabled="data.viewStateFlag">
                                 </div>
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                                 <label class="col-sm-3 control-label">Tipo de documento</label>
 
                                 <div class="col-sm-5">
-                                    <select class="form-control" ng-model="data.solicitud.cliente.tipoDocumento.id" ng-options="item.id as item.nombre for item in data.listaTiposDocumento" ng-disabled="true">
+                                    <select class="form-control" ng-model="data.solicitud.cliente.tipoDocumento.id" ng-options="item.id as item.descripcion for item in data.listaTiposDocumento" ng-disabled="true">
                                     </select>
                                 </div>
                             </div>
@@ -115,7 +115,7 @@
                                 <label class="control-label col-sm-3">Cobertura </label>
 
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" ng-model="data.solicitud.cobertura.nombre" placeholder="abc" ng-disabled="data.viewStateFlag">
+                                    <input type="text" class="form-control" ng-model="data.solicitud.cobertura.descripcion" placeholder="abc" ng-disabled="data.viewStateFlag">
                                 </div>
                             </div>
                         </div>
@@ -124,7 +124,7 @@
                                 <label class="control-label col-sm-3">Aseguradora </label>
 
                                 <div class="col-sm-5">
-                                    <input type="text" class="form-control" ng-model="data.solicitud.cobertura.aseguradora.nombre" placeholder="abc" ng-disabled="data.viewStateFlag">
+                                    <input type="text" class="form-control" ng-model="data.solicitud.cobertura.aseguradora.descripcion" placeholder="abc" ng-disabled="data.viewStateFlag">
                                 </div>
                             </div>
                         </div>
