@@ -44,9 +44,9 @@
                         </thead>
                         <tbody>
                         <tr ng-repeat="item in data.riesgosPaginated">
-                            <td>{{item.nombre}}</td>
                             <td>{{item.descripcion}}</td>
-                            <td>{{item.rubro.nombre}}</td>
+                            <td>{{item.descripcion}}</td>
+                            <td>{{item.rubro.descripcion}}</td>
                             <td class="grid-button" style="text-align:center">
                                 <a href="" ng-click="verCoberturas(item)"><i class="fa fa-umbrella"
                                                                              title="Ver coberturas"></i></a>
@@ -78,7 +78,7 @@
                 <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span
                         aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="Riesgo">Coberturas que incluyen el riesgo
-                    "{{data.riesgoSeleccionado.nombre}}"</h4>
+                    "{{data.riesgoSeleccionado.descripcion}}"</h4>
             </div>
             <div class="modal-body">
                 <table ng-if="data.coberturasDelRiesgo && data.coberturasDelRiesgo.length != 0"
@@ -93,9 +93,9 @@
                     </thead>
                     <tbody>
                     <tr ng-repeat="item in data.coberturasDelRiesgo">
-                        <td>{{item.nombre}}</td>
-                        <td>{{item.tipoCobertura.nombre}}</td>
-                        <td>{{item.aseguradora.nombre}}</td>
+                        <td>{{item.descripcion}}</td>
+                        <td>{{item.tipoCobertura.descripcion}}</td>
+                        <td>{{item.aseguradora.descripcion}}</td>
                     </tr>
                     </tbody>
                 </table>

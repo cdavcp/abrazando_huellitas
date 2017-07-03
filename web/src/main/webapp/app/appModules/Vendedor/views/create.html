@@ -32,7 +32,7 @@
                                     <label class="col-sm-3 control-label">Tipo documento (*)</label>
 
                                     <div class="col-sm-5">
-                                        <select class="form-control" name="tipoDocumento" ng-model="data.vendedor.tipoDocumento.id" ng-options="item.id as item.nombre for item in data.listaTiposDocumento" required="">
+                                        <select class="form-control" name="tipoDocumento" ng-model="data.vendedor.tipoDocumento.id" ng-options="item.id as item.descripcion for item in data.listaTiposDocumento" required="">
                                             <option value="">-- Seleccione --</option>
                                         </select>
                                     </div>
@@ -73,15 +73,15 @@
                             </div>
 
                             <div class="row-fluid">
-                                <div class="form-group" ng-class="{ 'has-error': vendedorCreateForm.nombre.$invalid && vendedorCreateForm.nombre.$dirty}">
+                                <div class="form-group" ng-class="{ 'has-error': vendedorCreateForm.descripcion.$invalid && vendedorCreateForm.descripcion.$dirty}">
                                     <label class="control-label col-sm-3">Nombre (*)</label>
 
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" ng-model="data.vendedor.nombre" maxlength="50" name="nombre" required="" placeholder="abc">
+                                        <input type="text" class="form-control" ng-model="data.vendedor.descripcion" maxlength="50" name="descripcion" required="" placeholder="abc">
                                     </div>
 
-                                    <div ng-show="vendedorCreateForm.nombre.$invalid && vendedorCreateForm.nombre.$dirty" class="col-sm-4">
-                                        <span class="help-block" ng-show="vendedorCreateForm.nombre.$error.required">Ingrese nombre</span>
+                                    <div ng-show="vendedorCreateForm.descripcion.$invalid && vendedorCreateForm.descripcion.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="vendedorCreateForm.descripcion.$error.required">Ingrese descripcion</span>
                                     </div>
                                 </div>
                             </div>

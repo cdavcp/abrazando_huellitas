@@ -12,7 +12,7 @@
             <select class="form-control" name="tipoUsuario"
                     ng-model="lugar.id"
                     ng-change="selectLugar()"
-                    ng-options="item.id as item.nombre for item in lugares"
+                    ng-options="item.id as item.descripcion for item in lugares"
                     required="">
                 <option value="">-- Seleccione Lugar --</option>
             </select>
@@ -40,8 +40,8 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in solicitudes.aceptadas">
-                    <td>{{item.artista.nombre}}</td>
-                    <td>{{item.lugar.nombre}}</td>
+                    <td>{{item.artista.descripcion}}</td>
+                    <td>{{item.lugar.descripcion}}</td>
                     <td>{{item.lugar.ubicacion}}</td>
                     <td>{{item.fechaEvento | date:"MM/dd/yyyy"}}</td>
                     <td>{{item.fechaEvento | date: "HH:mm:ss a"}}</td>
@@ -68,7 +68,7 @@
     <legend>
         <h2></h2></legend>
     <legend>
-        <h1>{{eventoVer.artista.nombre}} en {{eventoVer.lugar.nombre}}</h1>
+        <h1>{{eventoVer.artista.descripcion}} en {{eventoVer.lugar.descripcion}}</h1>
         <h4><small>{{eventoVer.fechaEvento | date:"MM/dd/yyyy"}} - {{eventoVer.fechaEvento | date: "HH:mm:ss a"}} </small></h4>
     </legend>
 
@@ -90,7 +90,7 @@
                 </thead>
                 <tbody>
                 <tr ng-repeat="item in reservasVer">
-                    <td>{{item.nombre}}</td>
+                    <td>{{item.descripcion}}</td>
                     <td>{{item.cantidad}}</td>
                     <td><input type="checkbox" ng-model="item.asistio"  id="check{{$index}}"
                                ng-click="verificarSeleccion(item)">

@@ -32,7 +32,7 @@
                                     <label class="col-sm-3 control-label">Tipo documento (*)</label>
 
                                     <div class="col-sm-5">
-                                        <select class="form-control" name="tipoDocumento" ng-model="data.productor.tipoDocumento.id" ng-options="item.id as item.nombre for item in data.listaTiposDocumento" required="">
+                                        <select class="form-control" name="tipoDocumento" ng-model="data.productor.tipoDocumento.id" ng-options="item.id as item.descripcion for item in data.listaTiposDocumento" required="">
                                             <option value="">-- Seleccione --</option>
                                         </select>
                                     </div>
@@ -73,15 +73,15 @@
                             </div>
 
                             <div class="row-fluid">
-                                <div class="form-group" ng-class="{ 'has-error': productorCreateForm.nombre.$invalid && productorCreateForm.nombre.$dirty}">
+                                <div class="form-group" ng-class="{ 'has-error': productorCreateForm.descripcion.$invalid && productorCreateForm.descripcion.$dirty}">
                                     <label class="control-label col-sm-3">Nombre (*)</label>
 
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" ng-model="data.productor.nombre" maxlength="50" name="nombre" required="" placeholder="abc">
+                                        <input type="text" class="form-control" ng-model="data.productor.descripcion" maxlength="50" name="descripcion" required="" placeholder="abc">
                                     </div>
 
-                                    <div ng-show="productorCreateForm.nombre.$invalid && productorCreateForm.nombre.$dirty" class="col-sm-4">
-                                        <span class="help-block" ng-show="productorCreateForm.nombre.$error.required">Ingrese nombre</span>
+                                    <div ng-show="productorCreateForm.descripcion.$invalid && productorCreateForm.descripcion.$dirty" class="col-sm-4">
+                                        <span class="help-block" ng-show="productorCreateForm.descripcion.$error.required">Ingrese descripcion</span>
                                     </div>
                                 </div>
                             </div>
@@ -162,7 +162,7 @@
                                 <tr ng-repeat="item in data.listaVendedores">
                                     <td>{{item.id}}</td>
                                     <td>{{item.documento}}</td>
-                                    <td>{{item.nombre}}</td>
+                                    <td>{{item.descripcion}}</td>
                                     <td>{{item.apellido}}</td>
                                     <td class="grid-button">
                                         <a href="" ng-click="agregarVendedor(item, $index)"><i class="fa fa-angle-double-right fa-lg tip edit"></i></a>
@@ -212,7 +212,7 @@
                                     </td>
                                     <td>{{item.id}}</td>
                                     <td>{{item.documento}}</td>
-                                    <td>{{item.nombre}}</td>
+                                    <td>{{item.descripcion}}</td>
                                     <td>{{item.apellido}}</td>
                                 </tr>
                                 </tbody>

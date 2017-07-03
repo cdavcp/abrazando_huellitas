@@ -14,7 +14,7 @@
 
                             <li class=""> <span class=""><i class=""></i></span>
                                 <legend>
-                                    <h3>{{reserva.evento.artista.nombre}} en {{reserva.evento.lugar.nombre}}</h3></legend>
+                                    <h3>{{reserva.evento.artista.descripcion}} en {{reserva.evento.lugar.descripcion}}</h3></legend>
                             </li>
 
                             <!--<li class="input-group"> <span class="input-group-addon"><i class="fa fa-calendar"></i></span>-->
@@ -44,7 +44,7 @@
                             <!--</li>-->
 
                             <li class="input-group"> <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control"   ng-model="reserva.nombre"  placeholder="Nombre y Apellido">
+                                <input type="text" class="form-control"   ng-model="reserva.descripcion"  placeholder="Nombre y Apellido">
                             </li>
 
                             <li class="input-group"> <span class="input-group-addon"><i class="fa fa-users"></i></span>
@@ -66,7 +66,7 @@
                             <!--<li ng-if="userProfile.tipoUsuario.id == 1" class="input-sm"><span class="input-group-sm"></span>-->
                                 <!--<select class="form-control" name="tipoUsuario"-->
                                         <!--ng-model="evento.artista.id"-->
-                                        <!--ng-options="item.id as item.nombre for item in artistas"-->
+                                        <!--ng-options="item.id as item.descripcion for item in artistas"-->
                                         <!--required="">-->
                                     <!--<option value="">-- Seleccione Artista --</option>-->
                                 <!--</select>-->

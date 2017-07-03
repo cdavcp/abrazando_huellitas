@@ -9,7 +9,7 @@
                 <div class="row-fluid form-group">
                     <div ng-class="{ 'has-error': clienteCreateForm.tipoDocumento.$invalid && clienteCreateForm.tipoDocumento.$dirty}">
                         <label class="control-label">Tipo documento (*)</label>
-                        <select class="form-control" name="tipoDocumento" ng-model="data.cliente.tipoDocumento.id" ng-options="item.id as item.nombre for item in data.listaTiposDocumento" required="">
+                        <select class="form-control" name="tipoDocumento" ng-model="data.cliente.tipoDocumento.id" ng-options="item.id as item.descripcion for item in data.listaTiposDocumento" required="">
                             <option value="">-- Seleccione --</option>
                         </select>
 

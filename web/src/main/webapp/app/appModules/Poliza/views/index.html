@@ -36,7 +36,7 @@
                             <div class="form-group col-sm-3">
                                 <label>Aseguradora</label>
                                 <select class="form-control" name="aseguradora" ng-model="data.filtros.aseguradoraId"
-                                        ng-options="item.id as item.nombre for item in data.listaAseguradoras">
+                                        ng-options="item.id as item.descripcion for item in data.listaAseguradoras">
                                     <option value="">-- Seleccione --</option>
                                 </select>
                             </div>
@@ -44,7 +44,7 @@
                             <div class="form-group col-sm-3">
                                 <label>Rubro</label>
                                 <select class="form-control" name="rubro" ng-model="data.filtros.rubroId"
-                                        ng-options="item.id as item.nombre for item in data.listaRubros">
+                                        ng-options="item.id as item.descripcion for item in data.listaRubros">
                                     <option value="">-- Seleccione --</option>
                                 </select>
                             </div>
@@ -52,7 +52,7 @@
                             <div class="form-group col-sm-3">
                                 <label>Vendedor</label>
                                 <select class="form-control" name="vendedor" ng-model="data.filtros.vendedorId"
-                                        ng-options="item.id as item.nombre for item in data.listaVendedores">
+                                        ng-options="item.id as item.descripcion for item in data.listaVendedores">
                                     <option value="">-- Seleccione --</option>
                                 </select>
                             </div>
@@ -60,7 +60,7 @@
                             <div class="form-group col-sm-3">
                                 <label>Origen póliza</label>
                                 <select class="form-control" name="origen" ng-model="data.filtros.origenId"
-                                        ng-options="item.id as item.nombre for item in data.listaOrigenesPoliza">
+                                        ng-options="item.id as item.descripcion for item in data.listaOrigenesPoliza">
                                     <option value="">-- Seleccione --</option>
                                 </select>
                             </div>
@@ -73,7 +73,7 @@
                                 <div class="">
                                     <select2 name="cliente" options="{ placeholder: '-- Seleccione --', allowClear: true }"
                                              ng-model="data.filtros.clienteId"
-                                             ng-options="item.id as item.nombre for item in data.listaClientes">
+                                             ng-options="item.id as item.descripcion for item in data.listaClientes">
                                         <option value="">-- Seleccione --</option>
                                     </select2>
                                 </div>

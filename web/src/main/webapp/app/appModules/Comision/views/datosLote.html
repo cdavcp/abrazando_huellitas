@@ -29,7 +29,7 @@
                             <label class="col-sm-3 control-label">Productor</label>
 
                             <div class="col-sm-5">
-                                <p class="form-control-static text-primary"><strong>{{data.productor.nombre + " " + data.productor.apellido}}</strong></p>
+                                <p class="form-control-static text-primary"><strong>{{data.productor.descripcion + " " + data.productor.apellido}}</strong></p>
                             </div>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                             <label class="col-sm-3 control-label">Aseguradora (*)</label>
 
                             <div class="col-sm-5">
-                                <select class="form-control" name="aseguradora" ng-model="data.lote.aseguradora.id" ng-options="item.id as item.nombre for item in data.listaAseguradoras" ng-change="padrePolizaChanged()" required="">
+                                <select class="form-control" name="aseguradora" ng-model="data.lote.aseguradora.id" ng-options="item.id as item.descripcion for item in data.listaAseguradoras" ng-change="padrePolizaChanged()" required="">
                                     <option value="">-- Seleccione --</option>
                                 </select>
                             </div>
@@ -68,7 +68,7 @@
                         <div class="form-group">
                             <label class="control-label col-sm-3">Nombre del archivo</label>
                             <div class="col-sm-5">
-                                <input type="text" class="form-control" ng-model="data.lote.nombre" maxlength="200" name="nombre" placeholder="abc">
+                                <input type="text" class="form-control" ng-model="data.lote.descripcion" maxlength="200" name="descripcion" placeholder="abc">
                             </div>
                         </div>
                     </div>

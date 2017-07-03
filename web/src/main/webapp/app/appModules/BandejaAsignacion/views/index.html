@@ -41,11 +41,11 @@
                                         <div class="col-md-6">
                                             <div class="panel panel-default box-pricing">
                                                 <div class="panel-heading" style="text-align: center">
-                                                    <span>{{solicitud.cobertura.nombre}}<br>{{solicitud.cobertura.aseguradora.nombre}}</span>
+                                                    <span>{{solicitud.cobertura.descripcion}}<br>{{solicitud.cobertura.aseguradora.descripcion}}</span>
                                                 </div>
                                                 <div class="panel-body no-padding">
                                                     <div class="row-fluid centered">
-                                                        <div class="col-sm-12">{{solicitud.cliente.nombre}} {{solicitud.cliente.apellido}}</div>
+                                                        <div class="col-sm-12">{{solicitud.cliente.descripcion}} {{solicitud.cliente.apellido}}</div>
                                                         <div class="col-sm-12">{{solicitud.observaciones}}</div>
                                                     </div>
                                                 </div>
@@ -72,14 +72,14 @@
                                         <section ng-controller="Drop2Controller" drop drop-callback="endDrop" drop-mouse-move="mouseMove" drop-mouse-leave="mouseLeave">
                                             <div class="panel panel-default box-pricing">
                                                 <div class="panel-heading" style="text-align: center">
-                                                    <span>{{productor.nombre}} {{productor.apellido}}</span><br>
+                                                    <span>{{productor.descripcion}} {{productor.apellido}}</span><br>
                                                 </div>
                                                 <div class="panel-body no-padding">
                                                     <div class="row-fluid centered">
                                                         <span>Solicitudes a asignar</span>
                                                         <ul style="list-style-type: none" id="dropcontainer">
                                                             <li class="btn-link" style="position: relative; left: -20px; top: 10px;" ng-repeat="solicitud in productor.solicitudes" data-count="{{$index}}">
-                                                                {{solicitud.cobertura.nombre}} - {{solicitud.cobertura.aseguradora.nombre}}
+                                                                {{solicitud.cobertura.descripcion}} - {{solicitud.cobertura.aseguradora.descripcion}}
                                                                 <span ng-click="deleteSolicitud($index, productor)"><i class="glyphicon glyphicon-remove"></i></span>
                                                             </li>
                                                         </ul>

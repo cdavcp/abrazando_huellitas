@@ -10,7 +10,7 @@
                         <form class="material">
                             <ul>
                                 <li class="input-group"><span class="input-group-addon"><i class="icon-20"></i></span>
-                                    <input type="text" class="form-control" ng-model="data.persona.nombre"
+                                    <input type="text" class="form-control" ng-model="data.persona.descripcion"
                                            placeholder="Nombre">
                                 </li>
 
@@ -33,7 +33,7 @@
 
 
                                 <li class="input-group"><span class="input-group-addon"><i class="icon-23"></i></span>
-                                    <input type="text" ng-model="data.persona.usuario.nombre" class="form-control"
+                                    <input type="text" ng-model="data.persona.usuario.descripcion" class="form-control"
                                            placeholder="Nombre de Usuario">
 
                                 </li>
@@ -44,7 +44,7 @@
                                 <li class="input-sm"><span class="input-group-sm"></span>
                                     <select class="form-control" name="tipoUsuario"
                                             ng-model="data.persona.usuario.tipoUsuario.id"
-                                            ng-options="item.id as item.nombre for item in data.listaTiposUsuario"
+                                            ng-options="item.id as item.descripcion for item in data.listaTiposUsuario"
                                             required="">
                                         <option value="">-- Seleccione Tipo Usuario --</option>
                                     </select>
@@ -144,7 +144,7 @@
                             <div class="form-group" ng-class="{ 'has-error': form.registerForm.tipoUsuario.$invalid && form.registerForm.tipoUsuario.$dirty}">
                                 <label class="control-label">Tipo de usuario</label>
                                 <select class="form-control" name="tipoUsuario" ng-model="data.user.tipoUsuario.id"
-                                        ng-options="item.id as item.nombre for item in data.listaTiposUsuario" required="">
+                                        ng-options="item.id as item.descripcion for item in data.listaTiposUsuario" required="">
                                     <option value="">-- Seleccione --</option>
                                 </select>
                                 <div ng-show="form.registerForm.tipoUsuario.$invalid && form.registerForm.tipoUsuario.$dirty">
@@ -154,7 +154,7 @@
 
                             <div class="form-group" ng-class="data.claseNombreUsuario">
                                 <label class="control-label">Usuario</label>
-                                <input type="text" class="form-control" name="user" ng-model="data.user.nombre" ng-model-options="{ debounce: 500 }" required="" ng-change="checkName()" maxlength="50"/>
+                                <input type="text" class="form-control" name="user" ng-model="data.user.descripcion" ng-model-options="{ debounce: 500 }" required="" ng-change="checkName()" maxlength="50"/>
 
                                 <i ng-show="data.checkingName" class="fa fa-spinner fa-pulse"></i>
 
@@ -163,7 +163,7 @@
                                 </div>
 
                                 <div ng-show="form.registerForm.user.$invalid && form.registerForm.user.$dirty">
-                                    <span class="help-block" ng-show="form.registerForm.user.$error.required">Ingrese nombre de usuario</span>
+                                    <span class="help-block" ng-show="form.registerForm.user.$error.required">Ingrese descripcion de usuario</span>
                                 </div>
                             </div>
 

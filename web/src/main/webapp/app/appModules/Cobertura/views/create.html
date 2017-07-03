@@ -34,7 +34,7 @@
                                     <label class="col-sm-3 control-label">Aseguradora (*)</label>
 
                                     <div class="col-sm-5">
-                                        <select class="form-control" name="aseguradora" ng-model="data.cobertura.aseguradora.id" ng-options="item.id as item.nombre for item in data.listaAseguradoras" required="" ng-disabled="data.disableAseguradora">
+                                        <select class="form-control" name="aseguradora" ng-model="data.cobertura.aseguradora.id" ng-options="item.id as item.descripcion for item in data.listaAseguradoras" required="" ng-disabled="data.disableAseguradora">
                                             <option value="">-- Seleccione --</option>
                                         </select>
                                     </div>
@@ -46,21 +46,21 @@
                             </div>
 
                             <div class="row-fluid" ng-class="data.claseNombreCobertura">
-                                <div class="form-group" ng-class="{ 'has-error': form.coberturaCreateForm.nombre.$invalid && form.coberturaCreateForm.nombre.$dirty}">
+                                <div class="form-group" ng-class="{ 'has-error': form.coberturaCreateForm.descripcion.$invalid && form.coberturaCreateForm.descripcion.$dirty}">
                                     <label class="control-label col-sm-3">Nombre (*)</label>
 
                                     <div class="col-sm-5">
-                                        <input type="text" class="form-control" ng-model="data.cobertura.nombre" maxlength="50" ng-model-options="{ debounce: 500 }" ng-change="checkNameCobertura()" name="nombre" required="" placeholder="abc" ng-disabled="!data.cobertura.aseguradora.id">
+                                        <input type="text" class="form-control" ng-model="data.cobertura.descripcion" maxlength="50" ng-model-options="{ debounce: 500 }" ng-change="checkNameCobertura()" name="descripcion" required="" placeholder="abc" ng-disabled="!data.cobertura.aseguradora.id">
                                     </div>
 
                                     <i ng-show="data.checkingName" class="fa fa-spinner fa-pulse"></i>
 
-                                    <div ng-show="!form.coberturaCreateForm.nombre.$error.required">
-                                        <span ng-show="!data.nombreValido" class="help-block">Ya existe una cobertura con ese nombre.</span>
+                                    <div ng-show="!form.coberturaCreateForm.descripcion.$error.required">
+                                        <span ng-show="!data.nombreValido" class="help-block">Ya existe una cobertura con ese descripcion.</span>
                                     </div>
 
-                                    <div ng-show="form.coberturaCreateForm.nombre.$invalid && form.coberturaCreateForm.nombre.$dirty">
-                                        <span class="help-block" ng-show="form.coberturaCreateForm.nombre.$error.required">Ingrese nombre</span>
+                                    <div ng-show="form.coberturaCreateForm.descripcion.$invalid && form.coberturaCreateForm.descripcion.$dirty">
+                                        <span class="help-block" ng-show="form.coberturaCreateForm.descripcion.$error.required">Ingrese descripcion</span>
                                     </div>
                                 </div>
                             </div>
@@ -80,7 +80,7 @@
                                     <label class="col-sm-3 control-label">Rubro (*)</label>
 
                                     <div class="col-sm-5">
-                                        <select class="form-control" name="rubro" ng-change="rubroSelected()" ng-model="data.cobertura.rubro" ng-options="item as item.nombre for item in data.listaRubros" required="">
+                                        <select class="form-control" name="rubro" ng-change="rubroSelected()" ng-model="data.cobertura.rubro" ng-options="item as item.descripcion for item in data.listaRubros" required="">
                                             <option value="">-- Seleccione --</option>
                                         </select>
                                     </div>
@@ -96,7 +96,7 @@
                                     <label class="col-sm-3 control-label">Tipo de cobertura (*)</label>
 
                                     <div class="col-sm-5">
-                                        <select class="form-control" name="tipoCobertura" ng-model="data.cobertura.tipoCobertura" ng-options="item as item.nombre for item in data.listaTiposCobertura" required="">
+                                        <select class="form-control" name="tipoCobertura" ng-model="data.cobertura.tipoCobertura" ng-options="item as item.descripcion for item in data.listaTiposCobertura" required="">
                                             <option value="">-- Seleccione --</option>
                                         </select>
                                     </div>
